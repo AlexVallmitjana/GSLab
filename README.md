@@ -18,7 +18,7 @@ GSLab
 ```
 ## Citing
 
-Manuscript is in revision, temporary citation can be done using Figshare DOI:
+Manuscript is in revision, temporary citation can be done using [Figshare DOI](https://doi.org/10.6084/m9.figshare.27921966):
 ```
 Vallmitjana, Alexander (2024). GSLab : Open-Source Platform for Advanced Phasor Analysis in Fluorescence Microscopy. figshare. Software. https://doi.org/10.6084/m9.figshare.27921966
 ```
