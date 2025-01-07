@@ -17,9 +17,11 @@ To launch the program, type GSLab in the MATLAB command window.
 GSLab
 ```
 Once the path has been saved in MATLAB, simply type GSLab in the command window to run the program in subsequent sessions.
-## Citing
 
-Manuscript is in revision, temporary citation can be done using [Figshare DOI](https://doi.org/10.6084/m9.figshare.27921966):
+A [user manual pdf file](GSLab_Manual.pdf) is inculded in the main direcotriy. 
+
+## Citing
+Manuscript is currently under revision. In the meantime, a temporary citation can be made using [Figshare DOI](https://doi.org/10.6084/m9.figshare.27921966):
 ```
 Vallmitjana, Alexander (2024). GSLab : Open-Source Platform for Advanced Phasor Analysis in Fluorescence Microscopy. Figshare. Software. https://doi.org/10.6084/m9.figshare.27921966
 ```
