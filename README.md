@@ -10,15 +10,16 @@ To run **GSLab.mlapp**, ensure the **scripts** folder is located in the same dir
 2.	In the **Environment** section, click **Set Path**.
 3.	In the **Set Path** window, click **Add with Subfolders**.
 4.	Browse to the directory containing GSLab.mlapp and the scripts folder, then click **Select Folder**.
-5.	Click **Save** in the Set Path window and then click **Close**.  
+5.	Click **Save** in the Set Path window and then click **Close**.
+  
 To launch the program, type GSLab in the MATLAB command window.
-Once the path has been saved in MATLAB, simply type GSLab in the command window to run the program in subsequent sessions.
 ```
 GSLab
 ```
+Once the path has been saved in MATLAB, simply type GSLab in the command window to run the program in subsequent sessions.
 ## Citing
 
 Manuscript is in revision, temporary citation can be done using [Figshare DOI](https://doi.org/10.6084/m9.figshare.27921966):
 ```
-Vallmitjana, Alexander (2024). GSLab : Open-Source Platform for Advanced Phasor Analysis in Fluorescence Microscopy. figshare. Software. https://doi.org/10.6084/m9.figshare.27921966
+Vallmitjana, Alexander (2024). GSLab : Open-Source Platform for Advanced Phasor Analysis in Fluorescence Microscopy. Figshare. Software. https://doi.org/10.6084/m9.figshare.27921966
 ```
