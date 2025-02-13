@@ -3,6 +3,7 @@ function [] = logUse(prog)
 ara=char(datetime('now','format','yyyyMMddHHmmss'));
 [qui]=whosPC();
 try
+if(~strcmp(qui,'Alex'))
 load('FLAMElogs.mat','dad');
 
 cc=size(dad,1);
@@ -13,5 +14,6 @@ dad{cc,3}=prog;
 
 
 save('FLAMElogs.mat','dad','-append');
+end
 end
 end

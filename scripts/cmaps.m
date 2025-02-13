@@ -48,6 +48,12 @@ cc=cc+1;
 llista{cc,1}='Heat';
 llista{cc,2}='wyarp';
 cc=cc+1;
+llista{cc,1}='FlameA1';
+llista{cc,2}='raGylg';
+cc=cc+1;
+llista{cc,1}='FlameA0';
+llista{cc,2}='bZct';
+cc=cc+1;
 llista{cc,1}='Grays';
 llista{cc,2}='w987654321k';
 
