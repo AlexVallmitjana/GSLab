@@ -5,7 +5,7 @@
 The phasor approach to fluorescence lifetime imaging is a widely used method for image analysis in biophysics and a range of other fields. GSLab addresses the need for effective image analysis tools in fluorescence microscopy by providing an open-source platform that enhances traditional phasor analysis with advanced features. Key capabilities include machine learning-based clustering, real-time monitoring, and quantitative unmixing of fluorescent species. Designed for both commercial and custom systems, GSLab provides researchers with comprehensive lifetime and spectral phasor image analysis tools to tackle complex biological problems.
 
 ## Installation
-To run **GSLab.mlapp**, ensure the **scripts** folder is located in the same directory as the .mlapp file. Follow these steps to set up and launch the program for the first time:
+**GSLab** requires MATLAB installed with **Image Processing Toolbox** and **Statistics and Machine Learning Toolbox**. To run **GSLab.mlapp**, ensure the **scripts** folder is located in the same directory as the .mlapp file. Follow these steps to set up and launch the program for the first time:
 1.	Open MATLAB and navigate to the **Home** tab.
 2.	In the **Environment** section, click **Set Path**.
 3.	In the **Set Path** window, click **Add with Subfolders**.
