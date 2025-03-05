@@ -18,7 +18,7 @@ GSLab
 ```
 Once the path has been saved in MATLAB, simply type GSLab in the command window to run the program in subsequent sessions.
 
-A [user manual pdf file](GSLab_Manual.pdf) is inculded in the main direcotriy. 
+A [user manual pdf file](GSLab_Manual.pdf) is inculded in the main directory. 
 
 ## Citing
 Manuscript is currently under revision. In the meantime, a temporary citation can be made using [Figshare DOI](https://doi.org/10.6084/m9.figshare.27921966):
