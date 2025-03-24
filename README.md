@@ -6,14 +6,6 @@ The phasor approach to fluorescence lifetime imaging is a widely used method for
 
 ## Installation
 
-GSLab is provided open source as a MATLAB mlapp with all the script files and in a ready compiled exe file for windows. For running the software 
-
-### 1. Standalone app for Windows without MATLAB
-
-Download the file **GSLabInstaller_mcr.exe** in the folder **/InstallerApp_withRuntime/**. Run the installer, it will install the MATLAB Runtime machine and **GSLab** in the **ProgramFiles** folder. 
-
-### 2. All scripts open with previous MATLAB installation 
-
 **GSLab** requires **MATLAB2023b** or later with **Image Processing Toolbox** and **Statistics and Machine Learning Toolbox**. To run **GSLab.mlapp**, ensure the **scripts** folder is located in the same directory as the .mlapp file. Follow these steps to set up and launch the program for the first time:
 1.	Open MATLAB and navigate to the **Home** tab.
 2.	In the **Environment** section, click **Set Path**.
@@ -28,6 +20,14 @@ GSLab
 Once the path has been saved in MATLAB, simply type GSLab in the command window to run the program in subsequent sessions.
 
 A [user manual pdf file](GSLab_Manual.pdf) is inculded in the main directory. 
+
+### Standalone app for Windows without MATLAB
+
+GSLab is available as an open-source MATLAB mlapp, accompanied by a separate folder containing the necessary script files. Additionally, a precompiled executable file for Windows has been uploaded to Figshare.:
+https://doi.org/10.6084/m9.figshare.28655276
+Download the file **GSLabInstaller_mcr.exe**. Run the installer, it will install the MATLAB Runtime machine and **GSLab** in the **ProgramFiles** folder. 
+
+
 
 ## Citing
 Manuscript is currently under revision. In the meantime, a temporary citation can be made using [Figshare DOI](https://doi.org/10.6084/m9.figshare.27921966):
