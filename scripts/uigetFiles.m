@@ -10,8 +10,14 @@ fname=['F' dec2hex(sum(double(titol)))];
 if(nargin<2),N=9999;end
 if(isempty(titol)),titol='Select file(s)';end
 aux=1;filepath='';
+
+try% attempt to save user settings file in matlab folder
+    ruta=[getenv('USERPROFILE') filesep 'Documents' filesep 'MATLAB' filesep 'lastfile.mat'];
+catch
+    ruta='lastfile.mat';
+end
 try 
-    load(['lastfile.mat']);
+    load(ruta);
     eval(['filepath=' fname ';']);
 end
 Nn=0;Nm=0;filepaths=cell(0);
@@ -35,10 +41,10 @@ while(aux==1)
         filepaths{Nn}=filepath;
         end
         eval([fname '=''' filepath ''';']);
-        if(exist('lastfile.mat','file')==0)
-eval(['save(''lastfile.mat'',''' fname ''');']);
+        if(exist(ruta,'file')==0)
+eval(['save(''' ruta ''',''' fname ''');']);
         else
-       eval(['save(''lastfile.mat'',''' fname ''',''-append'');']);
+       eval(['save(''' ruta ''',''' fname ''',''-append'');']);
         end
     else
         break;

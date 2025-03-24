@@ -8,8 +8,13 @@ fname=['F' dec2hex(sum(double(titol)))];
 if(nargin<2),N=9999;end
 if(isempty(titol)),titol='Save as';end
 folder='';
+try% attempt to save user settings file in matlab folder
+    ruta=[getenv('USERPROFILE') filesep 'Documents' filesep 'MATLAB' filesep 'lastsavefolder.mat'];
+catch
+    ruta='lastsavefolder.mat';
+end
 try 
-    load(['lastfolder.mat']);
+    load(ruta);
     eval(['folder=' fname ';']);
 end
 
@@ -17,9 +22,9 @@ end
         
         eval([fname '=''' folder ''';']);
         try
-       eval(['save(''lastfolder.mat'',''' fname ''',''-append'');']);
+       eval(['save(''' ruta ''',''' fname ''',''-append'');']);
         catch
-            eval(['save(''lastfolder.mat'',''' fname ''');']);
+            eval(['save(''' ruta ''',''' fname ''');']);
         end
    
 

@@ -21,6 +21,8 @@ function html2docx(filename_in,filename_out, visible)
 % html2docx(filename_in,filename_out)
 %
 % Written by D.Kroon 05-04-2024 at Demcon
+% Adapted by AlexVL
+
 if(nargin<3)
     visible = false;
 end
@@ -68,11 +70,11 @@ catch
 end
 doc = wordApp.Documents.Open(filename_in);
 doc.PageSetup.Orientation = 0; % 0 = Portrait, 1 = Landscape
-mg=22;
-doc.PageSetup.TopMargin = 22; % Set top margin (in points, 36 pts = 0.5 inch)
-doc.PageSetup.BottomMargin = 22; % Set bottom margin
-doc.PageSetup.LeftMargin = 22; % Set left margin
-doc.PageSetup.RightMargin = 22; % Set right margin
+mg=18;
+doc.PageSetup.TopMargin = mg; % Set top margin (in points, 36 pts = 0.5 inch)
+doc.PageSetup.BottomMargin = mg; % Set bottom margin
+doc.PageSetup.LeftMargin = mg; % Set left margin
+doc.PageSetup.RightMargin = mg; % Set right margin
 doc.PageSetup.PaperSize = 2; %  2 = Letter, etc.
 
 doc.SaveAs2(filename_out, 17);

@@ -6,17 +6,17 @@ end
 id=0;
 switch qui
     case 'ALEX_PC'
-        qui='Alex';id=1;
+        qui='Alex';id=420;
     case 'AFDURKIN-2020'
-        qui='Amanda';id=1;
+        qui='Amanda';id=419;
     case 'LAPTOP-4SS4H9HR'
-        qui='Belen';id=1;
+        qui='Belen';id=422;
     case 'SUMAN-BLI'
-        qui='Suman';id=1;
+        qui='Suman';id=421;
     case 'DESKTOP-I0A9SVE'
-        qui='FLAME3';id=1;
+        qui='FLAME3';id=3;
     case 'MBF'
-        qui='FLAME2';id=1;
+        qui='FLAME2';id=2;
     otherwise
 end
 
