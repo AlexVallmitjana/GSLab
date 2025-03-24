@@ -1,4 +1,4 @@
-function [cb] = composeCbar(Crange,nom,sz,cmap)
+function [cb] = composeCbar(Crange,nom,sz,cmap,freq)
  skip=0;
 switch nom
     case {'S','G','Mod'}
@@ -7,7 +7,7 @@ switch nom
         tv=Crange*2*3.1416;
     case 'TauPhase'
         taus=[.1 .5 1 2 3 5 8 13 21 34]*1e-9;
-        omega=2*3.1416*8e7;
+        omega=2*3.1416*freq;
         gg=1./(1+(omega*taus).^2);
         ss=(omega*taus)./(1+(omega*taus).^2);
         pseudo=atan2(ss,(gg));
@@ -25,7 +25,7 @@ switch nom
         end
     case 'TauMod'
         taus=[.1 .5 1 2 3 5 8 13 21 34 Inf]*1e-9;
-        omega=2*3.1416*8e7;
+        omega=2*3.1416*freq;
         gg=1./(1+(omega*taus).^2);
         ss=(omega*taus)./(1+(omega*taus).^2);
         ss(taus==Inf)=0;
@@ -45,7 +45,7 @@ switch nom
 
     case 'TauNorm'
         taus=[.1 .5 1 2 3 5 8 13 21 34]*1e-9;
-        omega=2*3.1416*8e7;
+        omega=2*3.1416*freq;
         gg=1./(1+(omega*taus).^2);
         ss=(omega*taus)./(1+(omega*taus).^2);
         pseudo=atan2(ss,(gg-.5));
