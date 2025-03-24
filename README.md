@@ -24,7 +24,9 @@ A [user manual pdf file](GSLab_Manual.pdf) is inculded in the main directory.
 ### Standalone app for Windows without MATLAB
 
 GSLab is available as an open-source MATLAB mlapp, accompanied by a separate folder containing the necessary script files. Additionally, a precompiled executable file for Windows has been uploaded to Figshare.:
+
 https://doi.org/10.6084/m9.figshare.28655276
+
 Download the file **GSLabInstaller_mcr.exe**. Run the installer, it will install the MATLAB Runtime machine and **GSLab** in the **ProgramFiles** folder. 
 
 
