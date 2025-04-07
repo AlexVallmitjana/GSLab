@@ -4,7 +4,7 @@ G=fopen(ruta,'rt');
 cont=(fread(G,inf,'uchar'))';% l
 fclose(G);
 % fields to fish out
-interest={"tileSizeUm","tileResolution","tileCornerPtsUm","tileZs","framesPerTile","channelsSaved"};
+interest={"tileSizeUm","tileResolution","tileCornerPtsUm","tileZs","framesPerTile","channelsSaved","bidirectionalCorrection"};
 valors=cell(size(interest));
 fields=find(cont==34);% quotes
 N=numel(fields);
@@ -28,9 +28,16 @@ for ii=1:2:numel(fields)-1
         end
     end
 end
-if(cc~=jj),warning('not all fields were there');end
+% if(cc~=jj),ensenya('Warning: Not all fields were there','a');end
 fra='dad=struct(';
 for ii=1:length(valors)
+    if(isempty(valors{ii}))
+        if(strcmp(interest{ii},"bidirectionalCorrection"))
+            valors{ii}='0';
+        else
+            valors{ii}='[]';
+        end
+    end
     fra=[fra '"' char(interest{ii}) '"' ',' valors{ii} ','];
 end
 fra(end)=')';

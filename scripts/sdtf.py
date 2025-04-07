@@ -4,7 +4,8 @@ import numpy as np
 
 class read_sdt():
     def read_return_sdt(self, file):
-        sdt = sd.SdtFile(file)
+        sdt = sd.SdtFile(file)        
+        #print(sdt.data.shape)
         #print(np.array(sdt.data)[0,:,:,0].shape)
         return np.array(sdt.data)
 
