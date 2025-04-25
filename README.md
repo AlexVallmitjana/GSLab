@@ -32,7 +32,7 @@ Download the file **GSLabInstaller_mcr.exe**. Run the installer, it will install
 
 
 ## Citing
-Manuscript is currently under revision. In the meantime, a temporary citation can be made using [Figshare DOI](https://doi.org/10.6084/m9.figshare.27921966):
+If you find this software valuable, please cite it using the mannuscript in Bioinformatics:
 ```
-Vallmitjana, Alexander (2024). GSLab : Open-Source Platform for Advanced Phasor Analysis in Fluorescence Microscopy. Figshare. Software. https://doi.org/10.6084/m9.figshare.27921966
+Alexander Vallmitjana, Belén Torrado, Amanda F Durkin, Alexander Dvornikov, Navid Rajil, Suman Ranjit, Mihaela Balu, GSLab: Open-Source Platform for Advanced Phasor Analysis in Fluorescence Microscopy, Bioinformatics, 2025;, btaf162, https://doi.org/10.1093/bioinformatics/btaf162
 ```
