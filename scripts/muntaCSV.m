@@ -18,13 +18,13 @@ c=0;
 parrafada=cell(L,1);
 
 for ii=3:N
-   c=c+1;parrafada{c}=sep;  
+  % c=c+1;parrafada{c}=sep;  
  var=varargin{ii};
   
- if(ischar(var)),
-   c=c+1;parrafada{c}=var;
+ if(ischar(var))
+   c=c+1;parrafada{c}=[var sep];
  else
- if(iscell(var)),
+ if(iscell(var))
  [a,b]=size(var);
 
  for jj=1:a
@@ -65,8 +65,16 @@ for ii=3:N
 end
 end
 rutadades=[varargin{1}];
-if(length(rutadades)>256),rutadades=[rutadades(1:252) '.csv'];end
+if(length(rutadades)>256)
+ensenya(['File path/name too long, shortening to 255 char.' ],'r')
+    rutadades=[rutadades(1:251) '.csv'];
+end
 pumpum=fopen(rutadades,'wt');
+if(pumpum==-1)
+rutadades=[varargin{1}(1:end-4) num2str(floor(rand*1e2)) '.csv'];
+    ensenya(['Cannot create file, possibly open by excel. Renaming to: ' rutadades],'r');
+    pumpum=fopen(rutadades,'wt');
+end
 for ii=1:length(parrafada)
    
     fprintf(pumpum,'%s\n',parrafada{ii}); 

@@ -30,7 +30,11 @@ B=sum(AI0,dimm);
 I3=cat(dimm,R,G,B);
 if(1)
     if(dimm==4),I3=permute(I3,[1 2 4 3]);end
+    if(nargin<2)
+    I3=balance3Chan(I3);
+    else
    I3=balance3Chan(I3,rg);
+    end
    if(dimm==4),I3=permute(I3,[1 2 4 3]);end
 else
     I3=NormArray(I3);

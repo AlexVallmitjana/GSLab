@@ -8,7 +8,7 @@ switch qui
     case 'ALEX_PC'
         qui='Alex';id=420;
     case 'AFDURKIN-2020'
-        qui='Amanda';id=419;
+        qui='Amanda';id=18;
     case 'LAPTOP-4SS4H9HR'
         qui='Belen';id=422;
     case 'SUMAN-BLI'
