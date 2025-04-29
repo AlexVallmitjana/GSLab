@@ -1,14 +1,14 @@
-[v1.120] - App reads this changelog file to display version number
-[v1.119] - Modified csv writer function, now all csv files have headers
-[v1.118] - Simplified the way program deals with max harmonics computed
-[v1.117] - Fixed bug regarding loading previous settings
-[v1.116] - Added option to allow display of phasor axes and removed the export with/without axes functionality
-[v1.115] - Added plot Intensity vs Phasor Magnitude functionality
-[v1.114] - Modified ptu/sdt reader to accommodate for more channels
-[v1.113] - Added option for display axes in display tab and removed it from export
-[v1.112] - Fixed bug with batch load calibration files where only data from first one was being loaded
-[v1.111] - Added bidirectional correction option for FLAME data
-[v1.110] - Updated all FLAME imports to generic function
+[v1.120] - App reads this changelog file to display version number\
+[v1.119] - Modified csv writer function, now all csv files have headers\
+[v1.118] - Simplified the way program deals with max harmonics computed\
+[v1.117] - Fixed bug regarding loading previous settings\
+[v1.116] - Added option to allow display of phasor axes and removed the export with/without axes functionality\
+[v1.115] - Added plot Intensity vs Phasor Magnitude functionality\
+[v1.114] - Modified ptu/sdt reader to accommodate for more channels\
+[v1.113] - Added option for display axes in display tab and removed it from export\
+[v1.112] - Fixed bug with batch load calibration files where only data from first one was being loaded\
+[v1.111] - Added bidirectional correction option for FLAME data\
+[v1.110] - Updated all FLAME imports to generic function\
 ### Apr'25
 [v1.109] - When cursor leaves phasor plot now it goes back to displaying the phasor-colored image
 [v1.108] - All user files are saved in Documents/MATLAB folder
@@ -129,5 +129,5 @@
 [v1.2] - Added S and G range as parameters
 [v1.1] - Added a section at the begining with phasor filtering parameters
 [v1.0] - First simple script to read FLAME files, phasor transform and generate 2D histogram 
-### Jun'24 - Suman requests a script to plot phasors
+### Jun'24 - Suman requests a script to plot phasors from FLAME data
 
