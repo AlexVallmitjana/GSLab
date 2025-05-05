@@ -18,12 +18,14 @@ if(nargin==0)
 else
     if(ischar(pathorstruc))
     PathName=pathorstruc;
-    if((strcmpi(PathName(end-2:end),'re4'))||(((strcmpi(PathName(end-2:end),'ref'))||(strcmpi(PathName(end-2:end),'r64')))||((strcmpi(PathName(end-2:end),'re1'))||(strcmpi(PathName(end-2:end),'re3')))))%its path to a file
+    ext=PathName(end-2:end);
+    if(strcmpi(ext,'r64'))||(strcmpi(ext(1:2),'re'))
+    %if((strcmpi(PathName(end-2:end),'re4'))||(((strcmpi(PathName(end-2:end),'ref'))||(strcmpi(PathName(end-2:end),'r64')))||((strcmpi(PathName(end-2:end),'re1'))||(strcmpi(PathName(end-2:end),'re3')))))%its path to a file
        files=dir(PathName); 
        PathName=[files(1).folder filesep];
     else%path to a folder
     if((PathName(end)~='/')&&(PathName(end)~='\')),PathName(end+1)=filesep;end
-    files=[dir([PathName '*.ref']);dir([PathName '*.R64']);dir([PathName '*.re1']);dir([PathName '*.re3']);dir([PathName '*.re4'])];
+    files=[dir([PathName '*.ref']);dir([PathName '*.R64']);dir([PathName '*.re1']);dir([PathName '*.re3']);dir([PathName '*.re4']);dir([PathName '*.re5']);dir([PathName '*.re6']);dir([PathName '*.re7']);dir([PathName '*.re8'])];
     end
     else
         if(isstruct(pathorstruc))
@@ -59,6 +61,10 @@ for ii=1:L
     if(strcmpi(FileNames{ii}(end-2:end),'re1')),input = fread(fileID,inf,'single');type=1.1;end
     if(strcmpi(FileNames{ii}(end-2:end),'re3')),input = fread(fileID,inf,'single');type=1.3;end
     if(strcmpi(FileNames{ii}(end-2:end),'re4')),input = fread(fileID,inf,'single');type=1.4;end	
+    if(strcmpi(FileNames{ii}(end-2:end),'re5')),input = fread(fileID,inf,'single');type=1.5;end	
+    if(strcmpi(FileNames{ii}(end-2:end),'re6')),input = fread(fileID,inf,'single');type=1.6;end	
+    if(strcmpi(FileNames{ii}(end-2:end),'re7')),input = fread(fileID,inf,'single');type=1.7;end	
+    if(strcmpi(FileNames{ii}(end-2:end),'re8')),input = fread(fileID,inf,'single');type=1.8;end	
     if(strcmpi(FileNames{ii}(end-2:end),'r64')),input = fread(fileID);type=2;end
     fclose(fileID);
     if(type==1)% Enrico refs
@@ -82,6 +88,26 @@ for ii=1:L
         images = reshape(input,sizes,sizes,9);
         FLIMdata{ii}=double(images);
     end	
+    if(type==1.5)% 5harmonic refs
+        sizes=sqrt(length(input)/11);
+        images = reshape(input,sizes,sizes,11);
+        FLIMdata{ii}=double(images);
+    end	
+    if(type==1.6)% 6harmonic refs
+        sizes=sqrt(length(input)/13);
+        images = reshape(input,sizes,sizes,13);
+        FLIMdata{ii}=double(images);
+    end	
+    if(type==1.7)% 7harmonic refs
+        sizes=sqrt(length(input)/15);
+        images = reshape(input,sizes,sizes,15);
+        FLIMdata{ii}=double(images);
+    end	
+    if(type==1.8)% 8harmonic refs
+        sizes=sqrt(length(input)/17);
+        images = reshape(input,sizes,sizes,17);
+        FLIMdata{ii}=double(images);
+    end	    
     if(type==2) % R64 
         % decompress file content
         buffer = java.io.ByteArrayOutputStream();

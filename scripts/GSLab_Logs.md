@@ -1,4 +1,8 @@
-[v1.120] - App reads this changelog file to display version number  
+[v1.123] - Save as ref allows up to 8harmonics  
+[v1.122] - Modified refread to accomodate for ref formats up to 8harmonics  
+[v1.121] - Added a warning when user tries to save ref files with only 1st harmonic
+### May'25
+[v1.120] - App reads changelog file to display version number  
 [v1.119] - Modified csv writer function, now all csv files have headers  
 [v1.118] - Simplified the way program deals with max harmonics computed  
 [v1.117] - Fixed bug regarding loading previous settings  
@@ -18,7 +22,7 @@
 [v1.104] - Implemented wavelet filtering  
 [v1.103] - Removed the need to reload the data when changing downsample  
 [v1.102] - Added option to plot decay  
-[v1.101] - Implemented PicoQuant ptu and Becker & Hickl sdt using CGohlke s Python libraries  
+[v1.101] - Implemented PicoQuant ptu and Becker & Hickl sdt using CGohlke's Python libraries  
 [v1.100] - Implemented FLIM LABS json format
 ### Mar'25
 [v1.99] - Single traces can be loaded as txt/csv  
