@@ -1,3 +1,7 @@
+[v1.127] - Implemented a region connected components step to extract mean phasor values for each object in a mask  
+[v1.126] - Simplified obsolete way in which masks were signaled to apply
+[v1.125] - Fixed a bug where after clearing the system was trying to apply mask  
+[v1.124] - Changed calibration panel button behavior to remain in position  
 [v1.123] - Save as ref allows up to 8harmonics  
 [v1.122] - Modified refread to accomodate for ref formats up to 8harmonics  
 [v1.121] - Added a warning when user tries to save ref files with only 1st harmonic
