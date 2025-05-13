@@ -1,3 +1,5 @@
+[v1.129] - Implemented loading masks as labeled pngs
+[v1.128] - Merged GS coordinate export with magnitude export to generate csv with all data together 
 [v1.127] - Implemented a region connected components step to extract mean phasor values for each object in a mask  
 [v1.126] - Simplified obsolete way in which masks were signaled to apply
 [v1.125] - Fixed a bug where after clearing the system was trying to apply mask  
