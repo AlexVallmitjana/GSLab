@@ -1,3 +1,4 @@
+[v1.130] - Updated function for writing csv files to increase speed and allow xls format  
 [v1.129] - Implemented loading masks as labeled pngs  
 [v1.128] - Merged GS coordinate export with magnitude export to generate csv with all data together  
 [v1.127] - Implemented a region connected components step to extract mean phasor values for each object in a mask  
