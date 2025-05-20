@@ -13,23 +13,24 @@ The phasor approach to fluorescence lifetime imaging is a widely used method for
 4.	Browse to the directory containing GSLab.mlapp and the scripts folder, then click **Select Folder**.
 5.	Click **Save** in the Set Path window and then click **Close**.
   
-To launch the program, type **GSLab** in the MATLAB command window.
+To launch the program, type **GSLab** in the MATLAB command window.  
 Once the path has been saved in MATLAB, simply type GSLab in the command window to run the program in subsequent sessions.
 
-A [user manual pdf file](GSLab_Manual.pdf) is inculded in the main directory. 
+### Help
+
+A [user manual pdf file](GSLab_Manual.pdf) is inculded here in the main directory. 
+
+A follow-along [tutorial and sample files](https://doi.org/10.6084/m9.figshare.28067108) are available for download in Figshare.
 
 ### Standalone app for Windows without MATLAB
 
-GSLab is available as an open-source MATLAB mlapp, accompanied by a separate folder containing the necessary script files. Additionally, a precompiled executable file for Windows has been uploaded to Figshare.:
+A precompiled executable [installer file for Windows](https://doi.org/10.6084/m9.figshare.28655276) is available in Figshare.
 
-https://doi.org/10.6084/m9.figshare.28655276
-
-Download the file **GSLabInstaller_mcr.exe**. Run the installer, it will install the MATLAB Runtime machine and **GSLab** in the **ProgramFiles** folder. 
-
+Simply download the file **GSLabInstaller.exe**, run the installer, it will install the MATLAB Runtime machine and **GSLab** in the **ProgramFiles** folder. 
 
 
 ## Citing
-If you find this software valuable, please cite us using the paper in Bioinformatics:
+If you find this software valuable, please cite us using our [paper](https://doi.org/10.1093/bioinformatics/btaf162) in Bioinformatics:
 ```
 Vallmitjana A. et al. GSLab: Open-Source Platform for Advanced Phasor Analysis in Fluorescence Microscopy, Bioinformatics (2025). https://doi.org/10.1093/bioinformatics/btaf162
 ```
