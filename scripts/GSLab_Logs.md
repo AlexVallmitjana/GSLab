@@ -1,3 +1,4 @@
+[v1.131] - Wilson patch: emphasize function to depict phasor data in a color depending on the loaded file  
 [v1.130] - Updated function for writing csv files to increase speed and allow xls format  
 [v1.129] - Implemented loading masks as labeled pngs  
 [v1.128] - Merged GS coordinate export with magnitude export to generate csv with all data together  
