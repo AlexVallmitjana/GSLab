@@ -1,3 +1,5 @@
+[v1.133] - All pngs and tifs are saved with 300dpi    
+[v1.132] - Fixed a bug where vecotor phasor could not be exported as pdf  
 [v1.131] - Wilson patch: emphasize function to depict phasor data in a color depending on the loaded file  
 [v1.130] - Updated function for writing csv files to increase speed and allow xls format  
 [v1.129] - Implemented loading masks as labeled pngs  
