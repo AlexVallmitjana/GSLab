@@ -11,5 +11,4 @@ relative_links:
   collections: true
 show_downloads: true
 include:
-  - test.html
   - README.md
