@@ -10,4 +10,5 @@ relative_links:
   enabled: true
   collections: true
 include:
+  - test.html
   - README.md
