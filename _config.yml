@@ -9,6 +9,7 @@ plugins:
 relative_links:
   enabled: true
   collections: true
+show_downloads: true
 include:
   - test.html
   - README.md
