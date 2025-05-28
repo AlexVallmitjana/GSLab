@@ -17,7 +17,7 @@ if(aux4==0)&&(aux3==0)% ambiguity, gotta decide based on content
     for ii=1:4% open first 4
         aux = double(imread([folder filesep files(ii).name]));
         maxs(ii)=max(aux(:));
-        ensenya(num2str(maxs(ii)));
+        % ensenya(num2str(maxs(ii)));
     end
     % G and S should be in the 16bit range
     aux=round(NormArray2(maxs));
