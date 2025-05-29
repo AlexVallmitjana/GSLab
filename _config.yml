@@ -9,6 +9,9 @@ plugins:
 relative_links:
   enabled: true
   collections: true
+github:
+  zip_url: http://example.com/download.zip
+  another_url: another value  
 show_downloads: true
 include:
   - README.md
