@@ -34,7 +34,6 @@
           doc.documentElement.offsetHeight
         );
         
-      console.log(height);
 	  }
 	</script>
   </head>
@@ -62,12 +61,13 @@
 		.itemenu{flex: 10em; text-align: center;padding:0px;}
 		.itemenu:hover{cursor:pointer;}
 		.itemenu a{text-decoration:none;color:#fff;cursor:pointer;}		
-		.itemenu a:hover{text-decoration:none;color:#07D;}
+		.itemenu p:hover{text-decoration:none;color:#07D;}
+		.itemenu p{margin:0;font-size:120%;}
 		</style>
 		<div class="caixamenu">
 <div class="itemenu"></div>
 <div class="itemenu"><a href=""><p>Home</p></a></div>
-<div class="itemenu"><p href="" onclick="fillframe();">Manual :p</p></div>
+<div class="itemenu"><p href="" onclick="fillframe();">Manual</p></div>
 <div class="itemenu"><a href="https://figshare.com/articles/dataset/FLIM_dataset_for_GSLab/28067108"><p>Tutorials</p></a></div>
 <div class="itemenu" style="visibility:hidden;"><a href=""><p>Downloads</p></a></div>
 <div class="itemenu"> </div>
