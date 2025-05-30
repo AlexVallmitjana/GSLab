@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,maximum-scale=2">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
+    <link rel="shortcut icon" type="image/png" href="scripts/logo1.png">
+
+
+<title>Download the tutorial files from FigShare: 
+https://doi.org/10.6084/m9.figshare.28067108</title>
+<style>
+
+</style>
+
+</head>
+
+<body>
+
+<div id="cos">
+
+<h2>Tutorial 1 – Basic phasor analysis using lifetime measurement of a human skin biopsy </h2>
+<ol>
+<h3>File tab – Load files into the software</h3>
+<li>Start GSLab.</li>
+<li>Right-click in the empty space and select Load > SimFCS ref.</li>
+<li>Select the image file from the Fig2_ABCD folder.</li>
+<li>The phasor plot and image will appear.</li>
+<li>Check/uncheck the file in the main panel to include/exclude it from the phasor plot.</li>
+<li>Hover over the phasor to see highlighted image regions.</li>
+<li>Use the scroll wheel to adjust the cursor size.</li>
+<li>Hover over the image to see the black cursor move on the phasor plot.</li>
+<h3>Image tab – Control the rendering of the intensity image</h3>
+<li>This image has a very high dynamic range, we can tune a better rendering: Observe the intensity histogram how all the values are in the far left. </li>
+<li>Move the Right Intensity Slider halfway to reveal collagen structures.</li>
+<li>Move it further (to about 1/8th) to see the epidermis, though some bright pixels may saturate.</li>
+<li>Checking/unchecking Excess to zero to exclude bright saturated pixels from the phasor plot.</li>
+<li>The image contains many low-photon pixels corresponding to outside the biopsy. We can threshold these pixels out:</li>
+<li>Uncheck Relative to show the histogram in real counts.</li>
+<li>Set the lower intensity threshold to 30 and press Enter.</li>
+<li>The phasor now excludes the pixels with low photon counts: the noisy distribution on the left part of the phasor plot has disappeared.</li>
+<h3>Phasor tab – Select the phasor magnitude to measure</h3>
+<li>In the bottom section try the different magnitudes and see how the color projection changes. Use TauPhase for this dataset. Each pixel in the image is colored according to the underlying colormap in the phasor.</li>
+<h3>Cursors – Place cursors on the phasor plot</h3>
+<li>Depending on the settings in the previous sections, the phasor distribution may appear very differently. We may see 1, 2 3 4 or more distinct populations. </li>
+<li>Click on the phasor plot to place cursors and color the image accordingly.</li>
+<li>Use the red X button (top-right) to remove cursors (appears if one or more cursors are on the phasor plot).</li>
+<h3>Export tab – Save images and phasor plots</h3>
+<li>Click Output Folder to choose a save location.</li>
+<li>Uncheck all checkboxes except for Phasor with axes, Phasor Plot as, Intensity image, Magnitude-colored x intensity, and Combine into single image.</li>
+<li>Click Export LR to save the selected items.</li>
+<li>A single file will be exported with grayscale intensity, phasor color projection, and the phasor plot.</li>
+<li>Uncheck Magnitude-colored x intensity and check the Cursor-Colored image.</li>
+<li>Press the Export LR button to export like before but now the image is colored according to any cursors on the phasor plot.</li>
+</ol>
+<h2>Tutorial 2 – Phasor calibration and phasor filtering</h2>
+<ol>
+<h3>File tab – Load files into the software</h3>
+<li>Start GSLab.</li>
+<li>Right-click in the empty space and select Load > SimFCS ref.</li>
+<li>Select the file from the Fig2_ABCD folder.</li>
+<li>Right-click in the empty space and select Load > Trace txt/csv.</li>
+<li>Select the Coumarin6 file from the Fig2_ABCD folder (used for calibration).</li>
+<li>This file contains a single trace, the software displays it as a single-pixel image in the Image Window. </li>
+<li>Check/uncheck each file in the list to see their contributions in the phasor plot.</li>
+<li>Hover over the phasor plot or image window to locate the Coumarin6 on the phasor plot.</li>
+<li>Coumarin6 has a known lifetime of 2.5ns, its phasor position should be on the Universal Circle at the corresponding lifetime. We use this fact to calibrate the phasor coordinates of the biopsy values.</li>
+<li>Click on the Coumarin6 file name to select it in blue.</li>
+<li>Right-click and select Calibration file.</li>
+<li>The Calibration panel unfolds showing the selected file name in the list. </li>
+<li>Use the arrow button to expand/collapse the panel.</li>
+<li>Enter 2.5 in the Calibration Lifetime (ns) field. Press Enter.</li>
+<li>Check the Apply checkbox to shift the phasor plot accordingly.</li>
+<li>Change the Calibration Lifetime (ns) to see how it affects the plot.</li>
+<li>Once set to 2.5ns, we can remove the calibration file:</li>
+<li>Uncheck the Coumarin6 filename from the list.</li>
+<li>Right-click in the empty space and select Clear > Unchecked.</li>
+<h3>Image tab – Control the rendering of the intensity image</h3>
+<li>Slide the right slider down to about 1/8th of the range to adjust the image display.</li>
+<h3>Phasor tab – Filter the phasor data</h3>
+<li>Set Phasor filtering to 1 and press Enter (phasor plot will look noisy).</li>
+<li>Set it to 5 and press Enter (reduces noise).</li>
+<li>Set Times to 3 and press Enter (further sharpens the phasor).</li>
+<li>Higher filtering smooths out regions in the image.</li>
+<li>In Measured magnitude, click TauNorm to display the color projection to the Universal Circle.</li>
+<li>Adjust Color range to 0 and 0.5 to cover the full semicircle.</li>
+<li>Click Auto to let the software adjust the color range automatically.</li>
+<h3>Display tab – Customize the phasor plot</h3>
+<li>Select a different colormap from Magnitude colormap dropdown.</li>
+<li>Set Harmonic # to 2 (phasor computed in second harmonic).</li>
+<li>Change it back to 1 to return to the first harmonic.</li>
+<li>Toggle Lines and Ticks on/off.</li>
+<li>Adjust Font sizes.</li>
+<li>Toggle Soft Masks to see intensity-based or color-only images.</li>
+<li>Choose a different colormap from Density colormap.</li>
+<h3>Export tab – Save images and phasor plots</h3>
+<li>Click Output Folder to select a save location.</li>
+<li>Uncheck all checkboxes except for Print colorbar, and Magnitude-colored x intensity.</li>
+<li>Click Export LR to save the selected items.</li>
+<li>Two image files will be exported the image with phasor lifetime projection, and colorbar with the lifetime values.</li>
+</ol>
+<h2>Tutorial 3 – Automated phasor clustering </h2>
+<ol>
+<h3>File tab – Load files into the software</h3>
+<li>Right-click in the empty white space and select Load > SimFCSref.</li>
+<li>Navigate to the folder location for the downloaded Fig2_ABCD and select the single file in the folder.</li>
+<h3>Image tab – Set the image dynamic range</h3>
+<li>Uncheck the Relative checkbox to display the histogram in real counts instead of normalized intensity</li>
+<li>In the Intensity threshold values, type 30 for the lower value field (press enter).</li>
+<li>Slide the right slider down to about 1/8th of the range to reveal the structure in the epidermis at the cost of saturating the brighter pixels.</li>
+<h3>Cluster tab – Perform automated clustering on the phasor plot</h3>
+<li>GMM attempts to find the linear combination of K gaussian distributions that best fits the data.</li>
+<li>Clicking on the plot to leave some cursors as starting points for the algorithm. The positions and sizes are not as important, the algorithm will tune them, but the total number of clusters will be set by the number of clusters. </li>
+<li>Click on Train GMM button to generate the model. </li>
+<li>The image will be colored according to the model results.</li>
+<li>Contour lines will appear on the phasor plot, representing the Gaussian components.</li>
+<li>Click on Contour separate clusters to observe the individual components on the phasor plot.</li>
+<li>Click on Ellipse with % of data to display ellipses instead</li>
+<li>Change the percentage to display bigger or smaller ellipses.</li>
+<li>Click Apply GMM to reapply the model after changes to the image or phasor settings.</li>
+<li>The Clear GMM button will clear the current model.</li>
+<li>With Probability assign to color each pixel based on its mix of components.</li>
+<li>Click Hard assign to color each pixel based on the highest component coefficient.</li>
+<li>Check Blending to smooth color transitions.</li>
+<li>Check Override magnitude for export to save GMM-clustered images instead of cursor-colored ones.</li>
+<h3>Export tab – Save the results</h3>
+<li>Click Output Folder to choose where to save the data.</li>
+<li>Two checkboxes now include the GMM-colored option.</li>
+<li>Uncheck all checkboxes except for Phasor with axes, Phasor Plot as, Intensity image, GMM-colored image, and Combine into single image.</li>
+<li>Click Export LR to save.</li>
+<li>One file will be exported, containing the grayscale intensity image, GMM-colored image, and phasor plot.</li>
+<li>Uncheck Combine into single image.</li>
+<li>Click Export LR again.</li>
+<li>Now, three separate images should appear in the output folder: phasor plot, grayscale intensity, and GMM-colored image.</li>
+</ol>
+<h2>Tutorial 4 – Phasor unmixing with nuclear dyes</h2>
+<ol>
+<h3>File tab – Load files into the software</h3>
+<li>Start GSLab.</li>
+<li>Right-click in the empty space and select Load > SimFCS ref.</li>
+<li>Select the 5 files from the Fig2_EFGH folder. These are cell nuclei, 4 files have a single dye, the 5th contains all dyes.</li>
+<li>Check/uncheck files in the list to see their contributions in the phasor plot.</li>
+<li>The files can be rearranged for clarity: click on the file that contains the term ‘4dyes’ in the name to select it.</li>
+<li>Right-click and select Move > Bot.</li>
+<li>Click on the file that contains the term ‘EtBr’ in the name to select it.</li>
+<li>Right-click and select Move > Top.</li>
+<li>We should currently have the files sorted in descending lifetime order with the mixture file in the bottom.</li>
+<li>Check/uncheck files in the list to see their contributions in the phasor plot.</li>
+<h3>Image tab – Control the rendering of the intensity image</h3>
+<li>Slide the left slider up to about 1/10th of the range to exclude the pixels outside of the nuclei.</li>
+<li>Slide the right slider down to about 1/3rd of the range to adjust the image display.</li>
+<h3>Phasor tab – Filter the phasor data</h3>
+<li>Change the Phasor filtering value to 7. Press Enter.</li> 
+<li>Change the Times value to 2. Press Enter. </li>
+<li>In the Measured magnitude section click on TauNorm. </li>
+<h3>Display tab – Customize the phasor plot</h3>
+<li>Check the Soft Masks.</li>
+<li>Check/uncheck Normalize by file to observe the contribution of the narrower distributions</li>
+<h3>Unmix tab – Perform unmixing of 4 components</h3>
+<li>Click the + button 4 times to add 4 pure components on the universal circle.</li>
+<li>Enter the values 0.5ns, 2ns, 5ns and 20ns respectively.</li>
+<li>The quadrilateral delimits the pure component locations.</li>
+<li>Check the options Export fraction im, Color components, Single image, and Export fraction x int.</li>
+<li>Click Compute LR to launch the unmixing and save the files (in the output folder set in the Export tab).</li>
+<li>The output is an image for each component with the color-coded unmixed photon fraction in each pixel.</li>
+<li>Check Group by File.</li>
+<li>Click Compute LR to launch the unmixing.</li>
+<li>The output is an image for each file with the color-coded unmixed photon fraction in each pixel.</li>
+<li>Check Export fraction csv.</li>
+<li>Click Compute LR to launch the unmixing and export a csv file for each image with the unmixed photon fraction at each individual pixel.</li>
+</ol>
+<h2>Tutorial 5 – Spectral phasor unmixing with spectrally resolved organelle dyes</h2>
+<ol>
+<h3>File tab – Load files into the software</h3>
+<li>Start GSLab.</li>
+<li>Right-click in the empty space and select Load > Zeiss lsm.</li>
+<li>Select the file from the SpectralExample folder. This is a culture of cells loaded with 5 organelle dyes.</li>
+<li>Hover over the phasor to see highlighted image regions:</li>
+<li>Top right is the nuclear dye.</li>
+<li>Bottom right is the membrane dye.</li>
+<li>Bottom-left is the mitochondria dye.</li>
+<li>Middle-left is the Golgi dye.</li>
+<h3>Image tab – Control the rendering of the intensity image</h3>
+<li>Slide the right slider down to about 1/2 of the range to adjust the image display.</li>
+<h3>Phasor tab – Filter the phasor data</h3>
+<li>Change the Phasor filtering value to 3. Press Enter. </li>
+<li>Change the Times value to 1. Press Enter. </li>
+<li>In the Measured magnitude section click on Phase. </li>
+<li>Set the Color range to 0 and 1.</li>
+<h3>Display tab – Customize the phasor plot</h3>
+<li>Check the Soft Masks.</li>
+<li>Set the Spectral band range to 450 and 700nm respectively (matching the acquisition spectral detector).</li>
+<h3>File tab – Load theoretical spectra downloaded from Chroma</h3>
+<li>Right-click in the empty space and select Load > Trace txt/csv.</li>
+<li>Select the file from the SpectralExample folder. This is a list of the 5 emission spectra of the dyes.</li>
+<li>Hover over the phasor to find the five emission spectra as small circles.</li>
+<h3>Unmix tab – Perform unmixing of 5 components</h3>
+<li>In the Source radio buttons select File.</li>
+<li>The box on the left lists all files loaded. Check the 5 that correspond to the theoretical spectra of the dyes.</li>
+<li>An irregular pentagon is formed delimiting the pure component locations.</li>
+<li>Check the options Export fraction im, Color components, Single image, Export fraction x int, and Merge comps.</li>
+<li>Click Compute LR to launch the unmixing and save the files (in the output folder set in the Export tab).</li>
+<li>The output is an image for each component with the color-coded unmixed photon fraction in each pixel.</li>
+<li>The component colors can be changed with the cursor colors in the Display tab.</li>
+<li>We can go to the File tab, uncheck the pure component traces, go back to the Unmix tab and run Compute LR</li>
+<li>This will create the unmixing data for just the selected file. </li>
+</ol>
+
+
+</div>
+
+</body>
+
+</html>

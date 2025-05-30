@@ -11,9 +11,9 @@
 {% seo %}
     {% include head-custom.html %}
 	<script>
-  function fillframe() {
+  function fillframe(url) {
     const iframe = document.getElementById('espai');
-   iframe.src = "GSLab_Manual.html";
+   iframe.src = url;
  
 
   }
@@ -68,8 +68,8 @@
 		<div class="caixamenu">
 <div class="itemenu"></div>
 <div class="itemenu"><a href=""><p>Home</p></a></div>
-<div class="itemenu"><p href="" onclick="fillframe();">Manual</p></div>
-<div class="itemenu"><a href="https://figshare.com/articles/dataset/FLIM_dataset_for_GSLab/28067108"><p>Tutorials</p></a></div>
+<div class="itemenu"><p href="" onclick="fillframe('GSLab_Manual.html');">Manual</p></div>
+<div class="itemenu"><p href="" onclick="fillframe('assets/GSLab_Tutorials.html');"><p>Tutorials</p></div>
 <div class="itemenu" style="visibility:hidden;"><a href=""><p>Downloads</p></a></div>
 <div class="itemenu"> </div>
 </div>      
