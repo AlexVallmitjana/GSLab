@@ -3,6 +3,8 @@ remote_theme: pages-themes/slate@v0.2.0
 #remote_theme: pages-themes/modernist@v0.2.0
 #remote_theme: pages-themes/cayman@v0.2.0
 #remote_theme: pages-themes/midnight@v0.2.0
+title: GSLab
+description: Advanced phasor phasor analysis
 plugins:
   - jekyll-remote-theme
   - jekyll-relative-links
