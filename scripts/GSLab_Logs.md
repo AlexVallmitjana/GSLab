@@ -1,3 +1,5 @@
+[v1.136] - Exported csv data has true intensity if relative checkbox is unchecked.  
+### Jun'25
 [v1.135] - Solved FALCON data ambiguity when number of files if multiple of 3 and 4  
 [v1.134] - Minor changes: verbosity for Gohlke files, corrected ampersand display in menu, removed vector file checkbox  
 [v1.133] - All pngs and tifs are saved with 300dpi    

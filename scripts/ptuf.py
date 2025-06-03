@@ -9,8 +9,8 @@ class read_ptu():
         #print(ptu.shape)
         #print(ptu.active_channels)
         #print(ptu.decode_histogram(dtype='uint8'))
-        return np.array(ptu.decode_histogram(dtype='uint8'))
-        #return np.array(ptu.decode_image(asxarray=True))
+        #return np.array(ptu.decode_histogram(dtype='uint8'))
+        return np.array(ptu.decode_image(asxarray=True))
         #return 3
         
 
