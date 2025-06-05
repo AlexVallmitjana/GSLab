@@ -1,3 +1,4 @@
+[v1.141] - Changed ptu reader to integrate first dimension and crop after an excitation period
 [v1.140] - Fixed a bug where exporting HR data with filtering would throw an error bc size inconsistency  
 [v1.139] - Fixed a bug where exporting images when no background color was not working correctly  
 [v1.138] - Calibration handling includes added name tag for channel  
