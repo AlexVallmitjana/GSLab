@@ -1,3 +1,5 @@
+[v1.140] - Fixed a bug where exporting HR data with filtering would throw an error bc size inconsistency  
+[v1.139] - Fixed a bug where exporting images when no background color was not working correctly  
 [v1.138] - Calibration handling includes added name tag for channel  
 [v1.137] - Fixed a bug where CGholke files where not being downsampled  
 [v1.136] - Exported csv data has true intensity if relative checkbox is unchecked  
