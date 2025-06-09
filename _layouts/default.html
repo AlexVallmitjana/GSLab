@@ -14,11 +14,8 @@
   function fillframe(url,flag) {
     const iframe = document.getElementById('espai');
    iframe.src = url;
-   if(flag==1){
-   iframe.style.height='6100px';
-   
-   }
-
+   if(flag==1){iframe.style.height='6100px';}
+   if(flag==2){iframe.style.height='5986px';}
   }
   function changeSize(iframe){
    const doc = iframe.contentDocument || iframe.contentWindow.document;
@@ -85,8 +82,8 @@
 <div class="itemenu dummy"></div>
 <div class="itemenu"><a href=""><p>Home</p></a></div>
 <div class="itemenu"><p onclick="fillframe('assets/html/GSLab_Manual.html',0);">Manual</p></div>
-<div class="itemenu"><p onclick="fillframe('https://mozilla.github.io/pdf.js/web/viewer.html?file=https://alexvallmitjana.github.io/GSLab/assets/btaf162.pdf#zoom=100&view=FitH&toolbar=0&navpanes=0',1);">Paper</p></div>
-<!--<div class="itemenu"><p onclick="fillframe('assets/btaf162.pdf#zoom=100&view=FitH&toolbar=0&navpanes=0',1);">Paper</p></div>-->
+<!--<div class="itemenu"><p onclick="fillframe('https://mozilla.github.io/pdf.js/web/viewer.html?file=https://alexvallmitjana.github.io/GSLab/assets/btaf162.pdf#zoom=page-width&navpanes=0#sidebar=0',2);">Paper</p></div>-->
+<div class="itemenu"><p onclick="fillframe('assets/btaf162.pdf#zoom=100&view=FitH&toolbar=0&navpanes=0',1);">Paper</p></div>
 <div class="itemenu" id="tut"><p onclick="fillframe('assets/html/GSLab_Tutorials.html',0);">Tutorials</p>
 <div class="submen" id="subtut">
 <p onclick="fillframe('assets/html/GSLab_Tutorials.html',0);">Starting</p>
