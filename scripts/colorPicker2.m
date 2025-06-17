@@ -1,31 +1,49 @@
-function [coloret] = colorPicker2(opt,pos)
+function [coloret] = colorPicker2(opt,pos,sat)
 % opt = 0 for free picking an RGB trio
-% opt = 1 for free picking and get a superjet code
-% opt = 2 for discretised colors and get a code
+% opt = 1 for free picking and get closest superjet code
+% opt = 1.1 for free picking displayin closest superjet code
+% opt = 2 for discretised colors and get a code (sat is ignored)
+% pos is a 4 value array to set window position and size
+% sat is a flag to pick only saturated colors (1 yes, 0 no default)
 if(nargin==0),opt=0;end
+if(nargin<2)||isempty(sat)
+    sat=0;
+end
+if(opt==2),sat=0;end
 mgf=[0 0];
 figure(868);set(868,'MenuBar','none','Name','ColorGrid','NumberTitle','off','pointer','hand');
-if(nargin>1)
-set(868,'Position',pos);
+if(nargin<2)||isempty(pos)
+    pos=get(868,'Position');
+    pos(3:4)=[300 300];
+    if(sat==1),pos(4)=100;end
 end
+set(868,'Position',pos);
 if(opt<2)
 
     % N=256;
     if(exist('colpick.mat','file')==0)
         generate();
     end
-    load('colpick.mat','Ipick','Icode');
-
-
-    h=imagesc(Ipick);set(h,'hittest','off');
+    load('colpick.mat','Ipick','Icode','Icrop');
+    if(sat==1)
+        Ipick=Ipick(round(size(Ipick,1)/2),:,:);
+        Icrop=Icrop(round(size(Icrop,1)/2),:,:);
+        Icode=Icode(round(size(Icode,1)/2),:,:);
+    end
+    if(opt==1.1)
+        h=imagesc(Icrop);set(h,'hittest','off');
+    else
+        h=imagesc(Ipick);set(h,'hittest','off');
+    end
     set(gca,'position',[mgf(1) mgf(2) 1-mgf(1) 1-mgf(2)],'xtick',[],'ytick',[]);
 
     coloret=[];
     w = waitforbuttonpress;
     aux=get(gca,'currentpoint');
     aux=aux(1,[2,1]);
+    if(aux(1)>size(Ipick,1)),aux(1)=size(Ipick,1);end
     if(opt==0)
-    coloret=permute(Ipick(ceil(aux(1)),ceil(aux(2)),:),[1 3 2]);
+        coloret=permute(Ipick(ceil(aux(1)),ceil(aux(2)),:),[1 3 2]);
     else
         coloret=Icode(ceil(aux(1)),ceil(aux(2)));
     end
@@ -33,9 +51,9 @@ if(opt<2)
 else% discret
 
     sz=[15 30];
-    sp=[5 5];
+    sp=[3 3];
     bgcol=[.9 .9 .9];
-    mg=[1 1];
+    mg=[0 0];
     % codes={'k012JX3E4;','TtgljK_nMe','vAuibZ.SdN','rhVRz Y,W[','ayDUGo-OfB','ICxqL:pmFs','cQH56789Pw'};
     codes={'k012JX3E4;','56789PwICx','cQHqL:pmFs','vAuibZ.SdN','tgljK_nMTe','yDUGofB-Oa','rhVRz Y,W['};
     fil=numel(codes{1});
