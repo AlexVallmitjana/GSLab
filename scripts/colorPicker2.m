@@ -6,7 +6,7 @@ function [coloret] = colorPicker2(opt,pos,sat)
 % pos is a 4 value array to set window position and size
 % sat is a flag to pick only saturated colors (1 yes, 0 no default)
 if(nargin==0),opt=0;end
-if(nargin<2)||isempty(sat)
+if(nargin<3)||isempty(sat)
     sat=0;
 end
 if(opt==2),sat=0;end

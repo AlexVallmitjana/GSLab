@@ -1,3 +1,5 @@
+[v1.144] - Discontinued the 3/4Chan generator  
+[v1.143] - Implemented 30flim AI1 plus blue for FLAME  
 [v1.142] - Fixed a bug where instead of checking for toolbox installation it was checking for licensing  
 [v1.141] - Changed ptu reader to integrate first dimension and crop after an excitation period
 [v1.140] - Fixed a bug where exporting HR data with filtering would throw an error bc size inconsistency  
