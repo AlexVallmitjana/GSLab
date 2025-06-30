@@ -6,7 +6,7 @@ if(nargin<3),harm=1;end
 if(nargin<2),freq=8e7;end
 w=2*3.1416*freq*harm;
 
-g=1/(1+(w*tau*1e-9)^2);
+g=1./(1+(w*tau*1e-9).^2);
 
 s=sqrt(g-g.*g);
 
