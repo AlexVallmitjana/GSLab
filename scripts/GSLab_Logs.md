@@ -1,3 +1,4 @@
+[v1.147] - Fixed a bug where wavelet filter during unmixing was not removing NaNs  
 [v1.146] - Added sanity check for incompatible parameters (if saving user settings are interrupted, impossible combination may be saved such as Smax<Smin)  
 [v1.145] - Limited region-based analysis where tau phase, mod and norm may yield complex or negative numbers  
 [v1.144] - Discontinued the 3/4Chan generator  
