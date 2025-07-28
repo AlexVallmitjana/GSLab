@@ -14,7 +14,6 @@
   function fillframe(url,flag) {
     const iframe = document.getElementById('espai');
    iframe.src = url;
-   if(flag==0}{iframe.style.height='7691px';}
    if(flag==1){iframe.style.height='6100px';}
    if(flag==2){iframe.style.height='5986px';}
   }
@@ -102,7 +101,7 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
 	  
-	  <iframe id="espai" src="about:blank" seamless style="width:100%;height:5px;" ></iframe>
+	  <iframe id="espai" src="about:blank" seamless style="width:100%;height:5px;" onload="changeSize(this)" ></iframe>
 	  
         {{ content }}
       </section>
