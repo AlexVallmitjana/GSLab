@@ -1,3 +1,4 @@
+[v1.149] - Fixed a bug where images where being upsampled in calibration when the original size was smaller than the downsamling number  
 [v1.148] - Fixed a bug where loading FLAME split calibration was assigning a lifetime of zero to second half  
 [v1.147] - Fixed a bug where wavelet filter during unmixing was not removing NaNs  
 [v1.146] - Added sanity check for incompatible parameters (if saving user settings are interrupted, impossible combination may be saved such as Smax<Smin)  

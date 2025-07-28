@@ -57,8 +57,8 @@ background-color:green;
 <h3>File tab – Load files into the software</h3>
 <li>Start GSLab.</li>
 <li>Right-click in the empty space and select Load > SimFCS ref.</li>
-<li>Select the image file from the Fig2_ABCD folder.</li>
-<li>The phasor plot and image will appear.</li>
+<li>Select the single ref file from the Fig3_ABCD folder.<br>This is a XZ cross section of an unlabeled human skin biopsy.</li>
+<li>The phasor plot and the image will appear.</li>
 <li>Check/uncheck the file in the main panel to include/exclude it from the phasor plot.</li>
 <li>Hover over the phasor to see highlighted image regions.</li>
 <li>Use the scroll wheel to adjust the cursor size.</li>
@@ -92,9 +92,9 @@ background-color:green;
 <h3>File tab – Load files into the software</h3>
 <li>Start GSLab.</li>
 <li>Right-click in the empty space and select Load > SimFCS ref.</li>
-<li>Select the file from the Fig2_ABCD folder.</li>
+<li>Select the file from the Fig3_ABCD folder.</li>
 <li>Right-click in the empty space and select Load > Trace txt/csv.</li>
-<li>Select the Coumarin6 file from the Fig2_ABCD folder (used for calibration).</li>
+<li>Select the Coumarin6 file from the Fig3_ABCD folder (used for calibration).</li>
 <li>This file contains a single trace, the software displays it as a single-pixel image in the Image Window. </li>
 <li>Check/uncheck each file in the list to see their contributions in the phasor plot.</li>
 <li>Hover over the phasor plot or image window to locate the Coumarin6 on the phasor plot.</li>
@@ -138,7 +138,7 @@ background-color:green;
 <li><a href="https://doi.org/10.6084/m9.figshare.28067108" target="_blank">Download the tutorial files from FigShare.</a></li>
 <h3>File tab – Load files into the software</h3>
 <li>Right-click in the empty white space and select Load > SimFCSref.</li>
-<li>Navigate to the folder location for the downloaded Fig2_ABCD and select the single file in the folder.</li>
+<li>Navigate to the folder location for the downloaded Fig3_ABCD and select the single file in the folder.</li>
 <h3>Image tab – Set the image dynamic range</h3>
 <li>Uncheck the Relative checkbox to display the histogram in real counts instead of normalized intensity</li>
 <li>In the Intensity threshold values, type 30 for the lower value field (press enter).</li>
@@ -170,15 +170,24 @@ background-color:green;
 </ol>
 <h2 id="T4">Tutorial 4 – Phasor unmixing with nuclear dyes</h2>
 <ol start="0">
+<em>Attention: Ensure that the max harmonics is set to 2 in order to compute 2 harmonics of the data when loading (Phasor tab - max harmonics).</em>
 <li><a href="https://doi.org/10.6084/m9.figshare.28067108" target="_blank">Download the tutorial files from FigShare.</a></li>
 <h3>File tab – Load files into the software</h3>
 <li>Start GSLab.</li>
 <li>Right-click in the empty space and select Load > SimFCS ref.</li>
-<li>Select the 5 files from the Fig2_EFGH folder. These are cell nuclei, 4 files have a single dye, the 5th contains all dyes.</li>
+<li>Select the 5 files from the Fig3_EFGH folder. <br>These are images of cell nuclei, 4 files have a single dye, the 5th contains all dyes:</li>
+<ul style="margin:0;">
+<li>AcO: single dye used Acridin Orange.</li>
+<li>EtBr: single dye used Ethidium Bromide.</li>
+<li>Nuc: single dye used NucBlue.</li>
+<li>RoseB: single dye used Rose Bengal.</li>
+<li>AllTogether: this dish was stained with all four dyes.</li>
+</ul>
 <li>Check/uncheck files in the list to see their contributions in the phasor plot.</li>
-<li>The files can be rearranged for clarity: click on the file that contains the term ‘4dyes’ in the name to select it.</li>
+<li>Hover the mouse on the phasor plot to see the image contributions to the phasor plot.</li>
+<li>The files can be rearranged for clarity: click on the file named ‘AllTogether’ to select it.</li>
 <li>Right-click and select Move > Bot.</li>
-<li>Click on the file that contains the term ‘EtBr’ in the name to select it.</li>
+<li>Click on the file named ‘EtBr’ to select it.</li>
 <li>Right-click and select Move > Top.</li>
 <li>We should currently have the files sorted in descending lifetime order with the mixture file in the bottom.</li>
 <li>Check/uncheck files in the list to see their contributions in the phasor plot.</li>
