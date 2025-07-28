@@ -14,8 +14,9 @@
   function fillframe(url,flag) {
     const iframe = document.getElementById('espai');
    iframe.src = url;
+   if(flag==0){iframe.style.height='7686px';}
    if(flag==1){iframe.style.height='6100px';}
-   if(flag==2){iframe.style.height='5986px';}
+   if(flag==2){iframe.style.height='6868px';}
   }
   function changeSize(iframe){
    const doc = iframe.contentDocument || iframe.contentWindow.document;
@@ -84,15 +85,15 @@
 <div class="itemenu"><p onclick="fillframe('assets/html/GSLab_Manual.html',0);">Manual</p></div>
 <!--<div class="itemenu"><p onclick="fillframe('https://mozilla.github.io/pdf.js/web/viewer.html?file=https://alexvallmitjana.github.io/GSLab/assets/btaf162.pdf#zoom=page-width&navpanes=0#sidebar=0',2);">Paper</p></div>-->
 <div class="itemenu"><p onclick="fillframe('assets/btaf162.pdf#zoom=100&view=FitH&toolbar=0&navpanes=0',1);">Paper</p></div>
-<div class="itemenu" id="tut"><p onclick="fillframe('assets/html/GSLab_Tutorials.html',0);">Tutorials</p>
+<div class="itemenu" id="tut"><p onclick="fillframe('assets/html/GSLab_Tutorials.html',2);">Tutorials</p>
 <div class="submen" id="subtut">
-<p onclick="fillframe('assets/html/GSLab_Tutorials.html',0);">Starting</p>
-<p onclick="fillframe('assets/html/GSLab_Tutorials.html#T2',0);">Calibration</p>
-<p onclick="fillframe('assets/html/GSLab_Tutorials.html#T3',0);">Clustering</p>
-<p onclick="fillframe('assets/html/GSLab_Tutorials.html#T4',0);">Unmixing</p>
-<p onclick="fillframe('assets/html/GSLab_Tutorials.html#T5',0);">Spectral</p>
+<p onclick="fillframe('assets/html/GSLab_Tutorials.html',2);">Starting</p>
+<p onclick="fillframe('assets/html/GSLab_Tutorials.html#T2',2);">Calibration</p>
+<p onclick="fillframe('assets/html/GSLab_Tutorials.html#T3',2);">Clustering</p>
+<p onclick="fillframe('assets/html/GSLab_Tutorials.html#T4',2);">Unmixing</p>
+<p onclick="fillframe('assets/html/GSLab_Tutorials.html#T5',2);">Spectral</p>
 </div></div>
-<div class="itemenu itemdwn"><p onclick="fillframe('assets/html/GSLab_Links.html');">Downloads</p></div>
+<div class="itemenu itemdwn"><p onclick="fillframe('assets/html/GSLab_Links.html',2);">Downloads</p></div>
 <div class="itemenu dummy"> </div>
 </div>  
     </div>
@@ -101,7 +102,7 @@
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
 	  
-	  <iframe id="espai" src="about:blank" seamless style="width:100%;height:5px;" onload="changeSize(this)" ></iframe>
+	  <iframe id="espai" src="about:blank" seamless style="width:100%;height:5px;" ></iframe>
 	  
         {{ content }}
       </section>
