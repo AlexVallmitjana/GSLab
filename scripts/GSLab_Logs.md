@@ -1,3 +1,5 @@
+[v1.151] - Saving sessions now saves loaded masks, also fixed issue overriding color range in loading session  
+[v1.150] - Implemented auto-intensity range button  
 [v1.149] - Fixed a bug where images where being upsampled in calibration when the original size was smaller than the downsamling number  
 [v1.148] - Fixed a bug where loading FLAME split calibration was assigning a lifetime of zero to second half  
 [v1.147] - Fixed a bug where wavelet filter during unmixing was not removing NaNs  

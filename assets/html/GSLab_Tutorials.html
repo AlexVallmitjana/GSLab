@@ -92,19 +92,20 @@ background-color:green;
 <h3>File tab – Load files into the software</h3>
 <li>Start GSLab.</li>
 <li>Right-click in the empty space and select Load > SimFCS ref.</li>
-<li>Select the file from the Fig3_ABCD folder.</li>
+<li>Select the file from the Fig3_ABCD folder.<br>This is a XZ cross section of an unlabeled human skin biopsy.</li>
+<li>Optionally we can threshold low-photon pixels like in the previous tutorial.<br>(Image tab - increase the lower value for the intensiy range by a little e.g. 0.05 in relative).</li>
 <li>Right-click in the empty space and select Load > Trace txt/csv.</li>
-<li>Select the Coumarin6 file from the Fig3_ABCD folder (used for calibration).</li>
+<li>Select the Coumarin6 file from the Fig3_ABCD folder.<br>This is a measurement of a Coumarin6 solution taken right before the image of the biopsy.</li>
 <li>This file contains a single trace, the software displays it as a single-pixel image in the Image Window. </li>
 <li>Check/uncheck each file in the list to see their contributions in the phasor plot.</li>
-<li>Hover over the phasor plot or image window to locate the Coumarin6 on the phasor plot.</li>
+<li>Hover over the phasor plot or image window to locate the Coumarin6 on the phasor plot.<br>Notice that it is outside of the Universal Circle.</li>
 <li>Coumarin6 has a known lifetime of 2.5ns, its phasor position should be on the Universal Circle at the corresponding lifetime. We use this fact to calibrate the phasor coordinates of the biopsy values.</li>
 <li>Click on the Coumarin6 file name to select it in blue.</li>
 <li>Right-click and select Calibration file.</li>
 <li>The Calibration panel unfolds showing the selected file name in the list. </li>
 <li>Use the arrow button to expand/collapse the panel.</li>
 <li>Enter 2.5 in the Calibration Lifetime (ns) field. Press Enter.</li>
-<li>Check the Apply checkbox to shift the phasor plot accordingly.</li>
+<li>Check the Apply checkbox to shift the phasor plot accordingly.<br>By checking and unchecking the Apply checkbox you can see the phasor position of the calibrated and uncalibrated data</li>
 <li>Change the Calibration Lifetime (ns) to see how it affects the plot.</li>
 <li>Once set to 2.5ns, we can remove the calibration file:</li>
 <li>Uncheck the Coumarin6 filename from the list.</li>
