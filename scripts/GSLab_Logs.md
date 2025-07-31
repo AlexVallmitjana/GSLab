@@ -1,3 +1,4 @@
+[v1.152] - Fixed bug from v1.149 where calibration of FLAME data was changing size    
 [v1.151] - Saving sessions now saves loaded masks, also fixed issue overriding color range in loading session  
 [v1.150] - Implemented auto-intensity range button  
 [v1.149] - Fixed a bug where images where being upsampled in calibration when the original size was smaller than the downsamling number  
