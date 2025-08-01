@@ -1,3 +1,5 @@
+[v1.154] - Fixed split calibration issue when changing calibration lifetime after loading    
+[v1.153] - Clear all clears cursors and GMM cursors   
 [v1.152] - Fixed bug from v1.149 where calibration of FLAME data was changing size    
 [v1.151] - Saving sessions now saves loaded masks, also fixed issue overriding color range in loading session  
 [v1.150] - Implemented auto-intensity range button  
