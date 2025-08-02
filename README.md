@@ -6,12 +6,14 @@ The phasor approach to fluorescence lifetime imaging is a widely used method for
 
 ## Installation
 
-**GSLab** requires **MATLAB2023b** or later with **Image Processing Toolbox** and **Statistics and Machine Learning Toolbox**. To run **GSLab.mlapp**, ensure the **scripts** folder is located in the same directory as the .mlapp file. Follow these steps to set up and launch the program for the first time:
-1.	Open MATLAB and navigate to the **Home** tab.
-2.	In the **Environment** section, click **Set Path**.
-3.	In the **Set Path** window, click **Add with Subfolders**.
-4.	Browse to the directory containing GSLab.mlapp and the scripts folder, then click **Select Folder**.
-5.	Click **Save** in the Set Path window and then click **Close**.
+**GSLab** requires **MATLAB2023b** or later with **Image Processing Toolbox** and **Statistics and Machine Learning Toolbox**. Follow these steps to set up and launch the program for the first time:
+1.  Download the [package](https://github.com/AlexVallmitjana/GSLab/archive/refs/heads/main.zip).
+2.  Unzip the package and copy it to a location in your computer.
+3.	Open MATLAB and navigate to the **Home** tab.
+4.	In the **Environment** section, click **Set Path**.
+5.	In the **Set Path** window, click **Add with Subfolders**.
+6.	Browse to the location where you copied GSLab-main, then click **Select Folder**.
+7.	Click **Save** in the Set Path window and then click **Close**.
   
 To launch the program, type **GSLab** in the MATLAB command window.  
 Once the path has been saved in MATLAB, simply type GSLab in the command window to run the program in subsequent sessions.
