@@ -1,3 +1,5 @@
+[v1.156] - Masks can be loaded overwriting previous or as product with previous    
+[v1.155] - FALCON reader now takes common part of name for easier file display   
 [v1.154] - Fixed split calibration issue when changing calibration lifetime after loading    
 [v1.153] - Clear all clears cursors and GMM cursors   
 [v1.152] - Fixed bug from v1.149 where calibration of FLAME data was changing size    

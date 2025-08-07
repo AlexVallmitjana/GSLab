@@ -1,4 +1,4 @@
-function [ITT,SST,GGT] = readFALCONsng(folder)
+function [ITT,SST,GGT,nms] = readFALCONsng(folder)
 
 
 files=dir([folder filesep '*_ch*.tif']);
@@ -26,12 +26,16 @@ if(aux4==0)&&(aux3==0)% ambiguity, gotta decide based on content
 
 end
 ITT=[];SST=[];GGT=[];% incase no files
+nms=cell(0);;
 contagrups=0;
 for ii=1:step:numel(files)
 
     [IT] = imread([folder filesep files(ii).name]);% intensity image
     [GG] = imread([folder filesep files(ii+step-2).name]);% G image
     [SS] = imread([folder filesep files(ii+step-1).name]);% S image
+
+    
+
     GG=double(GG);SS=double(SS);
     SS=SS-2^15;SS=SS/2^15;
     GG=GG-2^15;GG=GG/2^15;
@@ -50,6 +54,16 @@ for ii=1:step:numel(files)
     ITT(:,:,contagrups)=IT;
     SST(:,:,contagrups)=SS;
     GGT(:,:,contagrups)=GG;
+
+    try
+nms{contagrups}=files(ii).name(1:findstr(files(ii).name,'_ch')-1);
+
+    catch
+        try
+        n1={files(ii).name,files(ii+step-2).name,files(ii+step-1).name,files(ii).name};%repeat first to have all combinations when doing diff 1-2,2-3,3-1
+nms{contagrups}=files(ii).name(1:find(sum(abs(diff(char(n1),1)),1)~=0,1,'first'));
+        end
+    end
 end
 
 end
