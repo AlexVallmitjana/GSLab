@@ -1,3 +1,4 @@
+[v1.158] - Added some NaN detection steps in the GMM clustering to prevent warnings   
 [v1.157] - Changed the way masks are donwsampled to account for phasor filtering  
 [v1.156] - Masks can be loaded overwriting previous or as product with previous    
 [v1.155] - FALCON reader now takes common part of name for easier file display   
