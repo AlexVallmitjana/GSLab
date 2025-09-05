@@ -1,3 +1,4 @@
+[v1.159] - Fisxed issue where Image Window position was not being saved in user file  
 [v1.158] - Added some NaN detection steps in the GMM clustering to prevent warnings   
 [v1.157] - Changed the way masks are donwsampled to account for phasor filtering  
 [v1.156] - Masks can be loaded overwriting previous or as product with previous    
