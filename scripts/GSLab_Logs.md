@@ -1,9 +1,14 @@
-[v1.159] - Fisxed issue where Image Window position was not being saved in user file  
-[v1.158] - Added some NaN detection steps in the GMM clustering to prevent warnings   
+[v1.162] - Fixed issue with sorting files with cursors placed  
+[v1.161] - Added checkbox to normalize decays  
+[v1.160] - Plot decay shows small bars instead of overlapping bars and lines when too many  
+[v1.159] - Fixed issue where Image Window position was not being saved in user file  
+[v1.158] - Added some NaN detection steps in the GMM clustering to prevent warnings  
+### Sep'25 
 [v1.157] - Changed the way masks are donwsampled to account for phasor filtering  
 [v1.156] - Masks can be loaded overwriting previous or as product with previous    
 [v1.155] - FALCON reader now takes common part of name for easier file display   
 [v1.154] - Fixed split calibration issue when changing calibration lifetime after loading    
+### Aug'25
 [v1.153] - Clear all clears cursors and GMM cursors   
 [v1.152] - Fixed bug from v1.149 where calibration of FLAME data was changing size    
 [v1.151] - Saving sessions now saves loaded masks, also fixed issue overriding color range in loading session  
@@ -11,6 +16,7 @@
 [v1.149] - Fixed a bug where images where being upsampled in calibration when the original size was smaller than the downsamling number  
 [v1.148] - Fixed a bug where loading FLAME split calibration was assigning a lifetime of zero to second half  
 [v1.147] - Fixed a bug where wavelet filter during unmixing was not removing NaNs  
+### Jul'25
 [v1.146] - Added sanity check for incompatible parameters (if saving user settings are interrupted, impossible combination may be saved such as Smax<Smin)  
 [v1.145] - Limited region-based analysis where tau phase, mod and norm may yield complex or negative numbers  
 [v1.144] - Discontinued the 3/4Chan generator  
