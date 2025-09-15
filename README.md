@@ -13,7 +13,7 @@ The phasor approach to fluorescence lifetime imaging is a widely used method for
 4.	In the **Environment** section, click **Set Path**.
 5.	In the **Set Path** window, click **Add with Subfolders**.
 6.	Browse to the location where you copied GSLab-main, then click **Select Folder**.
-7.  Check the checkbox **Save path for future sessions** and then **Apply** and **Ok**.
+7.  Check the checkbox **Save path for future sessions** and then **Apply** and **Ok**.  
 7b.	In older versions (the checkbox is not there) click **Save** in the Set Path window and then click **Close**.
 
   
