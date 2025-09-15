@@ -13,7 +13,7 @@ The phasor approach to fluorescence lifetime imaging is a widely used method for
 4.	In the **Environment** section, click **Set Path**.
 5.	In the **Set Path** window, click **Add with Subfolders**.
 6.	Browse to the location where you copied GSLab-main, then click **Select Folder**.
-7.	Click **Save** in the Set Path window and then click **Close**.
+7.	Click **Save** in the Set Path window  (in newer version check the checkbox **Save path for future sessions**) and then click **Close** (or **Apply** and **Ok**).
   
 To launch the program, type **GSLab** in the MATLAB command window.  
 Once the path has been saved in MATLAB, simply type GSLab in the command window to run the program in subsequent sessions.
