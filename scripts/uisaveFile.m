@@ -8,10 +8,22 @@ fname=['F' dec2hex(sum(double(titol)))];
 if(nargin<2),N=9999;end
 if(isempty(titol)),titol='Save as';end
 folder='';
+ruta='lastsavefolder.mat';
 try% attempt to save user settings file in matlab folder
-    ruta=[getenv('USERPROFILE') filesep 'Documents' filesep 'MATLAB' filesep 'lastsavefolder.mat'];
-catch
-    ruta='lastsavefolder.mat';
+    if(~isempty(getenv('USERPROFILE')))% windows machine
+        rut=[getenv('USERPROFILE') filesep 'Documents' filesep 'MATLAB'];
+        if(exist(rut,'dir')~=7)
+            mkdir(rut);
+        end
+        ruta=[rut filesep 'lastsavefolder.mat'];
+    end
+    if(~isempty(getenv('HOME')))% mac machine
+        rut=[getenv('HOME') filesep 'Documents' filesep 'MATLAB'];
+        if(exist(rut,'dir')~=7)
+            mkdir(rut);
+        end
+        ruta=[rut filesep 'lastsavefolder.mat'];
+    end
 end
 try 
     load(ruta);

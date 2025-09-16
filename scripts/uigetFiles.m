@@ -11,10 +11,22 @@ if(nargin<2),N=9999;end
 if(isempty(titol)),titol='Select file(s)';end
 aux=1;filepath='';
 
+ruta='lastfile.mat';
 try% attempt to save user settings file in matlab folder
-    ruta=[getenv('USERPROFILE') filesep 'Documents' filesep 'MATLAB' filesep 'lastfile.mat'];
-catch
-    ruta='lastfile.mat';
+    if(~isempty(getenv('USERPROFILE')))% windows machine
+        rut=[getenv('USERPROFILE') filesep 'Documents' filesep 'MATLAB'];
+        if(exist(rut,'dir')~=7)
+            mkdir(rut);
+        end
+        ruta=[rut filesep 'lastfile.mat'];
+    end
+    if(~isempty(getenv('HOME')))% mac machine
+        rut=[getenv('HOME') filesep 'Documents' filesep 'MATLAB'];
+        if(exist(rut,'dir')~=7)
+            mkdir(rut);
+        end
+        ruta=[rut filesep 'lastfile.mat'];
+    end
 end
 try 
     load(ruta);

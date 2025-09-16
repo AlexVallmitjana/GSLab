@@ -1,4 +1,8 @@
-[v1.162] - Fixed issue with sorting files with cursors placed  
+[v1.166] - Changed the way intensity ranges are auto computed  
+[v1.165] - Intensity ranges are now computed as a percentile so that the histograms dont appear all clumped up  
+[v1.164] - Fixed issue where exporting with aboslute values was renormalizing to relative    
+[v1.163] - Adapted path finding for Mac OS for saved user settings, saved and loaded files and folders  
+[v1.162] - Fixed issue when sorting files with cursors placed  
 [v1.161] - Added checkbox to normalize decays  
 [v1.160] - Plot decay shows small bars instead of overlapping bars and lines when too many  
 [v1.159] - Fixed issue where Image Window position was not being saved in user file  

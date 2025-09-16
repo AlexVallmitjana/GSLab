@@ -207,7 +207,7 @@ end
 
 
 I1=imcol;
-aux=I(:,:,1);I=I/quantile(aux(:),.999);I(I>1)=1;
+% aux=I(:,:,1);I=I/quantile(aux(:),.999);I(I>1)=1;
 gg2=uint8(I.*imcol*256);I2=gg2;
 gg2=imresize(gg2,[size(gg,1) round(size(imcol,2)*size(gg,1)/size(imcol,1))]);
 %gg2=uint8(gg2*256);
