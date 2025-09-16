@@ -1,3 +1,5 @@
+[v1.168] - All_combo file comes out with a numerical value so sequential files are not overwritten  
+[v1.167] - Added functionality for more clustering models other than GMM and changed contour line thickness  
 [v1.166] - Changed the way intensity ranges are auto computed  
 [v1.165] - Intensity ranges are now computed as a percentile so that the histograms dont appear all clumped up  
 [v1.164] - Fixed issue where exporting with aboslute values was renormalizing to relative    
