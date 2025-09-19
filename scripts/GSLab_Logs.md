@@ -1,3 +1,4 @@
+[v1.169] - Changed image window behaviour so it accounts for multiple monitors and is taken to foreground when interacting  
 [v1.168] - All_combo file comes out with a numerical value so sequential files are not overwritten  
 [v1.167] - Added functionality for more clustering models other than GMM and changed contour line thickness  
 [v1.166] - Changed the way intensity ranges are auto computed  
