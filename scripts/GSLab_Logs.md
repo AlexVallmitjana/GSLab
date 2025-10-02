@@ -1,3 +1,5 @@
+[v1.174] - Loading dialog for FLAME raw, FLAME calibration and simFCSref uses the same remembered path  
+[v1.173] - Exported images in unmixing tab use the format determined in export tab  
 [v1.172] - Fixed bug in unmixing when masks and images have different sizes  
 [v1.171] - Changing number of rows in image window tiling will auto set cols if necessary. Also preventing users from resizing image window    
 [v1.170] - Forcing images to be square before saving as simFCS ref  

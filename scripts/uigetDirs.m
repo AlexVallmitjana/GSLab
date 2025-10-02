@@ -7,7 +7,7 @@ if(nargin<1),titol=' ';end
 fname=['F' dec2hex(sum(double(titol)))];
 if(nargin<2),N=9999;end
 if(isempty(titol)),titol='Select mother folder(s)';end
-aux=1;folder='';
+folder='';
 ruta='lastfolder.mat';
 try% attempt to save user settings file in matlab folder
     if(~isempty(getenv('USERPROFILE')))% windows machine
@@ -25,11 +25,23 @@ try% attempt to save user settings file in matlab folder
         ruta=[rut filesep 'lastfolder.mat'];
     end
 end
+if(strcmp(fname,'FE78'))% flame raw folder
+try
+    aux=findstr(ruta,'lastfolder.mat');
+    ruta=[ruta(1:aux-1) 'lastfile.mat'];
+    load(ruta);
+    fname='F641';
+    eval(['folder=' fname ';']);% assign last ref
+    folder=folder(1:find(folder==filesep,1,'last'));
+end
+else
 try
     load(ruta);
     eval(['folder=' fname ';']);
 end
+end
 Nn=0;folders=cell(0);
+aux=1;
 while(aux==1)
     folder=uigetdir(folder,titol);
     if(strcmp(class(folder),'double')==0)
