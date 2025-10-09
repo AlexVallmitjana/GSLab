@@ -1,13 +1,30 @@
 function [IT,dad] = readFlameRaw(path,verb,unj)
 % returns array IT with dimensions being y,x,c,t,z
+% set verb to 0 to prevent verbosity
+% set unj to 0 to prevent applyting unjag
 % path='C:\Users\austi\Synology Drive 2\01_Patient\0420_250130_HS6307_General_AV\Normal_ExVivo_LFA\ZMosaic01_4x4_FOV600_z65_zstep10_3Ch';
 if(nargin<2),verb=1;end
 if(nargin<3),unj=1;end
+%% sanity checks
+% tif files
+aux=dir([path filesep '*.tif']);
+if(isempty(aux)),error('No tif files!');end
+% tif sizes
+for ii=1:numel(aux)
+    aux1=imfinfo([path filesep aux(ii).name]);
+    if(ii>1)
+if(aux1(1).Height~=aux2(1))||(aux1(1).Width~=aux2(2))||(numel(aux1)~=aux2(3))
+error('Images have different sizes!')
+end
+    end
+    aux2=[aux1(1).Height aux1(1).Width numel(aux1)];    
+end
+%%
 txt=dir([path filesep '*Data.txt']);
 if~isempty(txt)
     [dad] = readScanImageMeta([path filesep txt(1).name]);    
 else
-    error('No txt file!');
+    error('No metadata file!');
 end
 TT=numel(txt);
 ZZ=numel(dad.tileZs);
@@ -66,9 +83,18 @@ else
 end
 
 %   size(IT)
+%% ATENTION forcing to 32 bins when 30 or 31
+if(size(IT,3)==30)
+ IT=cat(3,IT,zeros(size(IT,1),size(IT,2),2,size(IT,4),size(IT,5)));   
+end
+if(size(IT,3)==31)
+IT=cat(3,IT,zeros(size(IT,1),size(IT,2),1,size(IT,4),size(IT,5)));
+end
+% disp(size(IT,3));
+%%
 fin=strfind(path,'_');
 fin(fin<=ori)=[];
-DX=str2num(path(ori+4:fin(1)-1))/dad.tileResolution(2);
+DX=str2num(path(ori+4:fin(1)-1))/dad.tileResolution(1);
 dad.pixelSizeUm=DX;
 dad.folderPath=path(1:aux00(end)-1);
 dad.fileName=path(aux00(end)+1:end);

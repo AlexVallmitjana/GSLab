@@ -19,12 +19,12 @@ else
     if(ischar(pathorstruc))
     PathName=pathorstruc;
     ext=PathName(end-2:end);
-    if(strcmpi(ext,'r64'))||(strcmpi(ext(1:2),'re'))
+    if(strcmpi(ext,'r64'))||(strcmpi(ext(1:2),'re'))&&(PathName(end-3)=='.')% file
     %if((strcmpi(PathName(end-2:end),'re4'))||(((strcmpi(PathName(end-2:end),'ref'))||(strcmpi(PathName(end-2:end),'r64')))||((strcmpi(PathName(end-2:end),'re1'))||(strcmpi(PathName(end-2:end),'re3')))))%its path to a file
        files=dir(PathName); 
        PathName=[files(1).folder filesep];
     else%path to a folder
-    if((PathName(end)~='/')&&(PathName(end)~='\')),PathName(end+1)=filesep;end
+    if((PathName(end)~='/')&&(PathName(end)~='\')),PathName=[PathName filesep];end
     files=[dir([PathName '*.ref']);dir([PathName '*.R64']);dir([PathName '*.re1']);dir([PathName '*.re3']);dir([PathName '*.re4']);dir([PathName '*.re5']);dir([PathName '*.re6']);dir([PathName '*.re7']);dir([PathName '*.re8'])];
     end
     else
