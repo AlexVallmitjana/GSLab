@@ -1,10 +1,12 @@
+[v1.178] - FLIMlabs IMG1 format implemented, additionally IPG1 can be read as IMG1 to ignore precomputed phasor coords  
+[v1.177] - Changed order of cluster and unmix tab  
 [v1.176] - FLAME calibration now forces to 32bins by adding empty bins if necessary  
 [v1.175] - Labeled masks are displayed colorcoded in image tab  
 ### Oct'25 
 [v1.174] - Loading dialog for FLAME raw, FLAME calibration and simFCSref uses the same remembered path  
 [v1.173] - Exported images in unmixing tab use the format determined in export tab  
 [v1.172] - Fixed bug in unmixing when masks and images have different sizes  
-[v1.171] - Changing number of rows in image window tiling will auto set cols if necessary. Also preventing users from resizing image window    
+[v1.171] - Changing number of rows in image window tiling will auto set cols if necessary, also preventing users from resizing image window    
 [v1.170] - Forcing images to be square before saving as simFCS ref  
 [v1.169] - Changed image window behaviour so it accounts for multiple monitors and is taken to foreground when interacting  
 [v1.168] - All_combo file comes out with a numerical value so sequential files are not overwritten  
