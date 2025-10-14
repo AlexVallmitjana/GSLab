@@ -1,3 +1,4 @@
+[v1.179] - Implemented user input percentiles for automated coord and color range, intensity display and thresholding  
 [v1.178] - FLIMlabs IMG1 format implemented, additionally IPG1 can be read as IMG1 to ignore precomputed phasor coords  
 [v1.177] - Changed order of cluster and unmix tab  
 [v1.176] - FLAME calibration now forces to 32bins by adding empty bins if necessary  

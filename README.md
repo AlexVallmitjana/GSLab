@@ -22,7 +22,7 @@ Once the path has been saved in MATLAB, simply type GSLab in the command window 
 
 ### Help
 
-A [user manual pdf file](GSLab_Manual.pdf) is inculded here in the main directory. 
+A [user manual pdf file](GSLab_Manual.pdf) is inculded in the main directory. 
 
 A follow-along [tutorial and sample files](https://doi.org/10.6084/m9.figshare.28067108) are available for download in Figshare.
 
