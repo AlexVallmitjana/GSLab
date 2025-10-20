@@ -1,3 +1,8 @@
+[v1.184] - Multichannel FLIMlabs images can be loaded  
+[v1.183] - Added Loading options for FLIMlabs and FLAME data  
+[v1.182] - Fixed issues with relative/absolute count display when changing the upper percentile to display in histogram  
+[v1.181] - Added UI color option and dark mode  
+[v1.180] - Added preferences tab with general settings and moved all dispensable options    
 [v1.179] - Implemented user input percentiles for automated coord and color range, intensity display and thresholding  
 [v1.178] - FLIMlabs IMG1 format implemented, additionally IPG1 can be read as IMG1 to ignore precomputed phasor coords  
 [v1.177] - Changed order of cluster and unmix tab  
@@ -194,5 +199,6 @@
 [v1.2] - Added S and G range as parameters  
 [v1.1] - Added a section at the begining with phasor filtering parameters  
 [v1.0] - First simple script to read FLAME files, phasor transform and generate 2D histogram   
-### Jun'24 - Suman requests a script to plot phasors from FLAME data
+### Jun'24 
+[    ] - Suman requests a script to plot phasors from FLAME data
 

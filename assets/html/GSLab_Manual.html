@@ -43,7 +43,7 @@ b {
 }
 
  p.Normal, li.Normal, div.Normal
-	{margin:0in;
+	{margin: 0;
 	text-indent:0ex;}	
  p.Normal_L0, li.Normal_L0, div.Normal_L0
 	{margin:0in;
@@ -55,7 +55,7 @@ p.Normal_L1, li.Normal_L1, div.Normal_L1
 	margin-left:2ex;
 	text-indent:0ex;
 	}	
- p.Normal_L2, li.Normal_L2, div.Normal_L2
+p.Normal_L2, li.Normal_L2, div.Normal_L2
 	{margin:0in;
 	margin-left:4ex;
 	text-indent:0ex;
@@ -63,11 +63,11 @@ p.Normal_L1, li.Normal_L1, div.Normal_L1
 p.Normal_L3, li.Normal_L3, div.Normal_L3
 	{margin:0in;
 	margin-left:6ex;
-	text-indent:0ex;;
+	text-indent:0ex;
 	}
 	
 .compnt
-	{color:#268;text-decoration: none;}	
+	{color:#268;text-decoration: underline;}	
 .compnt:Hover
 	{color:#B4C;}
 .mention
@@ -154,13 +154,13 @@ all cursors on the phasor plot.</p>
 
 <p class="Normal_L2"> <span class="compnt"> Leica FALCON SnG</span>: prompts user to select a folder containing trios or quartets of tifs exported from the Leica Falcon as S and G coordinates using <b>Save phasor GS - Fixed Range</b> in LASX. The steps are:</p>
 
-<p class="Normal_L3"><span class="compnt">1.</span> In the LAS X FLIM/FCS window, select the Intensity tab above the images.</p>
-<p class="Normal_L3"><span class="compnt">2.</span> In the FLIM tab on the left menu, at the bottom there is a Save Image button.</p>
-<p class="Normal_L3"><span class="compnt">3.</span> Click that and the Save Image window opens:</p>
-<p class="Normal_L3"><span class="compnt">4.</span> Select Tiff tab.</p>
-<p class="Normal_L3"><span class="compnt">5.</span> Select checkbox Save Phasor GS.</p>
-<p class="Normal_L3"><span class="compnt">6.</span> Select the radio button Fixed Range.</p>
-<p class="Normal_L3"><span class="compnt">7.</span> Set the Factor or Range to per Grey Level and input 1 in the edit field box.</p>
+<p class="Normal_L3">1. In the LAS X FLIM/FCS window, select the Intensity tab above the images.</p>
+<p class="Normal_L3">2. In the FLIM tab on the left menu, at the bottom there is a Save Image button.</p>
+<p class="Normal_L3">3. Click that and the Save Image window opens:</p>
+<p class="Normal_L3">4. Select Tiff tab.</p>
+<p class="Normal_L3">5. Select checkbox Save Phasor GS.</p>
+<p class="Normal_L3">6. Select the radio button Fixed Range.</p>
+<p class="Normal_L3">7. Set the Factor or Range to per Grey Level and input 1 in the edit field box.</p>
 
 <p class="Normal_L2"> <span class="compnt"> Zeiss lsm</span>: prompts user to select Zeiss lsm file(s). </p>
 
@@ -182,9 +182,13 @@ all cursors on the phasor plot.</p>
 
 <p class="Normal_L2"> <span class="compnt"> Current session</span>: prompts user to browse location and input file name to save current settings and paths to loaded files.</p>
 
-<p class="Normal_L1"> <span class="compnt"> Move top/up/down/bot</span>: Moves the selected file to the desired position in the list to change the arrangement in the display window and in exported images.</p>
+<p class="Normal_L1"> <span class="compnt"> Move</span>: </p>
 
-<p class="Normal_L1"> <span class="compnt"> Check All/None/Invert</span>: Checks all or none or inverts current checked files from the list for their display and analysis.</p>
+<p class="Normal_L2"> <span class="compnt"> Top/up/down/bot</span>:  Moves the selected file to the desired position in the list to change the arrangement in the display window and in exported images.</p>
+
+<p class="Normal_L2"> <span class="compnt"> Odd/even</span>:  Moves all files to split the current list into two halves taking alternating items from list.</p>
+
+<p class="Normal_L1"> <span class="compnt"> Check All/None/Invert/Alternate</span>: Checks all or none or inverts or alternated checked files from the list for their display and analysis.</p>
 
 <p class="Normal_L1"> <span class="compnt"> Emphasis</span>: </p>
 
@@ -242,6 +246,8 @@ images prior to phasor transform. </p>
 
 <p class="Normal_L0"> <span class="compnt"> Relative checkbox</span>: indicates if the intensity values are relative to the dynamic range of each file or are the thresholds are to be set in absolute intensity units.</p>
 
+<p class="Normal_L0"> <span class="compnt"> Auto button</span>: Automatically set the range to a percentile of the data (determined by user preferences).</p>
+
 <p class="Normal_L0"> <span class="compnt"> Intensity histogram</span> panel shows the intensity histogram of each loaded file.</p>
 
 <p class="Normal_L0"> <span class="compnt"> Log plot checkbox</span>: plot the intensity histogram in logarithmic scale. This option is useful when you have pixels with low counts and others with very high counts.</p>
@@ -270,7 +276,7 @@ images prior to phasor transform. </p>
 
 <p class="Normal_L0"> <span class="compnt"> Save mask button</span>: Save current masks to file (png if single file or stacked tiff if multiple files).</p>
 
-<p class="Normal_L0"> <span class="compnt"> Load mask button</span>: Load image to use as binary mask. If a single image is loaded it will be applied to all files in memory, if a stack of tiffs is loaded, each slice will be sequentially applied to each loaded image. Images created in other softwares can be uploaded and used to exclude pixels from phasor analysis. Additionally if an image with integer labels can be loaded and it will be treated as region labels to export average region phasor data (Export tab - Masked object data checkbox) </p>
+<p class="Normal_L0"> <span class="compnt"> Load mask button</span>: Load image to use as binary mask. If a single image is loaded it will be applied to all files loaded, if a multislice tiff is loaded, each slice will be sequentially applied to each loaded image. Images created in other softwares can be uploaded and used to exclude pixels from phasor analysis. Additionally if an image with integer labels can be loaded and it will be treated as region labels to export average region phasor data (Export tab - Masked object data checkbox) </p>
 
 <p class="Normal_L0"> <span class="compnt"> Overwrite</span>: Ovewrite current mask when loading or apply loaded mask on current mask.</p>
 
@@ -298,27 +304,21 @@ associated measurements.</p>
 
 <p class="Normal_L0"> <span class="compnt"> Level box</span>: Wavelet denoising level (requires Wavelet Toolbox).</p>
 
-<p class="Normal_L0"> <span class="compnt"> Filter before threshold checkbox</span>: Apply filter before or after thresholding the image.</p>
-
 <p class="Normal_L0"> <span class="compnt"> S range boxes</span>: Lower and upper limits of the S axis for displaying the phasor plot.</p>
 
-<p class="Normal_L0"> <span class="compnt"> Auto button</span>: Automatically set the S axis limits based on the contents of the phasor plot.</p>
+<p class="Normal_L0"> <span class="compnt"> Auto button</span>: Automatically set the S axis limits to a percentile range (determined by user preferences).</p>
 
 <p class="Normal_L0"> <span class="compnt"> G range boxes</span>: Lower and upper limits of the G axis for displaying the phasor plot.</p>
 
-<p class="Normal_L0"> <span class="compnt"> Auto button</span>: Automatically set the S axis limits based on the contents of the phasor plot.</p>
+<p class="Normal_L0"> <span class="compnt"> Auto button</span>: Automatically set the G axis limits to a percentile range (determined by user preferences).</p>
 
 <p class="Normal_L0"> <span class="compnt"> Color range boxes</span>: Lower and upper limits for the color range (in units of a whole turn for angular quantities and in phasor units for radial quantities).</p>
 
+<p class="Normal_L0"> <span class="compnt"> Auto button</span>: Automatically set the color range to a percentile range (determined by user preferences).</p>
+
 <p class="Normal_L0"> <span class="compnt"> Centering boxes</span>: G and S coordinates of the center of a custom measuring magnitude.</p>
 
-<p class="Normal_L0"> <span class="compnt"> Auto button</span>: Automatically set the color range based on the contents of the phasor plot.</p>
-
-<p class="Normal_L0"> <span class="compnt"> Max harmonics box</span>: Set the number of harmonics to compute when loading data.</p>
-
 <p class="Normal_L0"> <span class="compnt"> Phasor resolution box</span>: Number of bins to use in the phasor space for computing the phasor plot.</p>
-
-<p class="Normal_L0"> <span class="compnt"> Downsampling box</span>: Size of low-resolution images. Set to 0 for no downsampling.</p>
 
 <p class="Normal_L0"> <span class="compnt"> Plot HR button</span>: Compute phasor plot for High resolution images.</p>
 
@@ -363,6 +363,8 @@ associated measurements.</p>
 </div>
 
 
+<p class="Normal_L0"> <span class="compnt"> Harmonic # numeric box</span>: Plot the phasor in the corresponding harmonic number (if higher than 1 it will show in red as a warning).</p>
+
 <p class="Normal_L0"> <span class="compnt"> Phasor style radio button</span>:</p>
 
 <p class="Normal_L1"> <span class="compnt"> Lifetime</span>: Sets the S and G ranges appropriate for lifetime phasor and adds universal circle lines.</p>
@@ -377,29 +379,25 @@ associated measurements.</p>
 
 <p class="Normal_L0"> <span class="compnt">  Contours checkbox</span>: Adds contour lines for lower counts in the phasor plot.</p> 
 
-<p class="Normal_L0"> <span class="compnt"> Density colormap dropdown</span>: Allows choices of different color schemes for the phasor density heatmap (if last option <span class="mention">single color</span> is selected the button to select color is enabled).</p> 
-
-<p class="Normal_L0"> <span class="compnt"> Magnitude colormap</span>: Allows choices of different color schemes for the phasor-based measurement (if last option <span class="mention">single color</span> is selected the button to select color is enabled).</p>
-
-<p class="Normal_L0"> <span class="compnt"> Cursor colors panel</span>: Each colored button corresponds to the successive cursors that can be used, click on the buttons to open the color palette and change the color of the cursor.</p> 
-
 <p class="Normal_L0"> <span class="compnt"> Lines checkbox</span>: Draws the universal semicircle for lifetime or the unity circle for spectral.</p> 
 
-<p class="Normal_L0"> <span class="compnt"> Line values checkbox</span>: Adds ticks of selected lifetimes on the universal semicircle depending on excitation source frequency.</p>
+<p class="Normal_L0"> <span class="compnt"> Axes checkbox</span>: Depicts axes G and S units.</p>
 
-<p class="Normal_L0"> <span class="compnt"> Line values font size box</span>: Choose the font size for lifetime values displayed.</p>
+<p class="Normal_L0"> <span class="compnt"> Ticks checkbox</span>: Adds ticks of selected lifetimes/wavelengths depending on excitation source frequency/spectral band.</p>
 
 <p class="Normal_L0"> <span class="compnt"> Axes font size box</span>: Choose the font size for the S and G axes.</p>
 
-<p class="Normal_L0"> <span class="compnt"> Harmonic # numeric box</span>: Plot the phasor in the corresponding harmonic number (if higher than 1 it will show in red as a warning).</p>
+<p class="Normal_L0"> <span class="compnt"> Tick font size box</span>: Choose the font size for tick values displayed.</p>
+
+<p class="Normal_L0"> <span class="compnt"> Tick # box</span>: Choose the nuber of ticks to display.</p>
 
 <p class="Normal_L0"> <span class="compnt"> Magnitude background color checkbox</span>: Plot the color gradient according to the measured magnitude selected in the Phasor tab.</p>
 
 <p class="Normal_L0"> <span class="compnt"> Soft masks checkbox</span>: Overlays cursor/magnitude colors on the intensity window as a soft mask (colored intensity image) or hard mask (just the colors regardless of intensity).</p>
 
-<p class="Normal_L0"> <span class="compnt"> Impose image window tiling checkbox</span>: Force tile arrangement in the intensity window.</p>
+<p class="Normal_L0"> <span class="compnt"> Image window tiling checkbox</span>: Force tile arrangement in the intensity window.</p>
 
-<p class="Normal_L0"> <span class="compnt"> Impose image window tiling numeric boxes</span>: Set the number of rows and columns for displaying the loaded files.</p>
+<p class="Normal_L0"> <span class="compnt"> Image window tiling numeric boxes</span>: Set the number of rows and columns for displaying the loaded files.</p>
 
 <p class="Normal_L0"> <span class="compnt"> Margins checkbox</span>: Add/remove margin between images in the intensity window.</p>
 
@@ -408,12 +406,57 @@ associated measurements.</p>
 <p class="Normal_L0"> <span class="compnt"> Source frequency numeric box</span>: Set the lifetime excitation laser frequency for the phasor transform trigonometric period (only for lifetime display mode).</p>
 
 <p class="Normal_L0"> <span class="compnt"> Spectral band numeric boxes</span>: Set the spectral limits in nm for the spectral phasor transform (only for spectral display mode).</p> 
+
+<p class="Normal_L0"> <span class="compnt"> Plot Decay button</span>: Plot the temporal/spectral curve for each file.</p>
+
+<p class="Normal_L0"> <span class="compnt"> Norm checkbox</span>: Normalize plots to maximum value.</p>
+<!--#########################################################################-->
+
+
+<h3>Cluster tab</h3>
+
+<p class="Normal"> The clustering tab
+is used to create automated clustering of phasor distributions in the phasor
+space. </p>
+
+<div style="width:224px;float:right;margin-left:5px;margin-top:5px;">
+<div style="width:100%;text-align:center;">
+<img width=223 height=126 src="../images/tab06.png" alt="clustertab">
+</div>
+<div style="width:100%;"><p class="Capt" >Cluster tab.</p></div>
+</div>
+
+<p class="Normal_L0"> <span class="compnt"> Model dropdown</span>: Select clustering model (currently only GMM).</p>
+
+<p class="Normal_L0"> <span class="compnt"> Train model</span>: Taking the data on the phasor plot, a gaussian mixture models is trained using the expectation-maximization algorithm. The user must select the number of clusters to model by the starting locations of the clusters. </p> 
+
+<p class="Normal_L0"> <span class="compnt"> Clear model</span>: Clears the current trained model.</p>
+
+<p class="Normal_L0"> <span class="compnt"> Apply model</span>: Re-applies the model to the current displayed data.</p>
+
+<p class="Normal_L0"> <span class="compnt"> Phasor display style</span>: </p>
+
+<p class="Normal_L1"> <span class="compnt"> Contour of model</span>: Plots the agglomerated sum of gaussians as a single contour plot.</p>
+
+<p class="Normal_L1"> <span class="compnt"> Contour separate clusters</span>: Plots each clusters gaussian component as a separate contour plot.</p>
+
+<p class="Normal_L1"> <span class="compnt"> Ellipse with percentage of data</span>: Plots a single contour for each gaussian such that it contains the percentage of the data set by the text box.</p>
+
+<p class="Normal_L0"> <span class="compnt"> Image display style</span>: </p>
+
+<p class="Normal_L1"> <span class="compnt"> Hard assign</span>: Each pixel is colored with the gaussian component that has a higher posterior probability.</p>
+
+<p class="Normal_L1"> <span class="compnt"> Probability assign</span>: Each pixel is colored with a linear combination colors corresponding to the linear combination weights of each gaussian component in the pixel.</p>
+
+<p class="Normal_L0"> <span class="compnt"> Blending percentage</span>: Applies smoothing to the color masking image to blend regions.</p>
+
+<p class="Normal_L0"> <span class="compnt"> Override magnitude for export</span>: If checked it will swap the magnitude-colored checkboxes in the export tab for GMM-colored checkboxes in order to allow user to export the resulting images of the clustering.</p>
+
 <!--#########################################################################-->
 
 <h3>Unmix tab</h3>
 
-<p class="Normal"> This
-tab includes all options for defining pure components to run the multi-harmonic
+<p class="Normal"> This tab includes all options for defining pure components to run the multi-harmonic
 multi-component phasor unmixing routines.</p>
 
 
@@ -477,51 +520,10 @@ multi-component phasor unmixing routines.</p>
 
 <!--#########################################################################-->
 
-<h3>Cluster tab</h3>
-
-<p class="Normal"> The clustering tab
-is used to create automated clustering of phasor distributions in the phasor
-space. </p>
-
-<div style="width:224px;float:right;margin-left:5px;margin-top:5px;">
-<div style="width:100%;text-align:center;">
-<img width=223 height=126 src="../images/tab06.png" alt="clustertab">
-</div>
-<div style="width:100%;"><p class="Capt" >Cluster tab.</p></div>
-</div>
-
-
-
-<p class="Normal_L0"> <span class="compnt"> Train GMM</span>: Taking the data on the phasor plot, a gaussian mixture models is trained using the expectation-maximization algorithm. The user must select the number of clusters to model by the starting locations of the clusters. </p> 
-
-<p class="Normal_L0"> <span class="compnt"> Clear GMM</span>: Clears the current trained model.</p>
-
-<p class="Normal_L0"> <span class="compnt"> Apply GMM</span>: Re-applies the model to the current displayed data.</p>
-
-<p class="Normal_L0"> <span class="compnt"> Phasor display style</span>: </p>
-
-<p class="Normal_L1"> <span class="compnt"> Contour of model</span>: Plots the agglomerated sum of gaussians as a single contour plot.</p>
-
-<p class="Normal_L1"> <span class="compnt"> Contour separate clusters</span>: Plots each clusters gaussian component as a separate contour plot.</p>
-
-<p class="Normal_L1"> <span class="compnt"> Ellipse with percentage of data</span>: Plots a single contour for each gaussian such that it contains the percentage of the data set by the text box.</p>
-
-<p class="Normal_L0"> <span class="compnt"> Image display style</span>: </p>
-
-<p class="Normal_L1"> <span class="compnt"> Hard assign</span>: Each pixel is colored with the gaussian component that has a higher posterior probability.</p>
-
-<p class="Normal_L1"> <span class="compnt"> Probability assign</span>: Each pixel is colored with a linear combination colors corresponding to the linear combination weights of each gaussian component in the pixel.</p>
-
-<p class="Normal_L0"> <span class="compnt"> Blending percentage</span>: Applies smoothing to the color masking image to blend regions.</p>
-
-<p class="Normal_L0"> <span class="compnt"> Override magnitude for export</span>: If checked it will swap the magnitude-colored checkboxes in the export tab for GMM-colored checkboxes in order to allow user to export the resulting images of the clustering.</p>
-
-<!--#########################################################################-->
 
 <h3>Export tab</h3>
 
-<p class="Normal"> Options regarding
-exporting of images and data files.</p>
+<p class="Normal"> Options regarding exporting of images and data files.</p>
 
 <div style="width:224px;float:right;margin-left:5px;margin-top:5px;">
 <div style="width:100%;text-align:center;">
@@ -543,49 +545,88 @@ exporting of images and data files.</p>
 
 <p class="Normal_L0"> <span class="compnt"> Data export options</span>: </p>
 
-<p class="Normal_L0"> <span class="compnt"> Decay as checkbox</span>: For each checked file generate a file with the average intensity in each spectral/lifetime channel.</p>
+<p class="Normal_L1"> <span class="compnt"> Average decay as checkbox</span>: For each checked file generate a file with the average intensity in each spectral/lifetime channel.</p>
 
-<p class="Normal_L0"> <span class="compnt"> Decay as dropdown</span>: Select the file format.</p>
+<p class="Normal_L1"> <span class="compnt"> Decay as dropdown</span>: Select the file format.</p>
 
-<p class="Normal_L0"> <span class="compnt"> Pixel GS & data as checkbox</span>: For each checked file generate a file with the phasor coordinates and all phasor magnitudes.</p>
+<p class="Normal_L1"> <span class="compnt"> Pixel GS & data as checkbox</span>: For each checked file generate a file with the phasor coordinates and all phasor magnitudes.</p>
 
-<p class="Normal_L0"> <span class="compnt"> Pixel GS & data as dropdown</span>: Select the file format.</p>
+<p class="Normal_L1"> <span class="compnt"> Pixel GS & data as dropdown</span>: Select the file format.</p>
 
-<p class="Normal_L0"> <span class="compnt"> Masked obj data as checkbox</span>: If a mask is loaded, detect all objects based on pixel connectivity (8) and obtain mean values for each detected object.</p>
+<p class="Normal_L1"> <span class="compnt"> Masked obj data as checkbox</span>: If a mask is loaded, detect all objects based on pixel connectivity (8) and obtain mean values for each detected object.</p>
 
-<p class="Normal_L0"> <span class="compnt"> Masked obj data as dropdown</span>: Select the file format.</p>
+<p class="Normal_L1"> <span class="compnt"> Masked obj data as dropdown</span>: Select the file format.</p>
 
-<p class="Normal_L0"> <span class="compnt"> Print colorbar checkbox</span>: Render a colorbar of the measured magnitude color gradient</p>
+<p class="Normal_L1"> <span class="compnt"> Print colorbar checkbox</span>: Render a colorbar of the measured magnitude color gradient</p>
 
-<p class="Normal_L0"> <span class="compnt"> Save background image checkbox</span>: Render a color gradient corresponding to the measured magnitude on the phasor plot.</p>
+<p class="Normal_L1"> <span class="compnt"> Save background image checkbox</span>: Render a color gradient corresponding to the measured magnitude on the phasor plot.</p>
 
-<p class="Normal_L0"> <span class="compnt"> Phasor with axes checkbox</span>: Export the phasor plot with the axes numbers and ticks.</p>
+<p class="Normal_L1"> <span class="compnt"> Phasor with axes checkbox</span>: Export the phasor plot with the axes numbers and ticks.</p>
 
-<p class="Normal_L0"> <span class="compnt"> Phasor plot alpha checkbox</span>: Export phasor plots as png files with transparency (only if exported separately).</p>
+<p class="Normal_L1"> <span class="compnt"> Phasor plot alpha checkbox</span>: Export phasor plots as png files with transparency (only if exported separately).</p>
 
-<p class="Normal_L0"> <span class="compnt"> Phasor plot as checkbox</span>: For each checked file export its phasor plot.</p>
+<p class="Normal_L1"> <span class="compnt"> Phasor plot as checkbox</span>: For each checked file export its phasor plot.</p>
 
-<p class="Normal_L0"> <span class="compnt"> Phasor plot as dropdown</span>: Select the file format for phasor plots. </p>
+<p class="Normal_L1"> <span class="compnt"> Phasor plot as dropdown</span>: Select the file format for phasor plots. </p>
  
-<p class="Normal_L0"> <span class="compnt"> Intensity image checkbox</span>: For each checked file export its intensity image in grayscale.</p>
+<p class="Normal_L1"> <span class="compnt"> Intensity image checkbox</span>: For each checked file export its intensity image in grayscale.</p>
 
-<p class="Normal_L0"> <span class="compnt"> Intensity image all as dropdown</span>: Select file format for image exports.</p>
+<p class="Normal_L1"> <span class="compnt"> Intensity image all as dropdown</span>: Select file format for image exports.</p>
 
-<p class="Normal_L0" style="color:lightgray;"> <span > Magnitude values as checkbox </span>: Removed, use Pixel GS & data instead. </p>
+<p class="Normal_L1"> <span class="compnt"> Magnitude-colored image checkbox</span>: For each checked file export the magnitude-colored image (hard mask style).</p>
 
-<p class="Normal_L0" style="color:lightgray;"> <span > Magnitude values as dropdown</span>: Removed, use Pixel GS & data instead. </p>
+<p class="Normal_L1"> <span class="compnt"> Magnitude-colored x intensity image checkbox</span>: For each checked file export the magnitude-colored image times the intensity image (soft mask style). </p>
 
-<p class="Normal_L0"> <span class="compnt"> Magnitude-colored image checkbox</span>: For each checked file export the magnitude-colored image (hard mask style).</p>
+<p class="Normal_L1"> <span class="compnt"> Cursor-colored image checkbox</span>: For each checked file export the cursor-colored image (hard mask style).</p> 
 
-<p class="Normal_L0"> <span class="compnt"> Magnitude-colored x intensity image checkbox</span>: For each checked file export the magnitude-colored image times the intensity image (soft mask style). </p>
+<p class="Normal_L1"> <span class="compnt"> Cursor colored x intensity image checkbox</span>: For each checked file export the cursor-colored image times the intensity image (soft mask style).</p> 
 
-<p class="Normal_L0"> <span class="compnt"> Cursor-colored image checkbox</span>: For each checked file export the cursor-colored image (hard mask style).</p> 
+<p class="Normal_L1"> <span class="compnt"> Combine into single image checkbox</span>: For each checked file join all selected exports into a single file (it will override the phasor plot file format if selected).</p>
 
-<p class="Normal_L0"> <span class="compnt"> Cursor colored x intensity image checkbox</span>: For each checked file export the cursor-colored image times the intensity image (soft mask style).</p> 
+<p class="Normal_L1"> <span class="compnt"> Group all combined images checkbox</span>: Join all file exports into a single image using the Image Window tile disposition.</p>
+<!--#########################################################################-->
 
-<p class="Normal_L0"> <span class="compnt"> Combine into single image checkbox</span>: For each checked file join all selected exports into a single file (it will override the phasor plot file format if selected).</p>
+<h3>Preferences (&#9881) tab </h3>
 
-<p class="Normal_L0"> <span class="compnt"> Group all combined images checkbox</span>: Join all file exports into a single image using the Image Window tile disposition.</p>
+<p class="Normal"> General options for GSLab operation.</p>
+
+<div style="width:224px;float:right;margin-left:5px;margin-top:5px;">
+<div style="width:100%;text-align:center;">
+<img width=223 height=126 src="../images/tab08.png" alt="exportab">
+</div>
+<div style="width:100%;"><p class="Capt" >Preferences tab.</p></div>
+</div>
+
+<p class="Normal_L0"> <span class="compnt"> Load FLAME 31nB with B checkbox</span>: Load the blue channel as a separate file.</p>
+
+<p class="Normal_L0"> <span class="compnt"> Prompt FLIMlabs load oprion checkbox</span>: Prompt user when loading FLIMlabs json if raw or precalibrated data should be loaded.</p>
+
+<p class="Normal_L0"> <span class="compnt"> Load FLIMlabs raw checkbox</span>: Load FLIMlabs json as raw data ignoring precalibrated phasor coordinates.</p>
+
+<p class="Normal_L0"> <span class="compnt"> Filter before threshold checkbox</span>: Apply filter before or after thresholding the image.</p>
+
+<p class="Normal_L0"> <span class="compnt"> Downsampling box</span>: Size of low-resolution images. Set to 0 for no downsampling.</p>
+
+<p class="Normal_L0"> <span class="compnt"> Max harmonics box</span>: Set the number of harmonics to compute when loading data.</p>
+
+<p class="Normal_L0"> <span class="compnt"> Density colormap dropdown</span>: Allows choices of different color schemes for the phasor density heatmap (if last option <span class="mention">single color</span> is selected the button to select color is enabled).</p> 
+
+<p class="Normal_L0"> <span class="compnt"> Magnitude colormap</span>: Allows choices of different color schemes for the phasor-based measurement (if last option <span class="mention">single color</span> is selected the button to select color is enabled).</p>
+
+<p class="Normal_L0"> <span class="compnt"> Cursor colors panel</span>: Each colored button corresponds to the successive cursors that can be used, click on the buttons to open the color palette and change the color of the cursor.</p> 
+
+<p class="Normal_L0"> <span class="compnt"> Intensity histogram top pctl</span>: Set value of the percentile of data to depict histogram and normalize in relative mode.</p>
+
+<p class="Normal_L0"> <span class="compnt"> Autointensity pctl</span>: Set values of the percentile range of data to depict in the auto range button (Image tab).</p>
+
+<p class="Normal_L0"> <span class="compnt"> Autocoord pctl</span>: Set values of the percentile range of data to depict in the auto G and S buttons (Phasor tab).</p>
+
+<p class="Normal_L0"> <span class="compnt"> Autointensity pctl</span>: Set values of the percentile range of data to depict in the auto color button (Phasor tab).</p>
+
+<p class="Normal_L0"> <span class="compnt"> Dark mode checkbox</span>: Set the interface to dark mode.</p>
+
+<p class="Normal_L0"> <span class="compnt"> UI color button</span>: Set the general color tone of the user interface.</p>
+
 
 <!--#########################################################################-->
 
