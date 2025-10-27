@@ -1,3 +1,7 @@
+[v1.188] - Changed all dialogs to uialert/uiconfirm to prevent issues with windows being behind main app  
+[v1.187] - Fixed bug when opening FLIMlabs multichannel phasor data as raw  
+[v1.186] - Optimized gray2rgb function to take 1/8 of the time  
+[v1.185] - Forcing colorbar to be 1kpx high  
 [v1.184] - Multichannel FLIMlabs images can be loaded  
 [v1.183] - Added Loading options for FLIMlabs and FLAME data  
 [v1.182] - Fixed issues with relative/absolute count display when changing the upper percentile to display in histogram  
