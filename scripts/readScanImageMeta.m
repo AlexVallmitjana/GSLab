@@ -21,7 +21,8 @@ for ii=1:2:numel(fields)-1
             end
             % char(valor)
             valor=valor(1:final);
-            valor(valor==10)=[];%remove enters
+            valor(valor==10)=[];%remove end of line
+            valor(valor==13)=[];%remove end of line in mac
             valor(valor==32)=[];%remove spaces
             cc=cc+1;
             valors{jj}=char(valor);
