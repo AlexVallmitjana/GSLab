@@ -1,6 +1,8 @@
+[v1.192] - Clicking on main panel in File tab folds calibration panel if its open  
+[v1.191] - Replaced all msgbox for uialert  
 [v1.190] - Adapted FLAME metadata reader to accomodate for mac OS end of line  
 [v1.189] - Simplified the settings for percentile input range and fixed where intensity percentile was being undersetimated  
-[v1.188] - Changed all dialogs to uialert/uiconfirm to prevent issues with windows being behind main app  
+[v1.188] - Changed all dlg functions to uialert/uiconfirm prevent issues with windows being behind main app  
 [v1.187] - Fixed bug when opening FLIMlabs multichannel phasor data as raw  
 [v1.186] - Optimized gray2rgb function to take 1/8 of the time  
 [v1.185] - Forcing colorbar to be 1kpx high  
