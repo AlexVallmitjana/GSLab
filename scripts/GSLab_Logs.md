@@ -1,3 +1,5 @@
+[v1.193] - Preventive measure to avoid intensity slider mismatch when clearing/loading new data  
+### Nov'25 
 [v1.192] - Clicking on main panel in File tab folds calibration panel if its open  
 [v1.191] - Replaced all msgbox for uialert and made color picker appear next to main window    
 [v1.190] - Adapted FLAME metadata reader to accomodate for mac OS end of line  
@@ -138,7 +140,7 @@
 [v1.67] - Image Window contents can be directly exported  
 [v1.66] - Added auto color range functionality  
 [v1.65] - Pure components can be obtained from empirical measurements by selecting loaded files  
-[v1.64] - User can set the tiling dimensions of image window  
+[v1.64] - Implemented HDR in intendity images, also user can set the tiling dimensions of image window  
 [v1.63] - Added option to merge component image exports in unmixing panel  
 [v1.62] - Solved the generating 3chan images ambiguity issue  
 [v1.61] - Added a clustering tab for performing GMM and implemented cluster coloring and exporting capabilities  
