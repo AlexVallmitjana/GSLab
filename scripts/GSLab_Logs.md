@@ -1,4 +1,4 @@
-[v1.195] - Check if text scale is changing window size (MATLAB2025 issue) and allow user to rescale window to adapt to scaling of contents   
+[v1.195] - Check if text scale is changing window size (MATLAB2025 issue) attempt to fix but allow user to rescale window to adapt to scaling of contents   
 [v1.194] - App uses dark/light theme in newer versions of MALAB   
 [v1.193] - Preventive measure to avoid intensity slider mismatch when clearing/loading new data  
 ### Nov'25 
