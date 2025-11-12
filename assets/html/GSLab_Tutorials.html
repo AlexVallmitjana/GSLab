@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,maximum-scale=2">
-    <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css">
-    <link rel="shortcut icon" type="image/png" href="../../scripts/logo1.png">
+    <link rel="stylesheet" type="text/css" href="https://alexvallmitjana.github.io/GSLab/assets/css/style.css">
+    <link rel="shortcut icon" type="image/png" href="https://alexvallmitjana.github.io/GSLab/scripts/logo1.png">
 
 
 <title>Download the tutorial files from FigShare: 
@@ -53,11 +53,12 @@ background-color:green;
 
 <h2 id="T1">Tutorial 1 – Basic phasor analysis using lifetime measurement of a human skin biopsy </h2>
 <ol start="0">
+<em>All tutorials use one of the sample files in the FigShare package, it only needs to be downloaded once.<div style="height: 10px;"></div></em>
 <li><a href="https://doi.org/10.6084/m9.figshare.28067108" target="_blank">Download the tutorial files from FigShare.</a></li>
 <h3>File tab – Load files into the software</h3>
 <li>Start GSLab.</li>
 <li>Right-click in the empty space and select Load > SimFCS ref.</li>
-<li>Select the single ref file from the Fig3_ABCD folder.<br>This is a XZ cross section of an unlabeled human skin biopsy.</li>
+<li>Select the single ref file from the SkinSlice folder.<br>This is a XZ cross section of an unlabeled human skin biopsy taken at the NLOM lab at UCI.</li>
 <li>The phasor plot and the image will appear.</li>
 <li>Check/uncheck the file in the main panel to include/exclude it from the phasor plot.</li>
 <li>Hover over the phasor to see highlighted image regions.</li>
@@ -91,11 +92,11 @@ background-color:green;
 <li><a href="https://doi.org/10.6084/m9.figshare.28067108" target="_blank">Download the tutorial files from FigShare.</a></li>
 <h3>File tab – Load files into the software</h3>
 <li>Start GSLab.</li>
-<li>Right-click in the empty space and select Load > SimFCS ref.</li>
-<li>Select the file from the Fig3_ABCD folder.<br>This is a XZ cross section of an unlabeled human skin biopsy.</li>
+<li>Right-click in the empty space and select Load > simFCS ref.</li>
+<li>Select the file from the SkinSlice folder.<br>This is a XZ cross section of an unlabeled human skin biopsy taken at the NLOM lab at UCI.</li>
 <li>Optionally we can threshold low-photon pixels like in the previous tutorial.<br>(Image tab - increase the lower value for the intensiy range by a little e.g. 0.05 in relative).</li>
 <li>Right-click in the empty space and select Load > Trace txt/csv.</li>
-<li>Select the Coumarin6 file from the Fig3_ABCD folder.<br>This is a measurement of a Coumarin6 solution taken right before the image of the biopsy.</li>
+<li>Select the Coumarin6 file from the SkinSlice folder.<br>This is a measurement of a Coumarin6 solution taken right before the image of the biopsy.</li>
 <li>This file contains a single trace, the software displays it as a single-pixel image in the Image Window. </li>
 <li>Check/uncheck each file in the list to see their contributions in the phasor plot.</li>
 <li>Hover over the phasor plot or image window to locate the Coumarin6 on the phasor plot.<br>Notice that it is outside of the Universal Circle.</li>
@@ -106,7 +107,6 @@ background-color:green;
 <li>Use the arrow button to expand/collapse the panel.</li>
 <li>Enter 2.5 in the Calibration Lifetime (ns) field. Press Enter.</li>
 <li>Check the Apply checkbox to shift the phasor plot accordingly.<br>By checking and unchecking the Apply checkbox you can see the phasor position of the calibrated and uncalibrated data</li>
-<li>Change the Calibration Lifetime (ns) to see how it affects the plot.</li>
 <li>Once set to 2.5ns, we can remove the calibration file:</li>
 <li>Uncheck the Coumarin6 filename from the list.</li>
 <li>Right-click in the empty space and select Clear > Unchecked.</li>
@@ -121,25 +121,75 @@ background-color:green;
 <li>Adjust Color range to 0 and 0.5 to cover the full semicircle.</li>
 <li>Click Auto to let the software adjust the color range automatically.</li>
 <h3>Display tab – Customize the phasor plot</h3>
-<li>Select a different colormap from Magnitude colormap dropdown.</li>
 <li>Set Harmonic # to 2 (phasor computed in second harmonic).</li>
 <li>Change it back to 1 to return to the first harmonic.</li>
 <li>Toggle Lines and Ticks on/off.</li>
 <li>Adjust Font sizes.</li>
 <li>Toggle Soft Masks to see intensity-based or color-only images.</li>
-<li>Choose a different colormap from Density colormap.</li>
 <h3>Export tab – Save images and phasor plots</h3>
 <li>Click Output Folder to select a save location.</li>
 <li>Uncheck all checkboxes except for Print colorbar, and Magnitude-colored x intensity.</li>
 <li>Click Export LR to save the selected items.</li>
 <li>Two image files will be exported the image with phasor lifetime projection, and colorbar with the lifetime values.</li>
 </ol>
-<h2 id="T3">Tutorial 3 – Automated phasor clustering </h2>
+<h2 id="T3">Tutorial 3 – Phasor calibration in multichannel data</h2>
+<ol start="0">
+<em>Attention: Ensure that the Promt FLIMlabs load option is checked to allow selecting raw data<br>(Settings tab - Prompt FLIMlabs load option checkbox).<div style="height: 10px;"></div></em>
+<li><a href="https://doi.org/10.6084/m9.figshare.28067108" target="_blank">Download the tutorial files from FigShare.</a></li>
+<h3>File tab – Load files into the software</h3>
+<li>Start GSLab.</li>
+<li>Right-click in the empty space and select Load > FLIMlabs json.</li>
+<li>Select all 6 file from the Convallaria folder.<br>These are 2-channel measurements of Convallaria majalis root samples and two solid calibrator measurements, one for each channel, of a known lifetime of 2.5ns.<br>Courtesy of Alvaro Crevenna, EMBL Roma.</li>
+<li>The prompt should appear, select the RAW button.</li>
+<li>We have loaded the uncalibrated data which  has a high phase shift and is being depicted in the second and third quadrant.</li>
+<h3>Phasor tab – Select the appropriate range for phasor computing</h3>
+<li>Set the G range lower and upper values to -1 and +1 respectively.</li>
+<li>Set the S range using the auto button.</li>
+<h3>Image tab – Control the rendering of the intensity image</h3>
+<li>Some images are much brighter; set the intensity range units to relative with the Relative checkbox.</li>
+<li>Set the intensity range using the Auto button.</li>
+<li>Inspect the distributions on the phasor plot to observe where the calibrator and convallaria samples are at.</li>
+<h3>File tab – Calibrate each channel separately</h3>
+<li>Select the Solid_calibrator_data_1_1756994363_phasor_ch1.json file (left click on it).</li>
+<li>Declare it as a calibration file (Right click - Calibration File).</li>
+<li>The calibration panel opens, ener 2.5 in the Calibration Lifetime box.</li>
+<li>Check the Apply checkbox to shift all data accordingly. Now the file we selected for calibration should be on the universal circle at the position for 2.5ns.</li>
+<li>The selected file has appeared as a line in the calibration panel, with its name on the right, the assigned lifetime in the middle and a text identifier, currently 'all'.</li>
+<li>Change the identifier to apply the calibration only to specific files: double  click 'All' and type 'ch1'.</li>
+<li>Check/uncheck the Apply checkbox to observe how only the channel 1 data is being shifted accordingly.</li>
+<li>Fold the Calibration panel (using the arrow button in the bottom-right corner).</li>
+<li>Select the Solid_calibrator_data_1_1756994363_phasor_ch2.json file (left click on it).</li>
+<li>Declare it as a calibration file (Right click - Calibration File).</li>
+<li>In the calibration panel change the identifier to apply the calibration only to specific files: Change 'All' for 'ch2'.</li>
+<li>The data is now calibrated, each channel with its own calibration. This can be done for any number of channels.</li>
+</ol>
+<h2 id="T4">Tutorial 4 – Masking</h2>
+<ol start="0">
+<li><a href="https://doi.org/10.6084/m9.figshare.28067108" target="_blank">Download the tutorial files from FigShare.</a></li>
+<h3>File tab – Load files into the software</h3>
+<li>Start GSLab.</li>
+<li>Right-click in the empty space and select Load > Leica Falcon SnG.</li>
+<li>Navigate into the Organoid folder and select the phasor_data folder.<br>This is a two-channel image of an intestinal organoid labeled with a membrane dye and a mitocondrial marker.<br>Courtesy of Hang Zhou, University of Ghent.</li>
+<h3>Image tab – Load the mask</h3>
+<li>Set the intensity range units to relative with the Relative checkbox.</li>
+<li>Set the intensity range using the Auto button.</li>
+<li>Set the lower value of the intensity range to 0.1 to exlude the unmodulated light component in the background.</li>
+<li>Click on the Load mask button to and select the CellposeMask.png file. This is an 16bit integer value image from the automatical segmentation pipeline Cellpose. Each pixel is marked with an integer id that determines which cell it belongs to. GSlab assigns random colors to each object.</li>
+<li>Check the Apply mk checkbox to apply the mask image to the data. Only the pixels inside the mask are being depicted</li>
+<li>Check the invert checkbox to see how now only the pixels outside the mask are being depicted</li>
+<li>Uncheck the invert checkbox again</li>
+<h3>Export tab – Obtain object averaged parameters</h3>
+<li>Uncheck all checkboxes except 'Pixel GS \& data'</li>
+<li>Press Export LR button. A spreadsheet is generated for each file:<br>The pixel-wise intensity, phasor and image coordinates and lifetime measurements, these are one row for each pixel inside the mask.</li>
+<li>Uncheck all checkboxes except 'Masked obj data'</li>
+<li>Press Export LR button. A spreadsheet is generated for each file together with a label reference png:<br>The object-wise intensity, phasor and image coordinates and lifetime measurements, these are one row for each distinct object in the mask. The first column is the id assigned to the object which can be used to inspect the object location in the label reference png.</li>
+</ol>
+<h2 id="T5">Tutorial 5 – Automated phasor clustering </h2>
 <ol start="0">
 <li><a href="https://doi.org/10.6084/m9.figshare.28067108" target="_blank">Download the tutorial files from FigShare.</a></li>
 <h3>File tab – Load files into the software</h3>
 <li>Right-click in the empty white space and select Load > SimFCSref.</li>
-<li>Navigate to the folder location for the downloaded Fig3_ABCD and select the single file in the folder.</li>
+<li>Navigate to the folder location for the downloaded SkinSlice and select the single file in the folder.<br>This is a XZ cross section of an unlabeled human skin biopsy taken at the NLOM lab at UCI.</li>
 <h3>Image tab – Set the image dynamic range</h3>
 <li>Uncheck the Relative checkbox to display the histogram in real counts instead of normalized intensity</li>
 <li>In the Intensity threshold values, type 30 for the lower value field (press enter).</li>
@@ -169,14 +219,14 @@ background-color:green;
 <li>Click Export LR again.</li>
 <li>Now, three separate images should appear in the output folder: phasor plot, grayscale intensity, and GMM-colored image.</li>
 </ol>
-<h2 id="T4">Tutorial 4 – Phasor unmixing with nuclear dyes</h2>
+<h2 id="T6">Tutorial 6 – Phasor unmixing with nuclear dyes</h2>
 <ol start="0">
-<em>Attention: Ensure that the max harmonics is set to 2 in order to compute 2 harmonics of the data when loading (Phasor tab - max harmonics).</em>
+<em>Attention: Ensure that the max harmonics is set to 2 in order to compute harmonics when loading<br>(Settings tab - max harmonics).<div style="height: 10px;"></div></em>
 <li><a href="https://doi.org/10.6084/m9.figshare.28067108" target="_blank">Download the tutorial files from FigShare.</a></li>
 <h3>File tab – Load files into the software</h3>
 <li>Start GSLab.</li>
 <li>Right-click in the empty space and select Load > SimFCS ref.</li>
-<li>Select the 5 files from the Fig3_EFGH folder. <br>These are images of cell nuclei, 4 files have a single dye, the 5th contains all dyes:</li>
+<li>Select the 5 files from the NuclearDyes folder. <br>These are images of cell nuclei, 4 files have a single dye, the 5th contains all dyes, taken at the LFD, UCI:</li>
 <ul style="margin:0;">
 <li>AcO: single dye used Acridin Orange.</li>
 <li>EtBr: single dye used Ethidium Bromide.</li>
@@ -215,13 +265,13 @@ background-color:green;
 <li>Check Export fraction csv.</li>
 <li>Click Compute LR to launch the unmixing and export a csv file for each image with the unmixed photon fraction at each individual pixel.</li>
 </ol>
-<h2 id="T5">Tutorial 5 – Spectral phasor unmixing with spectrally resolved organelle dyes</h2>
+<h2 id="T7">Tutorial 7 – Spectral phasor unmixing with spectrally resolved organelle dyes</h2>
 <ol start="0">
 <li><a href="https://doi.org/10.6084/m9.figshare.28067108" target="_blank">Download the tutorial files from FigShare.</a></li>
 <h3>File tab – Load files into the software</h3>
 <li>Start GSLab.</li>
 <li>Right-click in the empty space and select Load > Zeiss lsm.</li>
-<li>Select the file from the SpectralExample folder. This is a culture of cells loaded with 5 organelle dyes.</li>
+<li>Select the file from the OrganelleDyes folder. This is a culture of cells loaded with 5 organelle dyes.<br>Courtesy of Leonel Malacrida and Florencia Irigoin, Universidad de la Rep&uacute;blica, Montevideo.</li>
 <li>Hover over the phasor to see highlighted image regions:</li>
 <li>Top right is the nuclear dye.</li>
 <li>Bottom right is the membrane dye.</li>
