@@ -1,3 +1,7 @@
+[v1.200] - Exported colorbar takes ticks from phasor plot  
+[v1.199] - Allow users to input color range in units of magnitude  
+[v1.198] - Removed redundant expectedPhasorPosition.m in favour of tau2coords.m  
+[v1.197] - Supressed the variable not found warning when loading user settings and new features are present  
 [v1.196] - Changed minor issue when displaying multilabel masks  
 [v1.195] - Check if text scale is changing window size (MATLAB2025 issue) attempt to fix but allow user to rescale window to adapt to scaling of contents   
 [v1.194] - App uses dark/light theme in newer versions of MALAB   

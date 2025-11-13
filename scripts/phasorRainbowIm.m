@@ -81,7 +81,7 @@ if(type==1)
             ttl=round(size(circ,1)/diff(crop));
             aux=ones(ttl*2,3);
             aux(round(ttl*(crop(1))):round(ttl*(crop(1)))+size(circ,1)-1,:)=circ;
-            circ=min(aux(1:end/2,:),aux(1+end/2:end,:));
+            circ=min(aux(1:floor(size(aux,1)/2),:),aux(1+ceil(size(aux,1)/2):end,:));
         end
     end
     %

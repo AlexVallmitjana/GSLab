@@ -1,4 +1,4 @@
-function [cb] = composeCbar(Crange,nom,sz,cmap,freq)
+function [cb] = composeCbar(Crange,nom,sz,cmap,freq,taus)
  skip=0;
 switch nom
     case {'S','G','Mod'}
@@ -6,14 +6,14 @@ switch nom
     case {'Phase','NormPhase'}
         tv=Crange*2*3.1416;
     case 'TauPhase'
-        taus=[.1 .5 1 2 3 5 8 13 21 34]*1e-9;
+        taus=taus*1e-9;
         omega=2*3.1416*freq;
         gg=1./(1+(omega*taus).^2);
         ss=(omega*taus)./(1+(omega*taus).^2);
         pseudo=atan2(ss,(gg));
         pseudo(taus==Inf)=3.1416;
         stay=find((pseudo>=Crange(1)*2*3.1416)&(pseudo<=Crange(2)*2*3.1416));
-        height=round(256*(pseudo(stay)-Crange(1)*2*3.1416)/((Crange(2)-Crange(1))*2*3.1416));
+        height=1+round(255*(pseudo(stay)-Crange(1)*2*3.1416)/((Crange(2)-Crange(1))*2*3.1416));
         tv=cell(0);
         for jj=1:256% taus in cmap locations for tau
             aux=find(height==jj, 1);
@@ -24,14 +24,15 @@ switch nom
             end
         end
     case 'TauMod'
-        taus=[.1 .5 1 2 3 5 8 13 21 34 Inf]*1e-9;
+        taus=taus*1e-9;
         omega=2*3.1416*freq;
         gg=1./(1+(omega*taus).^2);
         ss=(omega*taus)./(1+(omega*taus).^2);
         ss(taus==Inf)=0;
-        mods=sqrt(gg.*gg+ss.*ss);
+        mods=round(1e4*sqrt(gg.*gg+ss.*ss))*1e-4;% round to 4 sigfig
+        Crange=round(1e4*Crange)*1e-4;% round to 4 sigfig
         stay=find((mods>=Crange(1))&(mods<=Crange(2)));
-        height=round(256*(mods(stay)-Crange(1))/((Crange(2)-Crange(1))));
+        height=1+round(255*(mods(stay)-Crange(1))/((Crange(2)-Crange(1))));
         height(height==0)=1;
         tv=cell(0);
         for jj=1:256% taus in cmap locations for tau
@@ -42,16 +43,21 @@ switch nom
                 tv{jj}=' ';
             end
         end
+        if(1)% flip cbar
+            % Crange=Crange(end:-1:1);
+            cmap=cmap(end:-1:1);
+            tv=tv(end:-1:1);
+        end
 
     case 'TauNorm'
-        taus=[.1 .5 1 2 3 5 8 13 21 34]*1e-9;
+        taus=taus*1e-9;
         omega=2*3.1416*freq;
         gg=1./(1+(omega*taus).^2);
         ss=(omega*taus)./(1+(omega*taus).^2);
         pseudo=atan2(ss,(gg-.5));
         pseudo(taus==Inf)=3.1416;
         stay=find((pseudo>=Crange(1)*2*3.1416)&(pseudo<=Crange(2)*2*3.1416));
-        height=round(256*(pseudo(stay)-Crange(1)*2*3.1416)/((Crange(2)-Crange(1))*2*3.1416));
+        height=1+round(255*(pseudo(stay)-Crange(1)*2*3.1416)/((Crange(2)-Crange(1))*2*3.1416));
         tv=cell(0);
         for jj=1:256% taus in cmap locations for tau
             aux=find(height==jj, 1);
