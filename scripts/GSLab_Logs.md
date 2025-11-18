@@ -1,3 +1,4 @@
+[v1.201] - Exported colorbar includes the upper and lower limits set by user  
 [v1.200] - Exported colorbar takes ticks from phasor plot  
 [v1.199] - Allow users to input color range in units of magnitude  
 [v1.198] - Removed redundant expectedPhasorPosition.m in favour of tau2coords.m  
@@ -72,7 +73,7 @@
 [v1.135] - Solved FALCON data ambiguity when number of files if multiple of 3 and 4  
 [v1.134] - Minor changes: verbosity for Gohlke files, corrected ampersand display in menu, removed vector file checkbox  
 [v1.133] - All pngs and tifs are saved with 300dpi    
-[v1.132] - Fixed a bug where vecotor phasor could not be exported as pdf  
+[v1.132] - Fixed a bug where vector phasor could not be exported as pdf  
 [v1.131] - Wilson patch: emphasize function to depict phasor data in a color depending on the loaded file  
 [v1.130] - Updated function for writing csv files to increase speed and allow xls format  
 [v1.129] - Implemented loading masks as labeled pngs  
