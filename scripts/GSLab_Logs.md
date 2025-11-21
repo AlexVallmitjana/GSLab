@@ -1,3 +1,4 @@
+[v1.202] - Check for updates functionality added  
 [v1.201] - Exported colorbar includes the upper and lower limits set by user  
 [v1.200] - Exported colorbar takes ticks from phasor plot  
 [v1.199] - Allow users to input color range in units of magnitude  
