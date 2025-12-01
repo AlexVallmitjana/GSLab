@@ -1,3 +1,4 @@
+[v1.203] - Check if version is precompiled to prevent autoupdate plus minor positioning changes  
 ### Dec'25 
 [v1.202] - Check for updates functionality added  
 [v1.201] - Exported colorbar includes the upper and lower limits set by user  
