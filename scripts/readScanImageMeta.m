@@ -1,4 +1,4 @@
-function [dad] = readScanImageMeta(ruta)
+function [dad,cont] = readScanImageMeta(ruta)
 
 G=fopen(ruta,'rt');
 cont=(fread(G,inf,'uchar'))';% l

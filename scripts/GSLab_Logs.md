@@ -1,3 +1,5 @@
+[v1.206] - Fixed bug where log representation was failing when no data was loaded  
+[v1.205] - Added option to have mother folder included in file name list  
 [v1.204] - Contour only option, slightly modified contour level and log base  
 [v1.203] - Check if version is precompiled to prevent autoupdate plus minor positioning changes  
 ### Dec'25 
