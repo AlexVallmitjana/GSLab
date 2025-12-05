@@ -22,15 +22,17 @@ Once the path has been saved in MATLAB, simply type GSLab in the command window 
 
 ### Help
 
-A [user manual pdf file](GSLab_Manual.pdf) is inculded in the main directory. 
+A [user manual file](https://alexvallmitjana.github.io/GSLab/GSLab_Manual.html) is inculded in the main directory. 
 
-A follow-along [tutorial and sample files](https://doi.org/10.6084/m9.figshare.28067108) are available for download in Figshare.
+Follow-along [tutorial and sample files](https://doi.org/10.6084/m9.figshare.28067108) are available for download in Figshare.
 
 ### Standalone app for Windows without MATLAB
 
 A precompiled executable [installer file for Windows](https://doi.org/10.6084/m9.figshare.28655276) is available in Figshare.
 
-Simply download the file **GSLabInstaller.exe**, run the installer, it will install the MATLAB Runtime machine and **GSLab** in the **ProgramFiles** folder. 
+Download the file **GSLabInstaller.exe**, run the installer, it will install the MATLAB Runtime machine and **GSLab** in the **ProgramFiles** folder. 
+
+Only recommended if you do not have MATLAB license (it is slower to launch, usually an obsolete version and cannot be updated automatically).
 
 
 ## Citing
