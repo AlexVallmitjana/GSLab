@@ -1,3 +1,4 @@
+[v1.207] - Update button shows the current version in GitHub if different to local  
 [v1.206] - Fixed bug where log representation was failing when no data was loaded  
 [v1.205] - Added option to have mother folder included in file name list  
 [v1.204] - Contour only option, slightly modified contour level and log base  
