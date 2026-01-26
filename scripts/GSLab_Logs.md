@@ -1,3 +1,5 @@
+[v1.209] - Added gaussian filter in phasor space  
+[v1.208] - Separated wavelet families into a new drop down to allow for other filtering methods  
 [v1.207] - Update button shows the current version in GitHub if different to local  
 [v1.206] - Fixed bug where log representation was failing when no data was loaded  
 [v1.205] - Added option to have mother folder included in file name list  
