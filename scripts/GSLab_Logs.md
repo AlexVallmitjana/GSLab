@@ -1,3 +1,4 @@
+[v1.210] - Fixed a bug where complete folder option was not being saved to user parameters  
 [v1.209] - Added gaussian filter in phasor space  
 [v1.208] - Separated wavelet families into a new drop down to allow for other filtering methods  
 [v1.207] - Update button shows the current version in GitHub if different to local  
