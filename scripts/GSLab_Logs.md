@@ -1,3 +1,5 @@
+[v1.212] - Fixed compatibility issue when saving user settings and having whole folder paths displayed  
+[v1.211] - Changed the way FLAME data is loaded accounting for last empty bin  
 [v1.210] - Fixed a bug where complete folder option was not being saved to user parameters  
 [v1.209] - Added gaussian filter in phasor space  
 [v1.208] - Separated wavelet families into a new drop down to allow for other filtering methods  
