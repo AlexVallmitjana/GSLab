@@ -1,4 +1,5 @@
 function [f,c] = squareDistrib2(Q,R,r)
+%    [f,c] = squareDistrib2(Q,R,r);
 % Given Q a number of instances returns best 2d f (rows) by c (columns) 
 % distribution of at least Q squares(r=1) in rectangle of ratio R (height/width).
 % ratio r (h/w) is for the individual rectangles

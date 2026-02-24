@@ -1,7 +1,7 @@
 function [] = ensenya(frase,color)
 % display with time stamp and optional color
 frase(frase=='\')='/'; % backslash confuses new versions of matlab
-frase(frase=='%')='*'; % percent confuses interpreter
+%frase(frase=='%')='*'; % percent confuses interpreter
 cl=clock;
 if(cl(4)<10) cl4=['0' num2str(cl(4))];else cl4=num2str(cl(4)); end
 if(cl(5)<10) cl5=['0' num2str(cl(5))];else cl5=num2str(cl(5)); end

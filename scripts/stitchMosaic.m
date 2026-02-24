@@ -1,4 +1,5 @@
-function [IT2] = stitchMosaic(IT,m,n)
+function [IT2] = stitchMosaic(IT,m,n,verb)
+if(nargin<4),verb=1;end
 dfx=0;% cut this much from each juntion in X
 dfy=0;% cut this much from each juntion in Y
 dfxr=0;% add this X at the begining after each row
@@ -21,7 +22,9 @@ ro=0;% row counter
 [a,b,c,d]=size(IT);
 IT2=zeros(m*a+dfyr*(m-1)-a*(2*m-2),n*b+dfxr*(n-1)-b*(2*n-2),c);
 % If=zeros(a,n*b,c);
+if(verb==1)
 ensenya('Stitching     ');
+end
 bcut=b-dfx*2;
 acut=a-dfy*2;
 % ordre=[1:25];
@@ -67,7 +70,9 @@ for kk=ordre
     %     % end
     %     IT2=cat(1,IT2(1:end-dfy,:,:),If(dfy+1:end,:,:));
     % end    
+    if(verb==1)
     percentatge(cc,N);
+    end
 end  
 
 

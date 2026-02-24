@@ -34,7 +34,24 @@ for ii=1:step:numel(files)
     [GG] = imread([folder filesep files(ii+step-2).name]);% G image
     [SS] = imread([folder filesep files(ii+step-1).name]);% S image
 
-    
+
+
+    if(size(IT,3)>1)||((size(SS,3)>1)||(size(GG,3)>1))
+        ensenya('Images are not raw, likely data was exported wrong:','r');
+        disp('     01. In the LAS X FLIM/FCS window, select the Intensity tab above the images.');
+        disp('     02. Then in the FLIM tab on the left menu, at the bottom you have the Save Image button.');
+        disp('     03. You click that and the Save Image window opens:');
+        disp('     04. Select Tiff tab (if available).');
+        disp('     05. Select checkbox Save Phasor GS.');
+        disp('     06. Select the radio button Fixed Range.');
+        disp('     07. Set the Factor or Range to per Grey Level and input 1 in the edit field box.');
+        disp('     08. This will add an entry to your project file that has the G and S coordinate images.');
+        disp('     09. Right click those image entries, select Export as... , select Tiff.');
+        disp('     10. Set the destination folder and check the Save raw data option.');
+        disp('     11. This will generate the coordinate images and intensity values.');
+
+    end
+
 
     GG=double(GG);SS=double(SS);
     SS=SS-2^15;SS=SS/2^15;
@@ -56,12 +73,12 @@ for ii=1:step:numel(files)
     GGT(:,:,contagrups)=GG;
 
     try
-nms{contagrups}=files(ii).name(1:findstr(files(ii).name,'_ch')-1);
+        nms{contagrups}=files(ii).name(1:findstr(files(ii).name,'_ch')-1);
 
     catch
         try
-        n1={files(ii).name,files(ii+step-2).name,files(ii+step-1).name,files(ii).name};%repeat first to have all combinations when doing diff 1-2,2-3,3-1
-nms{contagrups}=files(ii).name(1:find(sum(abs(diff(char(n1),1)),1)~=0,1,'first'));
+            n1={files(ii).name,files(ii+step-2).name,files(ii+step-1).name,files(ii).name};%repeat first to have all combinations when doing diff 1-2,2-3,3-1
+            nms{contagrups}=files(ii).name(1:find(sum(abs(diff(char(n1),1)),1)~=0,1,'first'));
         end
     end
 end

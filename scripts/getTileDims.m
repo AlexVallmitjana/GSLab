@@ -1,5 +1,6 @@
-function [m,n,success] = getTileDims(filename)
+function [m,n,success] = getTileDims(filename,verb)
 success=1;
+if(nargin<2),verb=1;end
 nums='1234567890';
 out=-2*ones(length(filename),1);
 for ii=1:length(filename)
@@ -34,12 +35,16 @@ for ii=1:length(aux)
     end
 end
 gap=' Warning: ';
-if(trob==0)    
+if(trob==0)   
+    if(verb==1)
     cprintf([1 .5 0],[gap 'No grid dimensions, assuming single tile.\n']);
+    end
     m=1;n=1;success=0;
 end
-if(trob>1)    
+if(trob>1)   
+     if(verb==1)
     cprintf([1 .5 0],[gap 'More than one encoding for tile dimensions.\n']);
+     end
 end
 if(numel(m)>1)
     aux=0;

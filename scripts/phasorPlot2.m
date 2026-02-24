@@ -27,7 +27,7 @@ if(nargin<8),sty=0;end
 if((nargin<7)||(isempty(nor))),txt=1;end
 if((nargin<6)||(isempty(nor))),nor=0;end
 if((nargin<4)||(isempty(ex))),ex=20;end
-if((nargin<3)||(isempty(sz))),adapt=1;if(mod(ex,11)==0),sz=[256,512];else,sz=[512,512];end,else,adapt=0;if(size(sz,1)>size(sz,2)),sz=sz';end;end
+if((nargin<3)||(isempty(sz))),adapt=1;if(mod(ex,11)==0),sz=[128,256];else,sz=[256,256];end,else,adapt=0;if(size(sz,1)>size(sz,2)),sz=sz';end;end
 if(numel(sz)==1),sz(2)=sz(1);adapt=1;end
 if(nargin<5)||(isempty(fov))
     centre=[mean(S(:)) mean(G(:))];sd=3*[std(S(:)),std(G(:))];%sd=2*max([std(S(:)),std(G(:))]);sd(2)=sd;
