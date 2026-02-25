@@ -1,3 +1,6 @@
+[v1.215] - Added autotab option for on hover selection  
+[v1.214] - Added checkbox to plot decay in log scale  
+[v1.213] - Decay window position is saved in user parameters  
 [v1.212] - Fixed compatibility issue when saving user settings and having whole folder paths displayed  
 [v1.211] - Changed the way FLAME data is loaded accounting for last empty bin  
 [v1.210] - Fixed a bug where complete folder option was not being saved to user parameters  
