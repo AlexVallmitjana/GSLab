@@ -1,6 +1,6 @@
 function []= updateGSLab2(pos)
 
-
+ensenya('Downloading..')
 han = waitbar(0,'Downloading','Name','Please wait');
 han.Children.Title.Interpreter = 'none';
 % han.Position(1)=pos(1);
@@ -15,7 +15,7 @@ local=local(1:end-11);
 
 % local='C:\Users\austi\Documents\NewFolder\test\';
 cc=0;
-ensenya('Downloading..')
+
 for ii=numel(list):-1:1
     cc=cc+1;
     try
