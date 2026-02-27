@@ -65,6 +65,7 @@ cc=cc+1;filelist{cc}='scripts/uigetDirs.m';
 cc=cc+1;filelist{cc}='scripts/uigetFiles.m';
 cc=cc+1;filelist{cc}='scripts/uisaveFile.m';
 cc=cc+1;filelist{cc}='scripts/unjag.m';
+cc=cc+1;filelist{cc}='scripts/updateGSLab2.m';
 cc=cc+1;filelist{cc}='scripts/white2alpha.m';
 cc=cc+1;filelist{cc}='scripts/whosPC.m';
 filelist=filelist';

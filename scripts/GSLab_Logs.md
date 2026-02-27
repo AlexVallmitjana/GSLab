@@ -1,3 +1,8 @@
+[v1.220] - Fixed issue where app updating was not overwriting main mlapp  
+[v1.219] - Auto intensity range is called upon data loading  
+[v1.218] - UI color changes decay and image windows aswell  
+[v1.217] - Decay plot window is a uifigure instead of regular figure  
+[v1.216] - Decay plot in norm only normalizes to max and not to min  
 [v1.215] - Added autotab option for on hover selection  
 [v1.214] - Added checkbox to plot decay in log scale  
 [v1.213] - Decay window position is saved in user parameters  
