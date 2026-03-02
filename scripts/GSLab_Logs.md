@@ -1,3 +1,5 @@
+[v1.221] - Improved performance of hdr function using block processing instead of sliding window  
+### Mar '26
 [v1.220] - Fixed issue where app updating was not overwriting main mlapp  
 [v1.219] - Auto intensity range is called upon data loading  
 [v1.218] - UI color changes decay and image windows aswell  
@@ -9,8 +11,10 @@
 [v1.212] - Fixed compatibility issue when saving user settings and having whole folder paths displayed  
 [v1.211] - Changed the way FLAME data is loaded accounting for last empty bin  
 [v1.210] - Fixed a bug where complete folder option was not being saved to user parameters  
+### Feb '26
 [v1.209] - Added gaussian filter in phasor space  
 [v1.208] - Separated wavelet families into a new drop down to allow for other filtering methods  
+### Jan '26
 [v1.207] - Update button shows the current version in GitHub if different to local  
 [v1.206] - Fixed bug where log representation was failing when no data was loaded  
 [v1.205] - Added option to have mother folder included in file name list  
