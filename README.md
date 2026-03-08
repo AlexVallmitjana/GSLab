@@ -1,4 +1,4 @@
-# GSLab: Open-Source Platform for Advanced Phasor Analysis in Fluorescence Microscopy
+# [GSLab: Open-Source Platform for Advanced Phasor Analysis in Fluorescence Microscopy](https://alexvallmitjana.github.io/GSLab)
 
 ## Summary
 
