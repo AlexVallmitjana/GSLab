@@ -304,10 +304,7 @@ footer p {
   color: #f2f2f2;
 }
 
-h1 a {
-  text-decoration: none; 
-  color: inherit;    
-}
+
 
 a {
   text-decoration: none;
@@ -324,6 +321,11 @@ a {
   -o-transition: text-shadow 0.5s ease;
   -ms-transition: color 0.5s ease;
   -ms-transition: text-shadow 0.5s ease;
+}
+
+h1 a {
+  text-decoration: none; 
+  color: inherit;    
 }
 
 a:hover, a:focus {
