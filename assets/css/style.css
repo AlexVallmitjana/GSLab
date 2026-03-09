@@ -304,6 +304,11 @@ footer p {
   color: #f2f2f2;
 }
 
+h1 a {
+  text-decoration: none; 
+  color: inherit;    
+}
+
 a {
   text-decoration: none;
   color: #0F79D0;
