@@ -14,8 +14,35 @@
     <link rel="shortcut icon" type="image/png" href="scripts/logo1.png">
 	<link rel="icon" href="favicon.png">
 	<meta name="google-site-verification" content="Q39tmqrT6GjjxDhnlZHQqyGEQ5mRz4SdgR6uNyxHkTM" />
-{% seo %}
+    {% seo %}
     {% include head-custom.html %}
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "GSLab",
+  "applicationCategory": "ScientificSoftware",
+  "operatingSystem": "Windows, macOS",
+  "url": "https://alexvallmitjana.github.io/GSLab/",
+  "downloadUrl": "https://github.com/AlexVallmitjana/GSLab/archive/refs/heads/main.zip",
+  "codeRepository":"https://github.com/AlexVallmitjana/GSLab",
+  "name": "GSLab",
+   "author": {
+   "@type": "Person",
+   "name": "Alexander Vallmitjana"
+   }
+   "logo": {
+   "@type": "ImageObject",
+   "url": "https://alexvallmitjana.github.io/GSLab/favicon.png"
+   }
+   "publisher": {
+   "@type": "Organization",
+   "name": "University of California Irvine"
+   }  
+}
+</script>
 	<script>
   function fillframe(url,flag) {
     const iframe = document.getElementById('espai');
