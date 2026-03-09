@@ -1,3 +1,4 @@
+[v1.222] - Allowed tiff stacks as labeled masks  
 [v1.221] - Improved performance of hdr function using block processing instead of sliding window  
 ### Mar '26
 [v1.220] - Fixed issue where app updating was not overwriting main mlapp  
