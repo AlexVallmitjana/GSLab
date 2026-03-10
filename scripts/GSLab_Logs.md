@@ -1,3 +1,4 @@
+[v1.223] - Fixed bug where having mother folders in file names was screwing up exporting spreadsheets  
 [v1.222] - Allowed tiff stacks as labeled masks  
 [v1.221] - Improved performance of hdr function using block processing instead of sliding window  
 ### Mar '26
