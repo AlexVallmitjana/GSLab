@@ -2,9 +2,12 @@ function [qui,id] = whosPC(qui)
 
 if(nargin==0)
     qui=getenv('COMPUTERNAME');
-    if(isempty(qui))
-        try
-            qui=getenv('HOSTNAME');
+    if(isempty(qui))% mac
+        qui=getenv('HOSTNAME');
+        if(isempty(qui))
+            %[~,qui]=system('HOSTNAME');
+            [~, qui] = system('whoami');
+            qui = strtrim(qui);
         end
     end
 end
@@ -19,6 +22,10 @@ switch qui
     case 'SUMAN-BLI'
         % qui='Suman';id=421;
         qui='Amanda';id=18;
+    case 'wz'
+        qui='Wenyu';id=1237;
+    case 'QWFQFBBQFEBQEFBQEFBQEFB'
+        qui='Bruno';id=1238;
     case 'DESKTOP-I0A9SVE'
         qui='FLAME3';id=3;
     case 'MBF'

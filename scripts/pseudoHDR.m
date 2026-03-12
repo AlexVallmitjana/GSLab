@@ -3,7 +3,7 @@ function [imh] = pseudoHDR(im)
 
 [a,b]=size(im);
 k=ceil([a,b]/20);
-k=min(k,50);
+k=min(k,30);
 
 
 
