@@ -44,7 +44,7 @@
 </script>
 	<script>
   function fillframe(url,flag) {
-    const iframe = document.getElementById('espai');
+    const iframe = document.getElementById('espai');	
    iframe.src = url;
    if(flag==0){iframe.style.height='8786px';}
    if(flag==1){iframe.style.height='6100px';}
@@ -97,8 +97,8 @@
 		.itemenu a{text-decoration:none;color:#fff;cursor:pointer;}		
 		.itemenu p:hover{text-decoration:none;color:#07D;}
 		.itemenu p{margin:0;font-size:120%;text-align:center;}
-		.submen{background-color:#373737;width:100%;text-align: center;z-index: 10;line-height: 1.2;display:none;position: absolute;}
-		.submen p{}
+		.submen{background-color:#373737;width:100%;text-align: center;z-index: 10;line-height: 1.2;display:none;position: absolute;width: fit-content;}
+		.submen p{padding:4px;text-align:left;}
 		.dummy {width:1ex;}
 		.submen p:hover{cursor:pointer;color:#07D;}
 		#tut:hover #subtut{display:inline-block;;}
