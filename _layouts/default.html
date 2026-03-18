@@ -16,7 +16,60 @@
 	<meta name="google-site-verification" content="Q39tmqrT6GjjxDhnlZHQqyGEQ5mRz4SdgR6uNyxHkTM" />
     {% seo %}
     {% include head-custom.html %}
+<style>
+		:root {
+			--colorete1: #fff;
+			--colorete2: #373737; 
+		}
+		.caixamenufora{
+			width:100%;
+			position:sticky;
+			top:0px;
+			background-color:var(--colorete2);
+			z-index: 98;
+		}
+		#downloads{z-index:99;}
+		.caixamenudins{
+			display: flex;
+			max-width: 640px;
+			margin: 0 auto;
+			color:var(--colorete1);
+			justify-content: space-between;			
+			background-color:var(--colorete2);
+		}
+		.itemenu{
+			padding:0px;
+			position: relative;
+			display: inline-block;
+		}
+		.itemenu:hover{cursor:pointer;}
+		.itemenu a{text-decoration:none;color:#fff;cursor:pointer;}		
+		.itemenu p:hover{text-decoration:none;color:#07D;}
+		.itemenu p{margin:0;font-size:120%;text-align:center;}
+		.submen{
+			background-color:#373737;
+			width:100%;
+			text-align: center;
+			z-index: 10;
+			line-height: 1.2;
+			display:none;
+			position: absolute;
+			width: fit-content;
+		}
+		.submen p{padding:4px;text-align:left;}
+		.dummy {width:1ex;}
+		.submen p:hover{cursor:pointer;color:#07D;}
+		#tut:hover #subtut{display:inline-block;;}
+		.itemdwn{display:none;}
+		iframe {overflow: hidden;}
+		@media screen and (max-width: 480px) {
+		  .itemdwn {
+			display:inline-block;;
+			}
+			.dummy {display:none;}
+		}
 
+		</style>
 
 <script type="application/ld+json">
 {
@@ -90,48 +143,31 @@
             </section>
           {% endif %}
         </header>
-		<style>
-		.caixamenu{display: flex;max-width: 640px;margin: 0 auto;color:white;justify-content: space-between;}
-		.itemenu{padding:0px;position: relative;display: inline-block;}
-		.itemenu:hover{cursor:pointer;}
-		.itemenu a{text-decoration:none;color:#fff;cursor:pointer;}		
-		.itemenu p:hover{text-decoration:none;color:#07D;}
-		.itemenu p{margin:0;font-size:120%;text-align:center;}
-		.submen{background-color:#373737;width:100%;text-align: center;z-index: 10;line-height: 1.2;display:none;position: absolute;width: fit-content;}
-		.submen p{padding:4px;text-align:left;}
-		.dummy {width:1ex;}
-		.submen p:hover{cursor:pointer;color:#07D;}
-		#tut:hover #subtut{display:inline-block;;}
-		.itemdwn{display:none;}
-		iframe {overflow: hidden;}
-		@media screen and (max-width: 480px) {
-		  .itemdwn {
-			display:inline-block;;
-			}
-			.dummy {display:none;}
-		}
-
-		</style>
-    		<div class="caixamenu">
-<div class="itemenu dummy"></div>
-<div class="itemenu"><a href=""><p>Home</p></a></div>
-<div class="itemenu"><p onclick="fillframe('assets/html/GSLab_Manual.html',0);">Manual</p></div>
-<!--<div class="itemenu"><p onclick="fillframe('https://mozilla.github.io/pdf.js/web/viewer.html?file=https://alexvallmitjana.github.io/GSLab/assets/btaf162.pdf#zoom=page-width&navpanes=0#sidebar=0',2);">Paper</p></div>-->
-<div class="itemenu"><p onclick="fillframe('assets/btaf162.pdf#zoom=100&view=FitH&toolbar=0&navpanes=0',1);">Paper</p></div>
-<div class="itemenu" id="tut"><p onclick="fillframe('assets/html/GSLab_Tutorials.html',2);">Tutorials</p>
-<div class="submen" id="subtut">
-<p onclick="fillframe('assets/html/GSLab_Tutorials.html',2);">Starting</p>
-<p onclick="fillframe('assets/html/GSLab_Tutorials.html#T2',2);">Filtering</p>
-<p onclick="fillframe('assets/html/GSLab_Tutorials.html#T3',2);">Calibration</p>
-<p onclick="fillframe('assets/html/GSLab_Tutorials.html#T4',2);">Masking</p>
-<p onclick="fillframe('assets/html/GSLab_Tutorials.html#T5',2);">Clustering</p>
-<p onclick="fillframe('assets/html/GSLab_Tutorials.html#T6',2);">Unmixing</p>
-<p onclick="fillframe('assets/html/GSLab_Tutorials.html#T7',2);">Spectral</p>
-</div></div>
-<div class="itemenu itemdwn"><p onclick="fillframe('assets/html/GSLab_Links.html',2);">Downloads</p></div>
-<div class="itemenu dummy"> </div>
-</div>  
-    </div>
+		
+		</div>
+		<div class="caixamenufora">
+    		<div class="caixamenudins">
+					<div class="itemenu dummy"></div>
+					<div class="itemenu"><a href=""><p>Home</p></a></div>
+					<div class="itemenu"><p onclick="fillframe('assets/html/GSLab_Manual.html',0);">Manual</p></div>
+				<!--<div class="itemenu"><p onclick="fillframe('https://mozilla.github.io/pdf.js/web/viewer.html?file=https://alexvallmitjana.github.io/GSLab/assets/btaf162.pdf#zoom=page-width&navpanes=0#sidebar=0',2);">Paper</p></div>-->
+					<div class="itemenu"><p onclick="fillframe('assets/btaf162.pdf#zoom=100&view=FitH&toolbar=0&navpanes=0',1);">Paper</p></div>
+					<div class="itemenu" id="tut"><p onclick="fillframe('assets/html/GSLab_Tutorials.html',2);">Tutorials</p>
+						<div class="submen" id="subtut">
+							<p onclick="fillframe('assets/html/GSLab_Tutorials.html',2);">Starting</p>
+							<p onclick="fillframe('assets/html/GSLab_Tutorials.html#T2',2);">Filtering</p>
+							<p onclick="fillframe('assets/html/GSLab_Tutorials.html#T3',2);">Calibration</p>
+							<p onclick="fillframe('assets/html/GSLab_Tutorials.html#T4',2);">Masking</p>
+							<p onclick="fillframe('assets/html/GSLab_Tutorials.html#T5',2);">Clustering</p>
+							<p onclick="fillframe('assets/html/GSLab_Tutorials.html#T6',2);">Unmixing</p>
+							<p onclick="fillframe('assets/html/GSLab_Tutorials.html#T7',2);">Spectral</p>
+						</div>
+					</div>
+					<div class="itemenu itemdwn"><p onclick="fillframe('assets/html/GSLab_Links.html',2);">Downloads</p></div>
+					<div class="itemenu dummy"> </div>
+			</div>  
+		</div>  
+    
 
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
@@ -141,6 +177,7 @@
 	
 	  
         {{ content }}
+		
       </section>
     </div>
 
