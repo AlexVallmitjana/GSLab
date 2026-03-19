@@ -17,6 +17,7 @@ class read_ptu():
             aux = aux[:,:,:,:,:ptu.number_bins_in_period]
 
         aux=np.sum(aux, axis=0)
+        
         return aux
         #return 3
         
