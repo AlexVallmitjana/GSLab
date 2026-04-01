@@ -1,3 +1,8 @@
+[v1.227] - Fixed double call to FilterAndPlotPhasor upon load and added safeguard for Islide limits in autoIrange function  
+### Apr '26
+[v1.220] - Fixed issue where app updating was not overwriting main mlapp  
+[v1.226] - Updated reader functions for FLAME data plus making use of userpath to reduce compatibility issues with macOS  
+[v1.225] - Decays are plotted in same gradient of colors as phosor density when over four  
 [v1.224] - Added buttons to copy image window and phasor plot to clipboard  
 [v1.223] - Fixed bug where having mother folders in file names was screwing up exporting spreadsheets  
 [v1.222] - Allowed tiff stacks as labeled masks  

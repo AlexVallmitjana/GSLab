@@ -12,21 +12,12 @@ if(isempty(titol)),titol='Select file(s)';end
 aux=1;filepath='';
 
 ruta='lastfile.mat';
-try% attempt to save user settings file in matlab folder
-    if(~isempty(getenv('USERPROFILE')))% windows machine
-        rut=[getenv('USERPROFILE') filesep 'Documents' filesep 'MATLAB'];
+try% attempt to save user settings file in matlab folder    
+        rut=[userpath];
         if(exist(rut,'dir')~=7)
             mkdir(rut);
         end
-        ruta=[rut filesep 'lastfile.mat'];
-    end
-    if(~isempty(getenv('HOME')))% mac machine
-        rut=[getenv('HOME') filesep 'Documents' filesep 'MATLAB'];
-        if(exist(rut,'dir')~=7)
-            mkdir(rut);
-        end
-        ruta=[rut filesep 'lastfile.mat'];
-    end
+        ruta=[rut filesep 'lastfile.mat'];    
 end
 try 
     load(ruta);

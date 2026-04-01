@@ -30,26 +30,28 @@ TT=numel(txt);
 ZZ=numel(dad.tileZs);
 CC=numel(dad.channelsSaved);
 IT=[];
-try,[IT] = fishTiffs(path,verb);catch me,ensenya(['Error in fishTiffs: ' me.message],'r');end
 
 aux0=strfind(path,'_');
 aux00=find(path==filesep);if(aux00(end)==numel(path)),aux00(end)=[];end
-dad.configuration=path(aux0(end)+1:end);
-dad.geometry=lower(path(aux00(end)+1:aux00(end)+3));
-switch dad.geometry
-    case 'ima',id=1;
-    case 'mos',id=2;
-    case 'sta',id=3;
-    case 'zmo',id=4;
-end
-dad.geometryId=id;
+[conf,confid] = getConfiguration(path);
+dad.configuration=conf;
+if(confid==0),error(['Not a known FLAME imaging configuration: ' path(aux00(end)+1:end)]);end
+[geom,geomid] = getGeometry(path);
+dad.geometry=geom;
+dad.geometryId=geomid;
+if(geomid==0),error(['Not a known FLAME imaging geometry: ' path(aux00(end)+1:end)]);end
+
+
+try,[IT] = fishTiffs(path,verb);catch me,ensenya(['Error in fishTiffs: ' me.message],'r');end
+
+
 ori=strfind(path,'_FOV');
 aux3=strfind(path,'_z');
 aux3=aux3(find(aux3>ori,1,'first'));
 aux4=aux0(find(aux0>aux3,1,'first'));
 dad.zZeroUm=str2num(path(aux3+2:aux4-1));
 % size(IT)
-if((id==2)||(id==4))
+if((geomid==2)||(geomid==4))
     [m,n,success] = getTileDims(path);
     if(success==1)
         dad.tileRows=m;
@@ -63,7 +65,7 @@ if((id==2)||(id==4))
         ensenya('Warning: Tile number inconsistency','a');
     end
 end
-if((id==3)||(id==4))
+if((geomid==3)||(geomid==4))
     if(ZZ~=size(IT,3)/CC)
         ZZ=size(IT,3)/CC;
         ensenya('Warning: Z/C number inconsistency','a');

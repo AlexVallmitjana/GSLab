@@ -10,35 +10,26 @@ if(isempty(titol)),titol='Select mother folder(s)';end
 folder='';
 ruta='lastfolder.mat';
 try% attempt to save user settings file in matlab folder
-    if(~isempty(getenv('USERPROFILE')))% windows machine
-        rut=[getenv('USERPROFILE') filesep 'Documents' filesep 'MATLAB'];
-        if(exist(rut,'dir')~=7)
-            mkdir(rut);
-        end
-        ruta=[rut filesep 'lastfolder.mat'];
+    rut=[userpath];
+    if(exist(rut,'dir')~=7)
+        mkdir(rut);
     end
-    if(~isempty(getenv('HOME')))% mac machine
-        rut=[getenv('HOME') filesep 'Documents' filesep 'MATLAB'];
-        if(exist(rut,'dir')~=7)
-            mkdir(rut);
-        end
-        ruta=[rut filesep 'lastfolder.mat'];
-    end
+    ruta=[rut filesep 'lastfolder.mat'];
 end
 if(strcmp(fname,'FE78'))% flame raw folder
-try
-    aux=findstr(ruta,'lastfolder.mat');
-    ruta=[ruta(1:aux-1) 'lastfile.mat'];
-    load(ruta);
-    fname='F641';
-    eval(['folder=' fname ';']);% assign last ref
-    folder=folder(1:find(folder==filesep,1,'last'));
-end
+    try% when user selects FLAME raw and ref it should open the same folder
+        aux=findstr(ruta,'lastfolder.mat');
+        ruta=[ruta(1:aux-1) 'lastfile.mat'];
+        load(ruta);
+        fname='F641';
+        eval(['folder=' fname ';']);% assign last ref
+        folder=folder(1:find(folder==filesep,1,'last'));
+    end
 else
-try
-    load(ruta);
-    eval(['folder=' fname ';']);
-end
+    try
+        load(ruta);
+        eval(['folder=' fname ';']);
+    end
 end
 Nn=0;folders=cell(0);
 aux=1;
@@ -47,8 +38,10 @@ while(aux==1)
     if(strcmp(class(folder),'double')==0)
         Nn=Nn+1;
         folders{Nn}=folder;
-        try
-            folder=folder(1:find(folder==filesep,1,'last'));
+        if(~strcmp(fname,'F7CD'))% titol not 'Select output folder' (if output we want to remember folder path not parent)
+            try% save parent folder to open for next time (makes sense when selecting input data)
+                folder=folder(1:find(folder==filesep,1,'last'));
+            end
         end
         eval([fname '=''' folder ''';']);
         try

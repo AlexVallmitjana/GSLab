@@ -1,4 +1,4 @@
-function [name,folder] = uisaveFile(titol,type)
+function [name,folder] = uisaveFile(titol,type,filename)
 % get folder path for saving and remember last path
 % returns strings
 %
@@ -10,26 +10,17 @@ if(isempty(titol)),titol='Save as';end
 folder='';
 ruta='lastsavefolder.mat';
 try% attempt to save user settings file in matlab folder
-    if(~isempty(getenv('USERPROFILE')))% windows machine
-        rut=[getenv('USERPROFILE') filesep 'Documents' filesep 'MATLAB'];
+        rut=[userpath];
         if(exist(rut,'dir')~=7)
             mkdir(rut);
         end
-        ruta=[rut filesep 'lastsavefolder.mat'];
-    end
-    if(~isempty(getenv('HOME')))% mac machine
-        rut=[getenv('HOME') filesep 'Documents' filesep 'MATLAB'];
-        if(exist(rut,'dir')~=7)
-            mkdir(rut);
-        end
-        ruta=[rut filesep 'lastsavefolder.mat'];
-    end
+        ruta=[rut filesep 'lastsavefolder.mat'];    
 end
 try 
     load(ruta);
     eval(['folder=' fname ';']);
 end
-
+if(nargin>2),folder=[folder filesep filename];end
     [name,folder]=uiputfile(type,titol,folder);
         
         eval([fname '=''' folder ''';']);
