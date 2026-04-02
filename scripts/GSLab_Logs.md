@@ -1,3 +1,5 @@
+[v1.229] - Allow users to select grandmother folder for FLAME data  
+[v1.228] - Added cursor size change after changing phasor field of view  
 [v1.227] - Fixed double call to FilterAndPlotPhasor upon load and added safeguard for Islide limits in autoIrange function  
 ### Apr '26
 [v1.220] - Fixed issue where app updating was not overwriting main mlapp  
