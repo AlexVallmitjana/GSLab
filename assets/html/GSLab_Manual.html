@@ -44,7 +44,7 @@ b {
 
  p.Normal, li.Normal, div.Normal
 	{margin: 0;
-	text-indent:0ex;}	
+	text-indent:2ex;}	
  p.Normal_L0, li.Normal_L0, div.Normal_L0
 	{margin:0in;
 	margin-left:0ex;
@@ -142,7 +142,7 @@ all cursors on the phasor plot.</p>
 
 <p class="Normal"> Loaded files are listed in the main panel. The checkboxes in front of each file name allow the user to include/exclude each loaded file from the representation and analysis. </p>
 
-<p class="Normal_L0"> <span class="compnt"> Contextual menu options</span> (right-click):</p>
+<p class="Normal_L0"> <span class="compnt"> Context menu options</span> (right-click):</p>
 
 <p class="Normal_L1"> <span class="compnt"> Calibration File</span>: Sets the selected file as calibration. Will obtain the photon weighted average coordinates of the phasor distribution and assign it the lifetime in the <span class="mention">Calibration Lifetime</span> box in the Calibration Panel.</p>
 
@@ -229,9 +229,7 @@ all cursors on the phasor plot.</p>
 <h3>Image tab</h3>
 
 
-<p class="Normal"> This tab contains
-the image manipulation parameters and settings for rendering the intensity
-images prior to phasor transform. </p>
+<p class="Normal"> Image manipulation parameters and settings for rendering the intensity images prior to phasor transform. </p>
 
 <div style="float:right;margin-left:5px;margin-top:5px;">
 <div style="width:100%;text-align:center;">
@@ -278,7 +276,7 @@ images prior to phasor transform. </p>
 
 <p class="Normal_L0"> <span class="compnt"> Save mask button</span>: Save current masks to file (png if single file or stacked tiff if multiple files).</p>
 
-<p class="Normal_L0"> <span class="compnt"> Load mask button</span>: Load image to use as binary mask. If a single image is loaded it will be applied to all files loaded, if a multislice tiff is loaded, each slice will be sequentially applied to each loaded image. Images created in other softwares can be uploaded and used to exclude pixels from phasor analysis. Additionally if an image with integer labels can be loaded and it will be treated as region labels to export average region phasor data (Export tab - Masked object data checkbox) </p>
+<p class="Normal_L0"> <span class="compnt"> Load mask button</span>: Load images to use as binary masking. If a single image is loaded it is applied to all loaded files. If multiple images are loaded they are sequentially applied to each loaded image. If a multislice tiff is loaded, each slice is sequentially applied to each loaded image. Images with integer labels can be loaded and they are treated as region labels which can be used to integrate phasor coordinates of each region (Image tab - Integrate checkbox) or to export average region phasor data (Export tab - Masked object data checkbox) </p>
 
 <p class="Normal_L0"> <span class="compnt"> Overwrite checkbox</span>: Ovewrite current mask when loading or apply loaded mask on current mask.</p>
 
@@ -286,8 +284,7 @@ images prior to phasor transform. </p>
 
 <h3>Phasor tab</h3>
 
-<p class="Normal"> The phasor tab includes all parameters affecting the phasor transform computation and the
-associated measurements.</p>
+<p class="Normal"> Parameters affecting the phasor transform computation and associated measurements.</p>
 
 <div style="width:224px;float:right;margin-left:5px;margin-top:5px;">
 <div style="width:100%;text-align:center;">
@@ -356,7 +353,7 @@ associated measurements.</p>
 
 <h3>Display tab</h3>
 
-<p class="Normal"> The display tab includes all options that are related to phasor plot style and formatting. </p>
+<p class="Normal"> Options related to phasor plot style and formatting. </p>
 
 
 <div style="width:224px;float:right;margin-left:5px;margin-top:5px;">
@@ -423,9 +420,7 @@ associated measurements.</p>
 
 <h3>Cluster tab</h3>
 
-<p class="Normal"> The clustering tab
-is used to create automated clustering of phasor distributions in the phasor
-space. </p>
+<p class="Normal"> Create automated clustering of phasor distributions in the phasor space. </p>
 
 <div style="width:224px;float:right;margin-left:5px;margin-top:5px;">
 <div style="width:100%;text-align:center;">
@@ -464,8 +459,7 @@ space. </p>
 
 <h3>Unmix tab</h3>
 
-<p class="Normal"> This tab includes all options for defining pure components to run the multi-harmonic
-multi-component phasor unmixing routines.</p>
+<p class="Normal"> Options for defining pure components to run the multi-harmonic multi-component phasor unmixing routines.</p>
 
 
 <div style="width:224px;float:right;margin-left:5px;margin-top:5px;">
@@ -650,11 +644,28 @@ multi-component phasor unmixing routines.</p>
 
 <h3>Image Window</h3>
 
-<p class="Normal">The Image Window contains the rendered images. Hovering over an image
-in this window will select the respective file name in the file tab and will
-display a black cursor on the phasor plot marking the phasor coordinates of the
-pixel under the mouse pointer.</p>
+<p class="Normal">The Image Window contains the rendered images. Hovering over an image in this window will select the respective file name in the file tab and will display a black cursor on the phasor plot marking the phasor coordinates of the pixel under the mouse pointer.</p>
 
+
+<p class="Normal_L0"> <span class="compnt"> Image context menu options</span> (right-click on image):</p>
+
+<p class="Normal_L1"> <span class="compnt"> Freehand</span>: Allows user to hand-draw a ROI on the image (click and hold to draw, release to close). The ROI waipoints can be dragged and the whole ROI can be repositioned.</p>
+
+<p class="Normal_L1"> <span class="compnt"> Polygon</span>: Allows user to generate a polygon point by point (click to add points, double click to close) and edit ROI on the image.</p>
+
+<p class="Normal_L1"> <span class="compnt"> Rectangle</span>: Allows user to place and edit a rectangle ROI on the image.</p>
+
+<p class="Normal_L1"> <span class="compnt"> Circle</span>: Allows user to place and edit a circle ROI on the image.</p>
+
+<p class="Normal_L1"> <span class="compnt"> Ellipse</span>: Allows user to place and edit a ellipse ROI on the image.</p>
+
+<p class="Normal">Only one ROI can be placed at a time. When a ROI is in place it has to either be added to the mask or deleted:</p>
+
+<p class="Normal_L0"> <span class="compnt"> ROI context menu options</span> (right-click on ROI):</p>
+
+<p class="Normal_L1"> <span class="compnt"> Add to mask</span>: Adds the current ROI to the mask for this image. Each new ROI is added with an increasing label so that region analysis can be used (Image tab - Integrate checkbox) and individual region parameters can be exported (Export tab - Masked obj. data).</p>
+
+<p class="Normal_L1"> <span class="compnt"> Delete ROI</span>: Removes the ROI from the image.</p>
 </div>
 
 </div>

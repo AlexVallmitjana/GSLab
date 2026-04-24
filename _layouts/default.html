@@ -99,9 +99,11 @@
   function fillframe(url,flag) {
     const iframe = document.getElementById('espai');	
    iframe.src = url;
-   if(flag==0){iframe.style.height='8786px';}
+   if(flag==0){iframe.style.height='9268px';}
    if(flag==1){iframe.style.height='6100px';}
    if(flag==2){iframe.style.height='9168px';}
+     const headerH = document.getElementById('header_wrap').offsetHeight;
+  window.scrollTo({ top: headerH, behavior: 'smooth' });
   }
   function changeSize(iframe){
    const doc = iframe.contentDocument || iframe.contentWindow.document;
@@ -175,7 +177,6 @@
 	   <iframe id="espai" src="about:blank" seamless style="width:100%;height:5px;" ></iframe> 
 	  <!-- <img src="assets/images/webinar01.jpg" alt="webinar" style="width:100%;aspect-ratio:1419/772;"> -->
 	
-	  
         {{ content }}
 		
       </section>

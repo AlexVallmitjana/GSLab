@@ -1,6 +1,9 @@
-[v1.233] - HDR click triggers max intensity range  
-[v1.232] - Decays are also plotted as separate entities if integrate checkbox is set    
-[v1.231] - Allow integrate mask regions to plot as separate entities  
+[v1.236] - Built logic for context menu on image window to generate shapes and add as a mask  
+[v1.235] - fixed issue where integration of regions was being plotted in white for some colormaps  
+[v1.234] - Decays are also plotted as separate entities if integrate checkbox is set    
+[v1.233] - Allow integrate mask regions to plot as separate entities  
+[v1.232] - Multiple files can be loaded as mask to match one file per loaded image    
+[v1.231] - HDR click triggers max intensity range  
 [v1.230] - Fixed issue where images werent being rendered upon load bc v1.227    
 [v1.229] - Allow users to select grandmother folder for FLAME data  
 [v1.228] - Added cursor size change after changing phasor field of view  
