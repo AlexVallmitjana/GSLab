@@ -1,6 +1,6 @@
 # [GSLab: Open-Source Platform for Advanced Phasor Analysis in Fluorescence Microscopy](https://alexvallmitjana.github.io/GSLab)
 
-## 
+## Summary
 
 The phasor approach to fluorescence lifetime imaging is a widely used method for image analysis in biophysics and a range of other fields. GSLab addresses the need for effective image analysis tools in fluorescence microscopy by providing an open-source platform that enhances traditional phasor analysis with advanced features. Key capabilities include machine learning-based clustering, real-time monitoring, and quantitative unmixing of fluorescent species. Designed for both commercial and custom systems, GSLab provides researchers with comprehensive lifetime and spectral phasor image analysis tools to tackle complex biological problems.
 
