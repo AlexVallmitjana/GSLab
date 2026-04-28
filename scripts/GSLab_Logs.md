@@ -1,3 +1,9 @@
+[v1.242] - Fixed issue where sessions could not be loaded for latest implemented file types  
+[v1.241] - Prevented error from setting gaussian filter of std=0  
+[v1.240] - Changed autoIrange to account for normalized traces  
+[v1.239] - Fixed bug where loading new files wouldnt update image window tiling  
+[v1.238] - Added generic load button with no need to specify file type    
+[v1.237] - Changed the emphasis colormixing to saturate colors  
 [v1.236] - Built logic for context menu on image window to generate shapes and add as a mask  
 [v1.235] - fixed issue where integration of regions was being plotted in white for some colormaps  
 [v1.234] - Decays are also plotted as separate entities if integrate checkbox is set    

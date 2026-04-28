@@ -1,6 +1,6 @@
 function [I] = phasorPlotFast(S,G,sz,fov)
 
-% [I,tk1,tk2] = phasorPlotFast(S,G,sz,ex,fov)
+% [I,tk1,tk2] = phasorPlotFast(S,G,sz,fov)
 % Plots phasor given S and G arrays.
 %   I=phasorPlot(G,S,sz,fov); will output an image with the phasor counts.
 %       sz is a 1x2 vector specifying output image size (and therefore binning in phasor space).
