@@ -20,12 +20,6 @@ The phasor approach to fluorescence lifetime imaging is a widely used method for
 To launch the program, type **GSLab** in the MATLAB command window.  
 Once the path has been saved in MATLAB, simply type GSLab in the command window to run the program in subsequent sessions.
 
-### Help
-
-A [user manual file](https://alexvallmitjana.github.io/GSLab/GSLab_Manual.html) is inculded in the main directory. 
-
-Follow-along [tutorial and sample files](https://doi.org/10.6084/m9.figshare.28067108) are available for download in Figshare.
-
 ### Standalone app for Windows without MATLAB
 
 A precompiled executable [installer file for Windows](https://doi.org/10.6084/m9.figshare.28655276) is available in Figshare.
