@@ -75,7 +75,7 @@ for ii=1:L
     if(type==1.1)% new cut refs
         sizes=sqrt(length(input)/3);
         images = reshape(input,sizes,sizes,3);
-        images=cat(3,images,zeros(size(images,1),size(images,1),2));% case of single harmonic we add zeros 
+        % images=cat(3,images,zeros(size(images,1),size(images,1),2));% case of single harmonic we add zeros 
         FLIMdata{ii}=double(images);
     end 
     if(type==1.3)% 3harmonic refs

@@ -4,7 +4,7 @@ G=fopen(ruta,'rt');
 cont=(fread(G,inf,'uchar'))';% l
 fclose(G);
 % fields to fish out
-interest={"tileSizeUm","tileResolution","tileCornerPtsUm","tileZs","framesPerTile","channelsSaved","bidirectionalCorrection"};
+interest={"tileSizeUm","tileResolution","tileCornerPtsUm","tileZs","framesPerTile","channelsSaved","bidirectionalCorrection","dwellTimeUs"};
 valors=cell(size(interest));
 fields=find(cont==34);% quotes
 N=numel(fields);

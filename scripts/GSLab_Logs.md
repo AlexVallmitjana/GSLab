@@ -1,3 +1,6 @@
+[v1.245] - Added auto both axis button  
+[v1.244] - Changed phasor density log display  
+[v1.243] - Adapted tiff reader to take single slice RGB images as three-slice images  
 [v1.242] - Fixed issue where sessions could not be loaded for latest implemented file types  
 [v1.241] - Prevented error from setting gaussian filter of std=0  
 [v1.240] - Changed autoIrange to account for normalized traces  

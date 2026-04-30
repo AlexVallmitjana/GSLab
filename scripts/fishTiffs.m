@@ -5,11 +5,15 @@ if(nargin<2),verb=1;end
 if(strcmp(folder(end-3:end),'.tif'))
     gg=imfinfo(folder);
     N=numel(gg);
+    if(N==1)
+    IT=imread(folder);    
+    else
     IT=zeros(gg(1).Height,gg(1).Width,N);
     for cc=1:N
         I=imread(folder,cc);
 
         IT(:,:,cc)=I;
+    end
     end
 else
     S=dir([folder filesep '*.tif']);
