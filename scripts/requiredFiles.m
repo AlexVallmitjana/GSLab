@@ -18,7 +18,7 @@ cc=cc+1;filelist{cc}='scripts/definetype.m';
 cc=cc+1;filelist{cc}='scripts/ensenya.m';
 cc=cc+1;filelist{cc}='scripts/fishTiffs.m';
 cc=cc+1;filelist{cc}='scripts/fpt.m';
-cc=cc+1;filelist{cc}='scripts/getConfig.m';
+cc=cc+1;filelist{cc}='scripts/getConfiguration.m';
 cc=cc+1;filelist{cc}='scripts/getGeometry.m';
 cc=cc+1;filelist{cc}='scripts/getTileDims.m';
 cc=cc+1;filelist{cc}='scripts/gray2rgb.m';
