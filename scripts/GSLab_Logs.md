@@ -1,3 +1,4 @@
+[v1.247] - Fixed a bug when raw data is smaller than target downsampling dimension  
 [v1.246] - Modified ptuf.py to find T dimension and sum along it      
 [v1.245] - Added auto both axis button  
 [v1.244] - Changed phasor density log display  
