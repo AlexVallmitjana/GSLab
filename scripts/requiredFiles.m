@@ -27,6 +27,7 @@ cc=cc+1;filelist{cc}='scripts/hist2D.m';
 cc=cc+1;filelist{cc}='scripts/html2docx.m';
 cc=cc+1;filelist{cc}='scripts/imwrite300.m';
 cc=cc+1;filelist{cc}='scripts/inverseColor.m';
+cc=cc+1;filelist{cc}='scripts/isType.m';
 cc=cc+1;filelist{cc}='scripts/logo1.ico';
 cc=cc+1;filelist{cc}='scripts/logo1.png';
 cc=cc+1;filelist{cc}='scripts/logo2.png';

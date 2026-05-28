@@ -1,3 +1,5 @@
+[v1.250] - Added dynamic path detection for Python in deployed version plus autodetect Python version in LoadCGohlkeFun  
+[v1.249] - Added safeguard for intensity limits computation upon load and in auto button  
 [v1.248] - Added a counts tooltip in Image Window and option to display it in settings tab  
 [v1.247] - Fixed a bug when raw data is smaller than target downsampling dimension  
 [v1.246] - Modified ptuf.py to find T dimension and sum along it   

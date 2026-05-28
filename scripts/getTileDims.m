@@ -2,11 +2,9 @@ function [m,n,success] = getTileDims(filename,verb)
 success=1;
 if(nargin<2),verb=1;end
 nums='1234567890';
-out=-2*ones(length(filename),1);
+out=-2*ones(length(filename),1);% encode numbers and exes
 for ii=1:length(filename)
-
     for jj=1:length(nums)
-
         if(filename(ii)==nums(jj))
             out(ii)=mod(jj,10);
         end
@@ -17,7 +15,7 @@ for ii=1:length(filename)
 end
 aux=find(out==10);
 trob=0;
-for ii=1:length(aux)
+for ii=1:length(aux)% decode all numbers around exes (keeps the last)
     if(aux(ii)>1)
         if(aux(ii)<length(out))
             a=find(out(1:aux(ii))==-2,1,'last');
