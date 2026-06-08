@@ -1,3 +1,4 @@
+[v1.257] - Added safeguards for when user tries to unmix without declaring compontents or with component ids at zero    
 [v1.256] - Implemented indeterminate wait progress bar  
 [v1.255] - Added scatter plot as a representation of clustering  
 [v1.254] - Generalized plotting function given a clustering result to add more models  
