@@ -1,3 +1,8 @@
+[v1.262] - Fixed bug where HR exports of coordinates was failing  
+[v1.261] - Allow users to export masked/integrated by masked region decay curves  
+[v1.260] - Fixed bug where FLIMlabs data was not being kept as individual pixel decay  
+[v1.259] - Fixed bug where FLIMlabs decays were being read as integer and normalization would binarize it  
+[v1.258] - Added harmonic limit when loading precomputed phasor coordinates  
 [v1.257] - Added safeguards for when user tries to unmix without declaring compontents or with component ids at zero    
 [v1.256] - Implemented indeterminate wait progress bar  
 [v1.255] - Added scatter plot as a representation of clustering  
