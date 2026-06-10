@@ -1,3 +1,4 @@
+[v1.263] - Built a structure of try/catch in order to use the homegrown ptu reader when CGohlke fails (likely Python isses)  
 [v1.262] - Fixed bug where HR exports of coordinates was failing  
 [v1.261] - Allow users to export masked/integrated by masked region decay curves  
 [v1.260] - Fixed bug where FLIMlabs data was not being kept as individual pixel decay  
