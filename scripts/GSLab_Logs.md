@@ -1,6 +1,9 @@
+[v1.266] - Context menu launch in Tree changes the SelectedNode so users auto select files with rightclick  
+[v1.265] - Changing max harmonic no longer requires reloading the data  
+[v1.264] - Added a window position check in startup function if user changed monitor setup and coordinates are out of bounds  
 [v1.263] - Built a structure of try/catch in order to use the homegrown ptu reader when CGohlke fails (likely Python isses)  
 [v1.262] - Fixed bug where HR exports of coordinates was failing  
-[v1.261] - Allow users to export masked/integrated by masked region decay curves  
+[v1.261] - Allow users to export masked/integrated by masked region decay curves and added lines/bars radio option    
 [v1.260] - Fixed bug where FLIMlabs data was not being kept as individual pixel decay  
 [v1.259] - Fixed bug where FLIMlabs decays were being read as integer and normalization would binarize it  
 [v1.258] - Added harmonic limit when loading precomputed phasor coordinates  
