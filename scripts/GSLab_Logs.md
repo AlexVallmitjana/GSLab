@@ -1,3 +1,5 @@
+[v1.267] - Zoom implemented in image window using mouse wheel    
+### Jul '26   
 [v1.266] - Context menu launch in Tree changes the SelectedNode so users auto select files with rightclick  
 [v1.265] - Changing max harmonic no longer requires reloading the data  
 [v1.264] - Added a window position check in startup function if user changed monitor setup and coordinates are out of bounds  

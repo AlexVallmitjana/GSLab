@@ -338,7 +338,7 @@ keep = xi >= 1 & xi <= Nx  & ...
        yi >= 1 & yi <= Ny  & ...
        ti >= 1 & ti <= Nbins;
 if any(~keep)
-    %ensenya(['Warning: ' num2str(sum(~keep)) ' photons out of cube range after folding.'],'a');
+    ensenya(['Warning: ' num2str(sum(~keep)) ' photons out of cube range after folding.'],'a');
 end
 xi = xi(keep);
 yi = yi(keep);

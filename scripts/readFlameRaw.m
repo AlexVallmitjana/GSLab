@@ -71,17 +71,40 @@ if((geomid==3)||(geomid==4))
         ensenya('Warning: Z/C number inconsistency','a');
     end
     IT2=zeros(size(IT,1),size(IT,2),CC,TT,ZZ);
-    for zz=1:ZZ
+    if(verb==1),ensenya('Arranging z-slices    ');end
+    for zz=1:ZZ% current 3rd dimension contains zz groups of cc, assign each group to increasing 5th dimension index
         IT2(:,:,:,:,zz)=IT(:,:,(zz-1)*CC+1:(zz)*CC,:);
+        if(verb==1),percentatge(zz,ZZ);end
     end
     IT=IT2;clear IT2;
     aux1=strfind(path,'_zstep');
     aux2=aux0(find(aux0>aux1,1,'first'));
-
     dad.zStepUm=str2num(path(aux1+6:aux2-1));
-
+    if(numel(dad.tileZs)~=size(IT,5))
+        if(numel(dad.tileZs)*dad.framesPerTile==size(IT,5))
+            ensenya('Warning: Assuming file was logged as separate frames, averaging values     ','a');
+            ZZ=numel(dad.tileZs);
+            IT2=zeros(size(IT,1),size(IT,2),CC,TT,numel(dad.tileZs));
+                for zz=1:ZZ
+                    IT2(:,:,:,:,zz)=mean(IT(:,:,:,:,(zz-1)*dad.framesPerTile+1:(zz)*dad.framesPerTile),5);
+                    if(verb==1),percentatge(zz,ZZ);end
+                end
+                IT=IT2;clear IT2;
+        end
+    end
 else
-
+    if(CC~=size(IT,3))
+        if(CC*dad.framesPerTile==size(IT,3))
+            ensenya('Warning: Assuming file was logged as separate frames, adding values    ','a');
+                 IT2=zeros(size(IT,1),size(IT,2),CC,TT);
+                 ref=[1:CC:size(IT,3)]-1;
+                for cc=1:CC
+                    IT2(:,:,cc,:)=sum(IT(:,:,ref+cc,:),3);
+                    if(verb==1),percentatge(cc,CC);end
+                end
+                IT=IT2;clear IT2;
+        end
+    end
 end
 
 %   size(IT)
@@ -110,4 +133,5 @@ dad.folderPath=path(1:aux00(end)-1);
 dad.fileName=path(aux00(end)+1:end);
 if(unj~=0)&&(isfield(dad, 'bidirectionalCorrection'))
     IT=unjag(IT,dad.bidirectionalCorrection);
+end
 end

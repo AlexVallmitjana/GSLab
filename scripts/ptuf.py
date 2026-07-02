@@ -8,7 +8,7 @@ class read_ptu():
         
 
         #print("Shape:", ptu.shape)
-
+        #print("Dimension:", ptu.dims)
         dims = ptu.dims
         t_axis = dims.index('T') if 'T' in dims else None
 
