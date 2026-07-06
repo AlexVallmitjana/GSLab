@@ -1,3 +1,4 @@
+[v1.268] - Added option to label mask into connected components  
 [v1.267] - Zoom implemented in image window using mouse wheel    
 ### Jul '26   
 [v1.266] - Context menu launch in Tree changes the SelectedNode so users auto select files with rightclick  
