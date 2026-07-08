@@ -1,3 +1,5 @@
+[v1.270] - Implemented the reader for the new FLIM imager 2.0 from FLIMlabs  
+[v1.269] - Changed the way image window is copied to clipboard (context menu and label were interfering)  
 [v1.268] - Added option to label mask into connected components  
 [v1.267] - Zoom implemented in image window using mouse wheel    
 ### Jul '26   
