@@ -72,7 +72,7 @@ if(type==1)
         aux(round(ttl*crop(1))+1:round(ttl*crop(1))+size(circ,1),:)=circ;
         circ=aux;
     else
-        if(crop(1)<0)
+        if(crop(1)<=0)
             ttl=round(size(circ,1)/diff(crop));
             aux=ones(ttl*2,3);
             aux(round(ttl*(1+crop(1))):round(ttl*(1+crop(1)))+size(circ,1)-1,:)=circ;
