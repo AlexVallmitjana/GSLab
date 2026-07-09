@@ -1,3 +1,4 @@
+[v1.271] - Fixed minor bug where coordinates where being flipped in display (became apparent when displaying non-square images.  
 [v1.270] - Implemented the reader for the new FLIM imager 2.0 from FLIMlabs  
 [v1.269] - Changed the way image window is copied to clipboard (context menu and label were interfering)  
 [v1.268] - Added option to label mask into connected components  
