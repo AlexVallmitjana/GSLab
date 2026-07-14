@@ -5,6 +5,19 @@ switch nom
         tv=Crange;
     case {'Phase','NormPhase'}
         tv=Crange*2*3.1416;
+    case 'Wavelength'        
+        Wrange=[taus(1)+(taus(end)-taus(1))*Crange];
+        stay=find((taus>=Wrange(1))&(taus<=Wrange(2)));
+        height=1+round(255*(taus(stay)-Wrange(1))/((Wrange(2)-Wrange(1))));
+        tv=cell(0);
+           for jj=1:256% taus in cmap locations for tau
+            aux=find(height==jj, 1);
+            if(~isempty(aux))
+                tv{jj}=taus(stay(aux));
+            else
+                tv{jj}=' ';
+            end
+        end
     case 'TauPhase'
         taus=taus*1e-9;
         omega=2*3.1416*freq;

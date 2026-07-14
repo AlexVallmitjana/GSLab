@@ -22,6 +22,10 @@ function [type,centre,codi] = definetype(nom)
                     type=1;%angular
                     centre=[0 0];% x,y
                     codi=5;
+                case 'Wavelength'
+                    type=1;%angular
+                    centre=[0 0];% x,y
+                    codi=8;                    
                 case 'TauMod'
                     type=2;%radial
                       centre=[0 0];
