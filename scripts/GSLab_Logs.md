@@ -1,8 +1,9 @@
+[v1.276] - Implemented cursor-based clustering where manual clusters are used as seeds for a growing algorithm voronoi style  
 [v1.275] - Added option to export individual clustering component image  
 [v1.274] - Added option to account for bin width in spectral representation  
 [v1.273] - Fixed issue where file identification in quickload was case sensitive to the extension  
 [v1.272] - Added measured magnitude wavelength colobar exports in lambda  
-[v1.271] - Fixed minor bug where coordinates where being flipped in display (became apparent when displaying non-square images.  
+[v1.271] - Fixed minor bug where coordinates where being flipped in display (became apparent when displaying non-square images   
 [v1.270] - Implemented the reader for the new FLIM imager 2.0 from FLIMlabs  
 [v1.269] - Changed the way image window is copied to clipboard (context menu and label were interfering)  
 [v1.268] - Added option to label mask into connected components  
