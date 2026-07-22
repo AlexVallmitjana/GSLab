@@ -1,3 +1,7 @@
+[v1.280] - Fixed a bug where wavelength magnitude selection was not changing background color range and units  
+[v1.279] - Added grid option to display  
+[v1.278] - Added a timer to remove intensity counts text label if user moved mouse fast out of image window  
+[v1.277] - Released aspect ratio so that IvsMag can deal with different orders of magnitude (i.e. range small intensity range vs large wavelength range)  
 [v1.276] - Implemented cursor-based clustering where manual clusters are used as seeds for a growing algorithm voronoi style  
 [v1.275] - Added option to export individual clustering component image  
 [v1.274] - Added option to account for bin width in spectral representation  

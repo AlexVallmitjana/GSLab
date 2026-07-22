@@ -1,7 +1,7 @@
 function [coloret] = colorPicker2(opt,pos,sat)
 % opt = 0 for free picking an RGB trio
 % opt = 1 for free picking and get closest superjet code
-% opt = 1.1 for free picking displayin closest superjet code
+% opt = 1.1 for free picking displaying closest superjet code
 % opt = 2 for discretised colors and get a code (sat is ignored)
 % pos is a 4 value array to set window position and size
 % sat is a flag to pick only saturated colors (1 yes, 0 no default)
@@ -54,29 +54,36 @@ else% discret
     sp=[3 3];
     bgcol=[.9 .9 .9];
     mg=[0 0];
-    % codes={'k012JX3E4;','TtgljK_nMe','vAuibZ.SdN','rhVRz Y,W[','ayDUGo-OfB','ICxqL:pmFs','cQH56789Pw'};
-    codes={'k012JX3E4;','56789PwICx','cQHqL:pmFs','vAuibZ.SdN','tgljK_nMTe','yDUGofB-Oa','rhVRz Y,W['};
-    fil=numel(codes{1});
-    col=numel(codes);
+
+    [~,aux]=superjet();
+    cc=aux{1};
+    col=7;
+    fil=ceil(numel(cc)/col);
+    codes=cc;
+
     I=zeros(sp(1)+(sz(1)+sp(1)+2*mg(1))*fil,sp(2)+(sz(2)+sp(2)+2*mg(2))*col,3);
     for cc=1:3
         I(:,:,cc)=bgcol(cc);
     end
 
-
+    rec=0;
     for ii=1:fil
         for jj=1:col
-            aux=[0 0 0];
-            rgy=(ii-1)*(sp(1)+2*mg(1)+sz(1))+sp(1):ii*(sp(1)+2*mg(1)+sz(1));
-            rgx=(jj-1)*(sp(2)+2*mg(2)+sz(2))+sp(2):jj*(sp(2)+2*mg(2)+sz(2));
-            for cc=1:3
-                I(rgy,rgx,cc)=aux(cc);
-            end
-            aux=superjet(1,codes{jj}(ii));
-            rgy=(ii-1)*(sp(1)+2*mg(1)+sz(1))+sp(1)+mg(1):ii*(sp(1)+2*mg(1)+sz(1))-mg(1);
-            rgx=(jj-1)*(sp(2)+2*mg(2)+sz(2))+sp(2)+mg(2):jj*(sp(2)+2*mg(2)+sz(2))-mg(2);
-            for cc=1:3
-                I(rgy,rgx,cc)=aux(cc);
+            rec=rec+1;
+            if(rec<=numel(codes))
+                aux=[0 0 0];
+                rgy=(ii-1)*(sp(1)+2*mg(1)+sz(1))+sp(1):ii*(sp(1)+2*mg(1)+sz(1));
+                rgx=(jj-1)*(sp(2)+2*mg(2)+sz(2))+sp(2):jj*(sp(2)+2*mg(2)+sz(2));
+                for cc=1:3
+                    I(rgy,rgx,cc)=aux(cc);
+                end
+
+                aux=superjet(1,codes(rec));
+                rgy=(ii-1)*(sp(1)+2*mg(1)+sz(1))+sp(1)+mg(1):ii*(sp(1)+2*mg(1)+sz(1))-mg(1);
+                rgx=(jj-1)*(sp(2)+2*mg(2)+sz(2))+sp(2)+mg(2):jj*(sp(2)+2*mg(2)+sz(2))-mg(2);
+                for cc=1:3
+                    I(rgy,rgx,cc)=aux(cc);
+                end
             end
         end
     end
@@ -91,7 +98,8 @@ else% discret
     aux=aux(1,[2,1]);
 
     aux=ceil(aux./(sz+2*mg+sp));
-    coloret=codes{aux(2)}(aux(1));
+    ind=(aux(1)-1)*col+aux(2);
+    coloret=codes(ind);
 end
 
 close(868);
@@ -100,8 +108,9 @@ end
 
 
 function [] = generate()
+
 N=256;
-cm=superjet(N,'kvbcgyormw');
+cm=superjet(N,'k<vbcgyormw');
 cm=permute(cm,[3 1 2]);
 
 % cm=cm(end:-1:1,:,:);
@@ -109,14 +118,14 @@ I=repmat(cm,[N 1 1]);
 facs=linspace(0,1,ceil(N/2));
 % facs=sqrt(facs);
 for ii=1:floor(N/2)
-    I(ii,:,:)=I(ii,:,:).*sqrt(facs(ii));
+    I(ii,:,:)=I(ii,:,:).*(facs(ii));
 end
 facs=[facs,facs];
 for ii=floor(N/2)+1:N
     I(ii,:,:)=I(ii,:,:)+(1-I(ii,:,:))*facs(ii);
 end
 I=I(N:-1:1,:,:);
-
+% figure();imagesc(I)
 % imwrite(I,'colpick.png');
 
 I2=zeros(N,N);
@@ -142,63 +151,40 @@ Icrop=I3;
 Icode=I4;
 save('colpick.mat','Ipick','Icrop','Icode');
 
-vec=zeros(max(I2(:)),1);
-for ii=1:max(I2(:))
-    vec(ii)=numel(find(I2==ii));
-end
 
 % figure(3);plot(sort(vec))
 
-if(0)% show abundance
+if(1)% show abundance
+   
+    [~,aux]=superjet();
+    cc=aux{1};
+    cdiccio=aux{2};
+    dnams=aux{3};
 
+    vec=zeros(numel(cc),1);
+    aux=reshape((Icode),[numel(Icode),1]);
+    for ii=1:numel(cc)
+        vec(ii)=numel(find(aux==cc(ii)));
+    end
     [vec,ord]=sort(vec,'descend');
-
-
-
-    cc='kubcgyorpwmvsnltidfxeajhqz 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ,.-;:_[]';% index del diccionari
-    cdiccio=[0 0 0;5 0 10;0 0 10;0 10 10;0 10 0;...
-        10 10 0;10 7 0;10 0 0;10 5 9;10 10 10;...
-        10 0 10;6 0 8;10 5 5;5 3 1;5 10 0;...
-        0 10 5;3 0 7;0 2 4;9 7 4;9 10 10;...
-        0 4 0;10 5 0;6 8 0;9 3 1;10 9 9;...
-        8 0 2;7 2 2;...
-        .5 .5 .5;1 1 1;...
-        2 2 2;3 3 3;4 4 4;5 5 5;...
-        6 6 6;7 7 7;8 8 8;9 9 9;...
-        5 0 6;9 8 5;10 10 8;9 9 2;...
-        3.3 3.5 3;10 0 5;10 8 0;8 10 8;...
-        10 10 9;2 2 3;7 8 5;8 6 8;...
-        5 0 0;1 1 4;8 5 1;9.5 9.5 10;...
-        5 10 9;9 1 4;1 3 7;0 5 5;...
-        10 9 4;9 2 2;4 2 2;3 2 2;...
-        6 0 2;0 5 10;...
-        6 0 1;0 3 8;7 5 2;2 3 2;...
-        9 4 8;5 6 4;4 2 1;8 3 0;...
-        ];
-    dnams={'black','purple','blue','cyan','green',...
-        'yellow','orange','red','pink','white',...
-        'magenta','violet','salmon','brown','lime',...
-        'turquoise','indigo','denim','flesh','xenon',...
-        'emerald','amber','jade','heat','quartz',...
-        'crimson','lava',...
-        'charcoal','iron',...
-        'lead','tin','zinc','gray',...
-        'nickel','silver','titanium','aluminium',...
-        'amethyst','beige','cream','dandelion',...
-        'ebony','fuchsia','gold','honeydew',...
-        'ivory','jet','khaki','lilac',...
-        'maroon','navy','ochre','pearl',...
-        'aquamarine','ruby','sapphire','teal',...
-        'mustard','vermilion','wine','onyx',...
-        'burgundy','azure',...
-        'carmine','cobalt','copper','opal',...
-        'orchid','sage','sepia','tawny',...
-        };
-
 
     clc
     for ii=1:numel(vec)
         ensenya([cc(ord(ii)) ' - ' num2str(vec(ii))  ],cc(ord(ii)));
+    end
+    figure;set(gcf,'position',[333 266 1722 596])
+    subplot(131),imagesc(.1*round(Ipick*10)),axis image
+    subplot(132),imagesc(Icrop);axis image;
+    subplot(133),imagesc(Ipick);axis image;hold on
+    step=8;
+    for ii=round(step/2):step:size(Icode,1)
+        for jj=round(step/2):step:size(Icode,2)
+
+            h=text(jj,ii,'A');
+            set(h,'horizontalalignment','center','verticalalignment','middle','color',inverseColor(permute(Icrop(ii,jj,:),[1 3 2])),'interpreter','none');
+            h.String=Icode(ii,jj);
+
+        end
     end
 end
 end
