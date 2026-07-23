@@ -1,5 +1,8 @@
+[v1.283] - Added the factory reset button  
+[v1.282] - Swapped term magnitude for quantity (spanish false friend)  
+[v1.281] - Reduced startup time by cutting down unnecessary calls to plotting function  
 [v1.280] - Fixed a bug where wavelength magnitude selection was not changing background color range and units  
-[v1.279] - Added grid option to display  
+[v1.279] - Added grid option to display tab  
 [v1.278] - Added a timer to remove intensity counts text label if user moved mouse fast out of image window  
 [v1.277] - Released aspect ratio so that IvsMag can deal with different orders of magnitude (i.e. range small intensity range vs large wavelength range)  
 [v1.276] - Implemented cursor-based clustering where manual clusters are used as seeds for a growing algorithm voronoi style  

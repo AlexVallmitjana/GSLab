@@ -73,18 +73,18 @@ background-color:green;
 <li>Uncheck Relative to show the histogram in real counts.</li>
 <li>Set the lower intensity threshold to 30 and press Enter.</li>
 <li>The phasor now excludes the pixels with low photon counts: the noisy distribution on the left part of the phasor plot has disappeared.</li>
-<h3>Phasor tab – Select the phasor magnitude to measure</h3>
-<li>In the bottom section try the different magnitudes and see how the color projection changes. Use TauPhase for this dataset. Each pixel in the image is colored according to the underlying colormap in the phasor.</li>
+<h3>Phasor tab – Select the phasor quantity to measure</h3>
+<li>In the bottom section try the different quantities and see how the color projection changes. Use TauPhase for this dataset. Each pixel in the image is colored according to the underlying colormap in the phasor.</li>
 <h3>Cursors – Place cursors on the phasor plot</h3>
 <li>Depending on the settings in the previous sections, the phasor distribution may appear very differently. We may see 1, 2 3 4 or more distinct populations. </li>
 <li>Click on the phasor plot to place cursors and color the image accordingly.</li>
 <li>Use the red X button (top-right) to remove cursors (appears if one or more cursors are on the phasor plot).</li>
 <h3>Export tab – Save images and phasor plots</h3>
 <li>Click Output Folder to choose a save location.</li>
-<li>Uncheck all checkboxes except for Phasor with axes, Phasor Plot as, Intensity image, Magnitude-colored x intensity, and Combine into single image.</li>
+<li>Uncheck all checkboxes except for Phasor with axes, Phasor Plot as, Intensity image, Quantity-colored x intensity, and Combine into single image.</li>
 <li>Click Export LR to save the selected items.</li>
 <li>A single file will be exported with grayscale intensity, phasor color projection, and the phasor plot.</li>
-<li>Uncheck Magnitude-colored x intensity and check the Cursor-Colored image.</li>
+<li>Uncheck Quantity-colored x intensity and check the Cursor-Colored image.</li>
 <li>Press the Export LR button to export like before but now the image is colored according to any cursors on the phasor plot.</li>
 </ol>
 <h2 id="T2">Tutorial 2 – Phasor calibration and phasor filtering</h2>
@@ -117,7 +117,7 @@ background-color:green;
 <li>Set it to 5 and press Enter (reduces noise).</li>
 <li>Set Times to 3 and press Enter (further sharpens the phasor).</li>
 <li>Higher filtering smooths out regions in the image.</li>
-<li>In Measured magnitude, click TauNorm to display the color projection to the Universal Circle.</li>
+<li>In Measured quantity, click TauNorm to display the color projection to the Universal Circle.</li>
 <li>Adjust Color range to 0 and 0.5 to cover the full semicircle.</li>
 <li>Click Auto to let the software adjust the color range automatically.</li>
 <h3>Display tab – Customize the phasor plot</h3>
@@ -128,7 +128,7 @@ background-color:green;
 <li>Toggle Soft Masks to see intensity-based or color-only images.</li>
 <h3>Export tab – Save images and phasor plots</h3>
 <li>Click Output Folder to select a save location.</li>
-<li>Uncheck all checkboxes except for Print colorbar, and Magnitude-colored x intensity.</li>
+<li>Uncheck all checkboxes except for Print colorbar, and Quantity-colored x intensity.</li>
 <li>Click Export LR to save the selected items.</li>
 <li>Two image files will be exported the image with phasor lifetime projection, and colorbar with the lifetime values.</li>
 </ol>
@@ -208,7 +208,7 @@ background-color:green;
 <li>With Probability assign to color each pixel based on its mix of components.</li>
 <li>Click Hard assign to color each pixel based on the highest component coefficient.</li>
 <li>Check Blending to smooth color transitions.</li>
-<li>Check Override magnitude for export to save GMM-clustered images instead of cursor-colored ones.</li>
+<li>Check Override quantity for export to save GMM-clustered images instead of cursor-colored ones.</li>
 <h3>Export tab – Save the results</h3>
 <li>Click Output Folder to choose where to save the data.</li>
 <li>Two checkboxes now include the GMM-colored option.</li>
@@ -248,7 +248,7 @@ background-color:green;
 <h3>Phasor tab – Filter the phasor data</h3>
 <li>Change the Phasor filtering value to 7. Press Enter.</li> 
 <li>Change the Times value to 2. Press Enter. </li>
-<li>In the Measured magnitude section click on TauNorm. </li>
+<li>In the Measured quantity section click on TauNorm. </li>
 <h3>Display tab – Customize the phasor plot</h3>
 <li>Check the Soft Masks.</li>
 <li>Check/uncheck Normalize by file to observe the contribution of the narrower distributions</li>
@@ -282,7 +282,7 @@ background-color:green;
 <h3>Phasor tab – Filter the phasor data</h3>
 <li>Change the Phasor filtering value to 3. Press Enter. </li>
 <li>Change the Times value to 1. Press Enter. </li>
-<li>In the Measured magnitude section click on Phase. </li>
+<li>In the Measured quantity section click on Phase. </li>
 <li>Set the Color range to 0 and 1.</li>
 <h3>Display tab – Customize the phasor plot</h3>
 <li>Check the Soft Masks.</li>

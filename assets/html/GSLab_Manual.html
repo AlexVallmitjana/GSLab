@@ -319,11 +319,11 @@ all cursors on the phasor plot.</p>
 
 <p class="Normal_L0"> <span class="compnt"> Color range boxes</span>: Lower and upper limits for the color range (in units of a whole turn for angular quantities and in phasor units for radial quantities).</p>
 
-<p class="Normal_L0"> <span class="compnt"> Norm color units</span>: Toggle between setting the color range in units over unit circle or in the selected magnitude units.</p>
+<p class="Normal_L0"> <span class="compnt"> Norm color units</span>: Toggle between setting the color range in units over unit circle or in the selected physical quantity units.</p>
 
 <p class="Normal_L0"> <span class="compnt"> Auto button</span>: Automatically set the color range to a percentile range (determined by user preferences).</p>
 
-<p class="Normal_L0"> <span class="compnt"> Centering boxes</span>: G and S coordinates of the center of a custom measuring magnitude.</p>
+<p class="Normal_L0"> <span class="compnt"> Centering boxes</span>: G and S coordinates of the center of a custom measuring quantity.</p>
 
 <p class="Normal_L0"> <span class="compnt"> Phasor resolution box</span>: Number of bins to use in the phasor space for computing the phasor plot.</p>
 
@@ -333,7 +333,7 @@ all cursors on the phasor plot.</p>
 
 <p class="Normal_L0"> <span class="compnt"> Load Cursors button</span>: Load a file containing cursor positions, dimensions and colors.</p>
 
-<p class="Normal_L0"> <span class="compnt"> Measured Magnitude radio buttons</span>:</p>
+<p class="Normal_L0"> <span class="compnt"> Measured Quantity radio buttons</span>:</p>
 
 <p class="Normal_L1"> <span class="compnt"> S</span>: Generate a color gradient based on S coordinate.</p>
 
@@ -378,7 +378,7 @@ all cursors on the phasor plot.</p>
 
 <p class="Normal_L1"> <span class="compnt"> Spectral</span>: Sets the S and G ranges appropriate for spectral phasor and removes universal circle lines.</p>
 
-<p class="Normal_L1"> <span class="compnt"> Int vs Mag</span>: Will substitute the phasor plot for a histogram of pixel intensity versus phasor magnitude (using the value in the radio button in the Phasor tab).</p>
+<p class="Normal_L1"> <span class="compnt"> Int vs Mag</span>: Will substitute the phasor plot for a histogram of pixel intensity versus phasor quantity (using the value in the radio button in the Phasor tab).</p>
 
 <p class="Normal_L0"> <span class="compnt"> Log density checkbox</span>: Plot phasor density in log scale enhancing bins with low counts.</p>
 
@@ -400,9 +400,9 @@ all cursors on the phasor plot.</p>
 
 <p class="Normal_L0"> <span class="compnt"> Tick # box</span>: Choose the nuber of ticks to display.</p>
 
-<p class="Normal_L0"> <span class="compnt"> Magnitude background color checkbox</span>: Plot the color gradient according to the measured magnitude selected in the Phasor tab.</p>
+<p class="Normal_L0"> <span class="compnt"> Quantity background color checkbox</span>: Plot the color gradient according to the measured quantity selected in the Phasor tab.</p>
 
-<p class="Normal_L0"> <span class="compnt"> Soft masks checkbox</span>: Overlays cursor/magnitude colors on the intensity window as a soft mask (colored intensity image) or hard mask (just the colors regardless of intensity).</p>
+<p class="Normal_L0"> <span class="compnt"> Soft masks checkbox</span>: Overlays cursor/quantity colors on the intensity window as a soft mask (colored intensity image) or hard mask (just the colors regardless of intensity).</p>
 
 <p class="Normal_L0"> <span class="compnt"> Image window tiling checkbox</span>: Force tile arrangement in the intensity window.</p>
 
@@ -459,7 +459,7 @@ all cursors on the phasor plot.</p>
 
 <p class="Normal_L0"> <span class="compnt"> Blending percentage</span>: Applies smoothing to the color masking image to blend regions.</p>
 
-<p class="Normal_L0"> <span class="compnt"> Override magnitude for export</span>: If checked it will swap the magnitude-colored checkboxes in the export tab for GMM-colored checkboxes in order to allow user to export the resulting images of the clustering.</p>
+<p class="Normal_L0"> <span class="compnt"> Override measured quantity for export</span>: If checked it will swap the measuredquantity-colored checkboxes in the export tab for GMM-colored checkboxes in order to allow user to export the resulting images of the clustering.</p>
 
 <!--#########################################################################-->
 
@@ -561,7 +561,7 @@ all cursors on the phasor plot.</p>
 
 <p class="Normal_L1"> <span class="compnt"> Decay as dropdown</span>: Select the file format.</p>
 
-<p class="Normal_L1"> <span class="compnt"> Pixel GS & data as checkbox</span>: For each checked file generate a file with the phasor coordinates and all phasor magnitudes.</p>
+<p class="Normal_L1"> <span class="compnt"> Pixel GS & data as checkbox</span>: For each checked file generate a file with the phasor coordinates and all phasor-measured quantities.</p>
 
 <p class="Normal_L1"> <span class="compnt"> Pixel GS & data as dropdown</span>: Select the file format.</p>
 
@@ -569,9 +569,9 @@ all cursors on the phasor plot.</p>
 
 <p class="Normal_L1"> <span class="compnt"> Masked obj data as dropdown</span>: Select the file format.</p>
 
-<p class="Normal_L1"> <span class="compnt"> Print colorbar checkbox</span>: Render a colorbar of the measured magnitude color gradient</p>
+<p class="Normal_L1"> <span class="compnt"> Print colorbar checkbox</span>: Render a colorbar of the measured quantity color gradient</p>
 
-<p class="Normal_L1"> <span class="compnt"> Save background image checkbox</span>: Render a color gradient corresponding to the measured magnitude on the phasor plot.</p>
+<p class="Normal_L1"> <span class="compnt"> Save background image checkbox</span>: Render a color gradient corresponding to the measured quantity on the phasor plot.</p>
 
 <p class="Normal_L1"> <span class="compnt"> Phasor with axes checkbox</span>: Export the phasor plot with the axes numbers and ticks.</p>
 
@@ -585,9 +585,9 @@ all cursors on the phasor plot.</p>
 
 <p class="Normal_L1"> <span class="compnt"> Intensity image all as dropdown</span>: Select file format for image exports.</p>
 
-<p class="Normal_L1"> <span class="compnt"> Magnitude-colored image checkbox</span>: For each checked file export the magnitude-colored image (hard mask style).</p>
+<p class="Normal_L1"> <span class="compnt"> Quantity-colored image checkbox</span>: For each checked file export the quantity-colored image (hard mask style).</p>
 
-<p class="Normal_L1"> <span class="compnt"> Magnitude-colored x intensity image checkbox</span>: For each checked file export the magnitude-colored image times the intensity image (soft mask style). </p>
+<p class="Normal_L1"> <span class="compnt"> Quantity-colored x intensity image checkbox</span>: For each checked file export the quantity-colored image times the intensity image (soft mask style). </p>
 
 <p class="Normal_L1"> <span class="compnt"> Cursor-colored image checkbox</span>: For each checked file export the cursor-colored image (hard mask style).</p> 
 
@@ -627,7 +627,7 @@ all cursors on the phasor plot.</p>
 
 <p class="Normal_L0"> <span class="compnt"> Density colormap dropdown</span>: Allows choices of different color schemes for the phasor density heatmap (if last option <span class="mention">single color</span> is selected the button to select color is enabled).</p> 
 
-<p class="Normal_L0"> <span class="compnt"> Magnitude colormap</span>: Allows choices of different color schemes for the phasor-based measurement (if last option <span class="mention">single color</span> is selected the button to select color is enabled).</p>
+<p class="Normal_L0"> <span class="compnt"> Quantity colormap</span>: Allows choices of different color schemes for the phasor-based measurement (if last option <span class="mention">single color</span> is selected the button to select color is enabled).</p>
 
 <p class="Normal_L0"> <span class="compnt"> Cursor colors panel</span>: Each colored button corresponds to the successive cursors that can be used, click on the buttons to open the color palette and change the color of the cursor.</p> 
 
