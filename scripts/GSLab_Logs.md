@@ -1,3 +1,4 @@
+[v1.284] - Display tab is divided into panels  
 [v1.283] - Added the factory reset button  
 [v1.282] - Swapped term magnitude for quantity (spanish false friend)  
 [v1.281] - Reduced startup time by cutting down unnecessary calls to plotting function  
