@@ -435,11 +435,17 @@ all cursors on the phasor plot.</p>
 <div style="width:100%;"><p class="Capt" >Cluster tab.</p></div>
 </div>
 
-<p class="Normal_L0"> <span class="compnt"> Model dropdown</span>: Select clustering model (currently only GMM).</p>
+<p class="Normal_L0"> <span class="compnt"> Model dropdown</span>: Select clustering model (GMM recommended). All models require user to place cursors to define either starting point or number of clusters K.</p>
 
-<p class="Normal_L0"> <span class="compnt"> Train model</span>: Taking the data on the phasor plot, a gaussian mixture models is trained using the expectation-maximization algorithm. The user must select the number of clusters to model by the starting locations of the clusters. </p> 
+<p class="Normal_L1"> <span class="compnt"> GMM</span>: Gaussian Mixture Model, expectation-maximization algorithm to find the best linear combination of K gaussians.</p>
 
-<p class="Normal_L0"> <span class="compnt"> Clear model</span>: Clears the current trained model.</p>
+<p class="Normal_L1"> <span class="compnt"> K-means</span>: K-means, find the grouping that minimizes intragroup distance while maximizing intergroup distance.</p>
+
+<p class="Normal_L1"> <span class="compnt"> Cursors</span>: Use the placed cursors and grow them voronoi style until they hit eachother. </p>
+
+<p class="Normal_L0"> <span class="compnt"> Train model</span>: Taking the data on the phasor plot a model is trained.</p> 
+
+<p class="Normal_L0"> <span class="compnt"> Clear model</span>: Clears the trained model.</p>
 
 <p class="Normal_L0"> <span class="compnt"> Apply model</span>: Re-applies the model to the current displayed data.</p>
 
@@ -451,6 +457,11 @@ all cursors on the phasor plot.</p>
 
 <p class="Normal_L1"> <span class="compnt"> Ellipse with percentage of data</span>: Plots a single contour for each gaussian such that it contains the percentage of the data set by the text box.</p>
 
+<p class="Normal_L1"> <span class="compnt"> Scatter plot</span>: Overlay points on the phasor plot.</p>
+
+<p class="Normal_L1"> <span class="compnt"> Voronoi cells</span>: Draw voronoi cells.</p>
+
+
 <p class="Normal_L0"> <span class="compnt"> Image display style</span>: </p>
 
 <p class="Normal_L1"> <span class="compnt"> Hard assign</span>: Each pixel is colored with the gaussian component that has a higher posterior probability.</p>
@@ -459,7 +470,7 @@ all cursors on the phasor plot.</p>
 
 <p class="Normal_L0"> <span class="compnt"> Blending percentage</span>: Applies smoothing to the color masking image to blend regions.</p>
 
-<p class="Normal_L0"> <span class="compnt"> Override measured quantity for export</span>: If checked it will swap the measuredquantity-colored checkboxes in the export tab for GMM-colored checkboxes in order to allow user to export the resulting images of the clustering.</p>
+<p class="Normal_L0"> <span class="compnt"> Override measured quantity for export</span>: If checked it will swap the measured quantity-colored checkboxes in the export tab for GMM-colored checkboxes in order to allow user to export the resulting images of the clustering.</p>
 
 <!--#########################################################################-->
 
@@ -580,6 +591,8 @@ all cursors on the phasor plot.</p>
 <p class="Normal_L1"> <span class="compnt"> Phasor plot as checkbox</span>: For each checked file export its phasor plot.</p>
 
 <p class="Normal_L1"> <span class="compnt"> Phasor plot as dropdown</span>: Select the file format for phasor plots. </p>
+
+<p class="Normal_L1"> <span class="compnt"> Cluster images</span>: Binary masks one for each cluster. </p>
  
 <p class="Normal_L1"> <span class="compnt"> Intensity image checkbox</span>: For each checked file export its intensity image in grayscale.</p>
 
@@ -642,6 +655,8 @@ all cursors on the phasor plot.</p>
 <p class="Normal_L0"> <span class="compnt"> UI color button</span>: Set the general color tone of the user interface.</p>
 
 <p class="Normal_L0"> <span class="compnt"> Dark mode checkbox</span>: Set the interface to dark mode.</p>
+
+<p class="Normal_L0"> <span class="compnt"> Reset</span>: Reset user preferences to default values.</p>
 
 <p class="Normal_L0"> <span class="compnt"> Update</span>: Download latest version (not available for Windows deployed version).</p>
 
