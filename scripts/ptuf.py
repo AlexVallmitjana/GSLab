@@ -9,18 +9,26 @@ class read_ptu():
 
         #print("Shape:", ptu.shape)
         #print("Dimension:", ptu.dims)
+        #print(ptu)
         dims = ptu.dims
-        t_axis = dims.index('T') if 'T' in dims else None
+        
+        #print("Before Decoding")
 
-        aux = ptu.decode_image(asxarray=True)
-       
+        t_axis = dims.index('T') if 'T' in dims else None
+        if t_axis is not None:
+            aux = ptu.decode_image(frame=-1, asxarray=True)
+        else:
+            aux = ptu.decode_image(asxarray=True)
+
+        aux = np.asarray(aux, dtype=np.float32)
+        #aux = np.squeeze(aux, axis=0)        (512, 512, 2, 2509)
+
+        #print("Decoded")
         if hasattr(ptu, 'number_bins_in_period'):
             aux = aux[:,:,:,:,:ptu.number_bins_in_period]
-                    
-        aux = np.asarray(aux, dtype=np.float32)           
-        if t_axis is not None:
-            aux = np.sum(aux, axis=t_axis)
+        #print("yes")            
         
+        aux = np.ascontiguousarray(aux)
 
         return aux
     

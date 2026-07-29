@@ -1,3 +1,4 @@
+[v1.285] - Modified ptu reader to save memory by adding up frame dimension  
 [v1.284] - Display tab is divided into panels  
 [v1.283] - Added the factory reset button  
 [v1.282] - Swapped term magnitude for quantity (spanish false friend)  
