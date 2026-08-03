@@ -1,3 +1,5 @@
+[v1.286] - Fixed bug in rendering images while masking and improved labeled exports by accounting for filter size in mask instead of resizing  
+### Aug '26   
 [v1.285] - Modified ptu reader to save memory by adding up frame dimension  
 [v1.284] - Display tab is divided into panels  
 [v1.283] - Added the factory reset button  
