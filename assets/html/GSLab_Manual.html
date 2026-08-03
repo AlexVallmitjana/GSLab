@@ -274,7 +274,9 @@ all cursors on the phasor plot.</p>
 
 <p class="Normal_L0"> <span class="compnt"> Invert checkbox</span>: Invert the current mask.</p>
 
-<p class="Normal_L0"> <span class="compnt"> Integrate checkbox</span>: Integrate pixels in mask for phasor plotting and decay. If mask is an indexed image (e.g. cell segmentation) it will treat each indexed object as a separate entity.</p>
+<p class="Normal_L0"> <span class="compnt"> Label checkbox</span>: Turn a binary mask into a connected component labeling mask so each non-connected object is labeled differently.</p>
+
+<p class="Normal_L0"> <span class="compnt"> Integrate checkbox</span>: Integrate pixels in mask for phasor plotting and decay. If mask is an indexed image (e.g. Label checkbox was used or cell segmentation mask was loaded) it will treat each indexed object as a separate entity.</p>
 
 <p class="Normal_L0"> <span class="compnt"> Clear</span>: Delete current mask.</p>
 
@@ -412,15 +414,20 @@ all cursors on the phasor plot.</p>
 
 <p class="Normal_L0"> <span class="compnt"> Flip even rows checkbox</span>: Arranges tiles in zig-zag to account form some mosaic stage paths.</p>
 
-<p class="Normal_L0"> <span class="compnt"> Source frequency numeric box</span>: Set the lifetime excitation laser frequency for the phasor transform trigonometric period (only for lifetime display mode).</p>
-
-<p class="Normal_L0"> <span class="compnt"> Spectral band numeric boxes</span>: Set the spectral limits in nm for the spectral phasor transform (only for spectral display mode).</p> 
-
 <p class="Normal_L0"> <span class="compnt"> Plot Decay button</span>: Plot the temporal/spectral curve for each file.</p>
 
 <p class="Normal_L0"> <span class="compnt"> Norm checkbox</span>: Normalize plots to maximum value.</p>
 
 <p class="Normal_L0"> <span class="compnt"> Log checkbox</span>: Use log scale in intensity axis for decay plots.</p>
+
+<p class="Normal_L0"> <span class="compnt"> Bars/Lines radiobutton</span>: Selects plot style for decay plots.</p>
+
+<p class="Normal_L0"> <span class="compnt"> Spectral band numeric boxes</span>: Set the spectral limits in nm for the spectral phasor transform (only for spectral display mode).</p> 
+
+<p class="Normal_L0"> <span class="compnt"> Bin correction checkbox</span>: Adjusts tick limits to account for bin width. Check if spectral limits are the values of first and last bin, uncheck if spectral limits are the beggining of the first bin and the end of the last.</p>
+
+<p class="Normal_L0"> <span class="compnt"> Source frequency numeric box</span>: Set the lifetime excitation laser frequency for the phasor transform trigonometric period (only for lifetime display mode).</p>
+
 <!--#########################################################################-->
 
 
@@ -637,6 +644,8 @@ all cursors on the phasor plot.</p>
 <p class="Normal_L0"> <span class="compnt"> Downsampling box</span>: Size of low-resolution images. Set to 0 for no downsampling.</p>
 
 <p class="Normal_L0"> <span class="compnt"> Max harmonics box</span>: Set the number of harmonics to compute when loading data.</p>
+
+<p class="Normal_L0"> <span class="compnt"> Marker sizes box</span>: Set the sizes of markers when depicting points such as components or scatter plots.</p>
 
 <p class="Normal_L0"> <span class="compnt"> Density colormap dropdown</span>: Allows choices of different color schemes for the phasor density heatmap (if last option <span class="mention">single color</span> is selected the button to select color is enabled).</p> 
 
