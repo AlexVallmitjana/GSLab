@@ -1,4 +1,5 @@
-[v1.287] - Labeled masks integration now uses scatter function. Marker size is controlled in the settings tab  
+[v1.288] - Fixed bug in loading saved sessions of a FLAME Zmoisac  
+[v1.287] - Labeled masks integration now uses scatter function and marker size is controlled in the settings tab  
 [v1.286] - Fixed bug in rendering images while masking and improved labeled exports by accounting for filter size in mask instead of resizing  
 ### Aug '26   
 [v1.285] - Modified ptu reader to save memory by adding up frame dimension  
