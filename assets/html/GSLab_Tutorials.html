@@ -58,7 +58,7 @@ background-color:green;
 <h3>File tab – Load files into the software</h3>
 <li>Start GSLab.</li>
 <li>Click on the quick load button bottom-left (+).</li>
-<li>Select the single ref file from the SkinSlice folder.<br>This is a XZ cross section of an unlabeled human skin biopsy taken at the NLOM lab at UCI.</li>
+<li>Select the single ref file from the SkinSlice folder.<br>This is a XZ cross section of an unstained human skin biopsy taken at the NLOM lab at UCI.</li>
 <li>The phasor plot and the image will appear.</li>
 <li>Check/uncheck the file in the main panel to include/exclude it from the phasor plot.</li>
 <li>Hover over the phasor to see highlighted image regions.</li>
@@ -93,7 +93,7 @@ background-color:green;
 <h3>File tab – Load files into the software</h3>
 <li>Start GSLab (or clear loaded data by Right clicking > Clear > All).</li>
 <li>Click on the quick load button bottom-left (+).</li>
-<li>Select the ref file from the SkinSlice folder.<br>This is a XZ cross section of an unlabeled human skin biopsy taken at the NLOM lab at UCI.</li>
+<li>Select the ref file from the SkinSlice folder.<br>This is a XZ cross section of an unstained human skin biopsy taken at the NLOM lab at UCI.</li>
 <li>Optionally we can threshold low-photon pixels like in the previous tutorial.<br>(Image tab - increase the lower value for the intensiy range by a little e.g. 0.05 in relative).</li>
 <li>Right-click in the empty space and select Load > Trace txt/csv.</li>
 <li>Select the Coumarin6 file from the SkinSlice folder.<br>This is a measurement of a Coumarin6 solution taken right before the image of the biopsy.</li>
@@ -132,6 +132,49 @@ background-color:green;
 <li>Click Export LR to save the selected items.</li>
 <li>Two image files will be exported: the image with phasor lifetime projection, and colorbar with the lifetime values.</li>
 </ol>
+<h2 id="T2">Tutorial 2 – Phasor calibration and phasor filtering</h2>
+<ol start="0">
+<li><a href="https://figshare.com/ndownloader/articles/28067108/versions/6">Download the tutorial files from FigShare.</a>&nbsp;<a href="https://doi.org/10.6084/m9.figshare.28067108" target="_blank">[link to repo]</a></li>
+<h3>File tab – Load files into the software</h3>
+<li>Start GSLab (or clear loaded data by Right clicking > Clear > All).</li>
+<li>Click on the quick load button bottom-left (+).</li>
+<li>Select the Convallaria.re1 file from the Convallaria2 folder.<br>This is a phasor coordinate export of a FLIM image of the root of a Lilly of the Valley <i>Convallaria Majalis</i>, imaged on a Lecia STELLARIS 8 FALCON.<br> Courtesy of Lin Yangchen, Centre for Bioimaging Sciences, National University of Singapore.</li>
+<li>Click on the quick load button bottom-left (+).</li>
+<li>Select the Atto488.re1 file from the Convallaria2 folder.<br>This is a measurement of a Atto488 solution taken right before the Convallaria image.</li>
+<li>This is a very small file (8x8=64px), which appears as a tiny point on the phasor plot close to the S axis at about s=.42, g=.02. </li>
+<li>Check/uncheck each file in the list to see their contributions in the phasor plot.</li>
+<li>Hover over the phasor plot or image window to locate the Atto488 on the phasor plot.<br>Notice that it is outside of the Universal Circle.</li>
+<li>Atto488 has a known lifetime of about 4.1ns, its phasor position should be on the Universal Circle at the corresponding lifetime. We use this fact to calibrate the phasor coordinates of the biopsy values.</li>
+<li>Right-click on the Atto488 and select Calibration file.</li>
+<li>The Calibration panel unfolds showing the selected file name in the list. </li>
+<li>Use the arrow button to expand/collapse the panel.</li>
+<li>Enter 4.1 in the Calibration Lifetime (ns) field. Press Enter.</li>
+<li>Check the Apply checkbox to shift the phasor plot accordingly.<br>By checking and unchecking the Apply checkbox you can see the phasor position of the calibrated and uncalibrated data</li>
+<li>Once set to 4.1ns, we can remove the calibration file:</li>
+<li>Uncheck the Atto488 filename from the list.</li>
+<li>Right-click in the empty space and select Clear > Unchecked.</li>
+<h3>Image tab – Control the rendering of the intensity image</h3>
+<li>Slide the right slider down to about 1/3rd of the range to saturate the brighter pixels and bring up the image brightness.</li>
+<li>Slide the left slider up to about 1/10th of the range to remove the darker pixels (notice on the phasor plot the cloud on the left dissapears).</li>
+<h3>Phasor tab – Filter the phasor data</h3>
+<li>Set Phasor filter to Median 3x3, 0 times and press Enter (phasor plot will look noisy).</li>
+<li>Set it to 3x3, 1 time and press Enter (reduces noise).<br>The software is assigning to each pixel the median of the phasor coordinates in a window determined by the MxM value. The median is computed N times. Higher filtering smooths out lifetime values in the image.</li>
+<li>Set it to 5x5, 1 time and press Enter (reduces noise even more).</li>
+<li>Set Times to 2 and press Enter (further sharpens the phasor).</li>
+<li>In Measured quantity, click TauNorm to display the color projection to the Universal Circle.</li>
+<li>Adjust Color range to 0 and 0.5 to cover the full semicircle.</li>
+<li>Click Auto to let the software adjust the color range automatically.</li>
+<h3>Display tab – Customize the phasor plot</h3>
+<li>Toggle Lines, Axes, Ticks and Grid on/off.</li>
+<li>Adjust Font sizes.</li>
+<li>Toggle log density/Contours to observe the less dense regions of the phasor plot.</li>
+<li>Toggle Soft Masks to see intensity-based or color-only images.</li>
+<h3>Export tab – Save images and phasor plots</h3>
+<li>Click Output Folder to select a saving location.</li>
+<li>Uncheck all checkboxes except for Print colorbar, and Quantity-colored x intensity.</li>
+<li>Click Export LR to save the selected items.</li>
+<li>Two image files will be exported: the image with phasor lifetime projection, and colorbar with the lifetime values.</li>
+</ol>
 <h2 id="T3">Tutorial 3 – Phasor calibration in multichannel data</h2>
 <ol start="0">
 <em>Attention: Ensure that the Promt FLIMlabs load option is checked to allow selecting raw data<br>(Settings tab - Prompt FLIMlabs load option checkbox).<div style="height: 10px;"></div></em>
@@ -139,7 +182,7 @@ background-color:green;
 <h3>File tab – Load files into the software</h3>
 <li>Start GSLab (or clear loaded data by Right clicking > Clear > All).</li>
 <li>Click on the quick load button bottom-left (+).</li>
-<li>Select all 6 json files from the Convallaria folder.<br>These are 2-channel measurements of Convallaria majalis root samples and two solid calibrator measurements, one for each channel, of a known lifetime of 2.5ns.<br>Courtesy of Alvaro Crevenna, EMBL Roma.</li>
+<li>Select all 6 json files from the Convallaria folder.<br>These are 2-channel measurements of <i>Convallaria Majalis</i> root samples and two solid calibrator measurements, one for each channel, of a known lifetime of 2.5ns.<br>Courtesy of Alvaro Crevenna, EMBL Roma.</li>
 <li>The prompt should appear, select the RAW button.</li>
 <li>We have loaded the uncalibrated data which  has a high phase shift and is being depicted in the second and third quadrant.</li>
 <h3>Phasor tab – Select the appropriate range for phasor computing</h3>
@@ -188,7 +231,7 @@ background-color:green;
 <h3>File tab – Load files into the software</h3>
 <li>Start GSLab (or clear loaded data by Right clicking > Clear > All).</li>
 <li>Click on the quick load button bottom-left (+).</li>
-<li>Navigate to the folder location for the downloaded SkinSlice and select the single ref file in the folder.<br>This is a XZ cross section of an unlabeled human skin biopsy taken at the NLOM lab at UCI.</li>
+<li>Navigate to the folder location for the downloaded SkinSlice and select the single ref file in the folder.<br>This is a XZ cross section of an unstained human skin biopsy taken at the NLOM lab at UCI.</li>
 <h3>Image tab – Set the image dynamic range</h3>
 <li>Uncheck the Relative checkbox to display the histogram in real counts instead of normalized intensity</li>
 <li>In the Intensity threshold values, type 30 for the lower value field (press enter).</li>
