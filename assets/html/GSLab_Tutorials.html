@@ -26,7 +26,6 @@ p{text-align:center;margin:0px;color:#F2F2F2;}
 h2{padding-top:20px;}
 a{text-align:center;margin:0px; color: #65C;}
 a:hover{cursor:pointer;};
-
 #cap2 {
 width:100%;
 background-color:green;
@@ -54,7 +53,7 @@ background-color:green;
 <h2 id="T1">Tutorial 1 – Basic phasor analysis using lifetime measurement of a human skin biopsy </h2>
 <ol start="0">
 <em>All tutorials use one of the sample files in the FigShare package, it only needs to be downloaded once.<div style="height: 10px;"></div></em>
-<li><a href="https://figshare.com/ndownloader/articles/28067108/versions/7">Download the tutorial files from FigShare.</a>&nbsp;<a href="https://doi.org/10.6084/m9.figshare.28067108" target="_blank">[link to repo]</a></li>
+<li><a href="https://figshare.com/ndownloader/articles/28067108/versions/8">Download the tutorial files from FigShare.</a>&nbsp;<a href="https://doi.org/10.6084/m9.figshare.28067108" target="_blank">[link to repo]</a></li>
 <h3>File tab – Load files into the software</h3>
 <li>Start GSLab.</li>
 <li>Click on the quick load button bottom-left (+).</li>
@@ -89,56 +88,11 @@ background-color:green;
 </ol>
 <h2 id="T2">Tutorial 2 – Phasor calibration and phasor filtering</h2>
 <ol start="0">
-<li><a href="https://figshare.com/ndownloader/articles/28067108/versions/7">Download the tutorial files from FigShare.</a>&nbsp;<a href="https://doi.org/10.6084/m9.figshare.28067108" target="_blank">[link to repo]</a></li>
+<li><a href="https://figshare.com/ndownloader/articles/28067108/versions/8">Download the tutorial files from FigShare.</a>&nbsp;<a href="https://doi.org/10.6084/m9.figshare.28067108" target="_blank">[link to repo]</a></li>
 <h3>File tab – Load files into the software</h3>
 <li>Start GSLab (or clear loaded data by Right clicking > Clear > All).</li>
 <li>Click on the quick load button bottom-left (+).</li>
-<li>Select the ref file from the SkinSlice folder.<br>This is a XZ cross section of an unstained human skin biopsy taken at the NLOM lab at UCI.</li>
-<li>Optionally we can threshold low-photon pixels like in the previous tutorial.<br>(Image tab - increase the lower value for the intensiy range by a little e.g. 0.05 in relative).</li>
-<li>Right-click in the empty space and select Load > Trace txt/csv.</li>
-<li>Select the Coumarin6 file from the SkinSlice folder.<br>This is a measurement of a Coumarin6 solution taken right before the image of the biopsy.</li>
-<li>This file contains a single trace, the software displays it as a single-pixel image in the Image Window. </li>
-<li>Check/uncheck each file in the list to see their contributions in the phasor plot.</li>
-<li>Hover over the phasor plot or image window to locate the Coumarin6 on the phasor plot.<br>Notice that it is outside of the Universal Circle.</li>
-<li>Coumarin6 has a known lifetime of 2.5ns, its phasor position should be on the Universal Circle at the corresponding lifetime. We use this fact to calibrate the phasor coordinates of the biopsy values.</li>
-<li>Right-click on the Coumarin6 and select Calibration file.</li>
-<li>The Calibration panel unfolds showing the selected file name in the list. </li>
-<li>Use the arrow button to expand/collapse the panel.</li>
-<li>Enter 2.5 in the Calibration Lifetime (ns) field. Press Enter.</li>
-<li>Check the Apply checkbox to shift the phasor plot accordingly.<br>By checking and unchecking the Apply checkbox you can see the phasor position of the calibrated and uncalibrated data</li>
-<li>Once set to 2.5ns, we can remove the calibration file:</li>
-<li>Uncheck the Coumarin6 filename from the list.</li>
-<li>Right-click in the empty space and select Clear > Unchecked.</li>
-<h3>Image tab – Control the rendering of the intensity image</h3>
-<li>Slide the right slider down to about 1/8th of the range to adjust the image display.</li>
-<h3>Phasor tab – Filter the phasor data</h3>
-<li>Set Phasor filte to Median 3x3, 0 times and press Enter (phasor plot will look noisy).</li>
-<li>Set it to 3x3, 1 time and press Enter (reduces noise).</li>
-<li>Set it to 5x5, 1 time and press Enter (reduces noise even more).</li>
-<li>Set Times to 2 and press Enter (further sharpens the phasor).</li>
-<li>The software is assigning to each pixel the median of the phasor coordinates in a window determined by the MxM value. The median is computed N times. Higher filtering smooths out lifetime values in the image.</li>
-<li>In Measured quantity, click TauNorm to display the color projection to the Universal Circle.</li>
-<li>Adjust Color range to 0 and 0.5 to cover the full semicircle.</li>
-<li>Click Auto to let the software adjust the color range automatically.</li>
-<h3>Display tab – Customize the phasor plot</h3>
-<li>Set Harmonic # to 2 (phasor computed in second harmonic).</li>
-<li>Change it back to 1 to return to the first harmonic.</li>
-<li>Toggle Lines, Axes and Ticks on/off.</li>
-<li>Adjust Font sizes.</li>
-<li>Toggle Soft Masks to see intensity-based or color-only images.</li>
-<h3>Export tab – Save images and phasor plots</h3>
-<li>Click Output Folder to select a saving location.</li>
-<li>Uncheck all checkboxes except for Print colorbar, and Quantity-colored x intensity.</li>
-<li>Click Export LR to save the selected items.</li>
-<li>Two image files will be exported: the image with phasor lifetime projection, and colorbar with the lifetime values.</li>
-</ol>
-<h2 id="T2">Tutorial 2 – Phasor calibration and phasor filtering</h2>
-<ol start="0">
-<li><a href="https://figshare.com/ndownloader/articles/28067108/versions/7">Download the tutorial files from FigShare.</a>&nbsp;<a href="https://doi.org/10.6084/m9.figshare.28067108" target="_blank">[link to repo]</a></li>
-<h3>File tab – Load files into the software</h3>
-<li>Start GSLab (or clear loaded data by Right clicking > Clear > All).</li>
-<li>Click on the quick load button bottom-left (+).</li>
-<li>Select the Convallaria.re1 file from the Convallaria2 folder.<br>This is a phasor coordinate export of a FLIM image of the root of a Lilly of the Valley <i>Convallaria Majalis</i>, imaged on a Lecia STELLARIS 8 FALCON.<br> Courtesy of Lin Yangchen, Centre for Bioimaging Sciences, National University of Singapore.</li>
+<li>Select the Lilly.re1 file from the Lilly folder.<br>This is a phasor coordinate export file of a FLIM image of the root of a Lilly of the Valley <span style="font-style: italic;">Convallaria Majalis</span>, imaged on a Lecia STELLARIS 8 FALCON.<br> Courtesy of Lin Yangchen, Centre for Bioimaging Sciences, National University of Singapore.</li>
 <li>Click on the quick load button bottom-left (+).</li>
 <li>Select the Atto488.re1 file from the Convallaria2 folder.<br>This is a measurement of a Atto488 solution taken right before the Convallaria image.</li>
 <li>This is a very small file (8x8=64px), which appears as a tiny point on the phasor plot close to the S axis at about s=.42, g=.02. </li>
@@ -178,11 +132,11 @@ background-color:green;
 <h2 id="T3">Tutorial 3 – Phasor calibration in multichannel data</h2>
 <ol start="0">
 <em>Attention: Ensure that the Promt FLIMlabs load option is checked to allow selecting raw data<br>(Settings tab - Prompt FLIMlabs load option checkbox).<div style="height: 10px;"></div></em>
-<li><a href="https://figshare.com/ndownloader/articles/28067108/versions/7">Download the tutorial files from FigShare.</a>&nbsp;<a href="https://doi.org/10.6084/m9.figshare.28067108" target="_blank">[link to repo]</a></li>
+<li><a href="https://figshare.com/ndownloader/articles/28067108/versions/8">Download the tutorial files from FigShare.</a>&nbsp;<a href="https://doi.org/10.6084/m9.figshare.28067108" target="_blank">[link to repo]</a></li>
 <h3>File tab – Load files into the software</h3>
 <li>Start GSLab (or clear loaded data by Right clicking > Clear > All).</li>
 <li>Click on the quick load button bottom-left (+).</li>
-<li>Select all 6 json files from the Convallaria folder.<br>These are 2-channel measurements of <i>Convallaria Majalis</i> root samples and two solid calibrator measurements, one for each channel, of a known lifetime of 2.5ns.<br>Courtesy of Alvaro Crevenna, EMBL Roma.</li>
+<li>Select all 6 json files from the Convallaria folder.<br>These are 2-channel measurements of <span style="font-style: italic;">Convallaria Majalis</span> root samples and two solid calibrator measurements, one for each channel, of a known lifetime of 2.5ns.<br>Courtesy of Alvaro Crevenna, EMBL Roma.</li>
 <li>The prompt should appear, select the RAW button.</li>
 <li>We have loaded the uncalibrated data which  has a high phase shift and is being depicted in the second and third quadrant.</li>
 <h3>Phasor tab – Select the appropriate range for phasor computing</h3>
@@ -206,7 +160,7 @@ background-color:green;
 </ol>
 <h2 id="T4">Tutorial 4 – Masking</h2>
 <ol start="0">
-<li><a href="https://figshare.com/ndownloader/articles/28067108/versions/7">Download the tutorial files from FigShare.</a>&nbsp;<a href="https://doi.org/10.6084/m9.figshare.28067108" target="_blank">[link to repo]</a></li>
+<li><a href="https://figshare.com/ndownloader/articles/28067108/versions/8">Download the tutorial files from FigShare.</a>&nbsp;<a href="https://doi.org/10.6084/m9.figshare.28067108" target="_blank">[link to repo]</a></li>
 <h3>File tab – Load files into the software</h3>
 <li>Start GSLab (or clear loaded data by Right clicking > Clear > All).</li>
 <li>Right-click in the empty space and select Load > Leica Falcon SnG.</li>
@@ -215,7 +169,7 @@ background-color:green;
 <li>Set the intensity range units to relative with the Relative checkbox.</li>
 <li>Set the intensity range using the Auto button.</li>
 <li>Set the lower value of the intensity range to 0.1 to exlude the unmodulated light component in the background.</li>
-<li>Click on the Load mask button to and select the CellposeMask.png file in the Organoid folder. This is an 16bit integer value image from the automatical segmentation pipeline Cellpose. Each pixel is marked with an integer id that determines which cell it belongs to. GSlab assigns random colors to each object.</li>
+<li>Click on the Load mask button to and select the CellposeMask.png file in the Organoid folder. This is a 16bit integer value image from the automatical segmentation pipeline Cellpose. Each pixel is marked with an integer id that determines which cell it belongs to. GSlab assigns random colors to each object.</li>
 <li>Check the Apply mk checkbox to apply the mask image to the data. Only the pixels inside the mask are being depicted</li>
 <li>Check/uncheck the invert checkbox to see how now only the pixels outside the mask are being depicted</li>
 <li>Check the integrate checkbox. All pixels in each labeled region in the mask now take the average value of the region. The phasor plot is now a scatter plot with as many points as cells in the mask. Hover the cursor over the phasor plot to identify each cell in the image window.</li>
@@ -227,7 +181,7 @@ background-color:green;
 </ol>
 <h2 id="T5">Tutorial 5 – Automated phasor clustering </h2>
 <ol start="0">
-<li><a href="https://figshare.com/ndownloader/articles/28067108/versions/7">Download the tutorial files from FigShare.</a>&nbsp;<a href="https://doi.org/10.6084/m9.figshare.28067108" target="_blank">[link to repo]</a></li>
+<li><a href="https://figshare.com/ndownloader/articles/28067108/versions/8">Download the tutorial files from FigShare.</a>&nbsp;<a href="https://doi.org/10.6084/m9.figshare.28067108" target="_blank">[link to repo]</a></li>
 <h3>File tab – Load files into the software</h3>
 <li>Start GSLab (or clear loaded data by Right clicking > Clear > All).</li>
 <li>Click on the quick load button bottom-left (+).</li>
@@ -264,7 +218,7 @@ background-color:green;
 <h2 id="T6">Tutorial 6 – Phasor unmixing with nuclear dyes</h2>
 <ol start="0">
 <em>Attention: Ensure that the max harmonics is set to 2 in order to compute harmonics when loading<br>(Settings tab - max harmonics).<div style="height: 10px;"></div></em>
-<li><a href="https://figshare.com/ndownloader/articles/28067108/versions/7">Download the tutorial files from FigShare.</a>&nbsp;<a href="https://doi.org/10.6084/m9.figshare.28067108" target="_blank">[link to repo]</a></li>
+<li><a href="https://figshare.com/ndownloader/articles/28067108/versions/8">Download the tutorial files from FigShare.</a>&nbsp;<a href="https://doi.org/10.6084/m9.figshare.28067108" target="_blank">[link to repo]</a></li>
 <h3>File tab – Load files into the software</h3>
 <li>Start GSLab (or clear loaded data by Right clicking > Clear > All).</li>
 <li>Click on the quick load button bottom-left (+).</li>
@@ -311,7 +265,7 @@ background-color:green;
 </ol>
 <h2 id="T7">Tutorial 7 – Spectral phasor unmixing with spectrally resolved organelle dyes</h2>
 <ol start="0">
-<li><a href="https://figshare.com/ndownloader/articles/28067108/versions/7">Download the tutorial files from FigShare.</a>&nbsp;<a href="https://doi.org/10.6084/m9.figshare.28067108" target="_blank">[link to repo]</a></li>
+<li><a href="https://figshare.com/ndownloader/articles/28067108/versions/8">Download the tutorial files from FigShare.</a>&nbsp;<a href="https://doi.org/10.6084/m9.figshare.28067108" target="_blank">[link to repo]</a></li>
 <h3>File tab – Load files into the software</h3>
 <li>Start GSLab (or clear loaded data by Right clicking > Clear > All).</li>
 <li>Click on the quick load button bottom-left (+).</li>
