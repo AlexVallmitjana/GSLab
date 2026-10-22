@@ -1,3 +1,5 @@
+[v1.292] - Always on top is now an option in the settings tab    
+[v1.291] - Adapted to allow loading masks in tiff format  
 [v1.290] - Disabled Voronoi in GMM default clustering model  
 [v1.289] - Tutorial update and minor default values  
 [v1.288] - Fixed bug in loading saved sessions of a FLAME Zmoisac  
