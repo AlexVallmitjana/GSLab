@@ -1,5 +1,17 @@
+[v1.301] - Turned mouse cursors into ellipses to allow for different units in each axis (e.g. intensity vs wavelength)  
+[v1.300] - Fixed bug where Int vs wavelength was incorrectly computed  
+[v1.299] - Rewrote manual html  
+[v1.298] - Swapped arrow pointer for cross when intensity counts are being displayed
+[v1.297] - Display style radiobuttons reworked via generated axes to have better control over clicking interactions   
+[v1.296] - Minor fix to prevent GSLab window from going to background after browsing for files  
+[v1.295] - First attempt at a generalized ptu decoder with option to revert to Gohlke's ptufile  
+[v1.294] - Adapted Skorsetz' Python script into MATLAB to open JenLab files  
+[v1.293] - Corrected typo where filesep was spelled filesp in FLIMlabs reader 
+### Nov '26     
 [v1.292] - Always on top is now an option in the settings tab    
-[v1.291] - Adapted to allow loading masks in tiff format  
+### Oct '26   
+[v1.291] - Adapted to allow loading masks with tiff extension  
+### Sep '26   
 [v1.290] - Disabled Voronoi in GMM default clustering model  
 [v1.289] - Tutorial update and minor default values  
 [v1.288] - Fixed bug in loading saved sessions of a FLAME Zmoisac  
