@@ -1,6 +1,10 @@
+[v1.306] - Major computing time improvements in phasorPlotFast.m, phasorRainbowIm.m and mouse motion over plot   
+[v1.305] - Solved bug where image window context menu was assigned to main GSLab window  
+[v1.304] - Improved emphasis mode which is now ready to have independent colormaps per file   
+[v1.302] - Added a clear checked option in context menu and had grid display revert to auto after clearing files    
 [v1.301] - Turned mouse cursors into ellipses to allow for different units in each axis (e.g. intensity vs wavelength)  
 [v1.300] - Fixed bug where Int vs wavelength was incorrectly computed  
-[v1.299] - Rewrote manual html  
+[v1.299] - Rewrote manual html and tweaked autoexport of tutorial images to include window frame  
 [v1.298] - Swapped arrow pointer for cross when intensity counts are being displayed
 [v1.297] - Display style radiobuttons reworked via generated axes to have better control over clicking interactions   
 [v1.296] - Minor fix to prevent GSLab window from going to background after browsing for files  
@@ -26,7 +30,7 @@
 [v1.280] - Fixed a bug where wavelength magnitude selection was not changing background color range and units  
 [v1.279] - Added grid option to display tab  
 [v1.278] - Added a timer to remove intensity counts text label if user moved mouse fast out of image window  
-[v1.277] - Released aspect ratio so that IvsMag can deal with different orders of magnitude (i.e. range small intensity range vs large wavelength range)  
+[v1.277] - Released cursor aspect ratio so that int vs quantity can deal with different units  
 [v1.276] - Implemented cursor-based clustering where manual clusters are used as seeds for a growing algorithm voronoi style  
 [v1.275] - Added option to export individual clustering component image  
 [v1.274] - Added option to account for bin width in spectral representation  

@@ -14,7 +14,8 @@ function [vol, info] = ptu2flim(file, varargin)
 %
 % OUTPUT
 %   vol  : single, 1 x Y x X x C x H  (same layout as GSLab's ptuf.py),
-%          all frames summed, C = detector channels present, H = TCSPC bins.
+%          all frames summed, C = detector channels present,
+%          H = ceil(bins per sync period / BinFactor) TCSPC bins.
 %   info : struct (mode used, record format, marker statistics, photon counts,
 %          strategies that failed before the one that worked, ...).
 %
@@ -33,6 +34,34 @@ function [vol, info] = ptu2flim(file, varargin)
 %               sub-sync time and uses the exact (non-integer) dwell, which
 %               removes quantisation stripes when a pixel lasts only a few
 %               sync counts.
+%   DtimeOverflow  'drop' (default; same as cutting ptufile's H axis to
+%               number_bins_in_period) | 'fold' (original line-mode behaviour).
+%               What to do with photons whose delay time is >= one sync
+%               period (dtime >= bins per period). 'fold' wraps them with
+%               mod(dtime, nbins), the original "fold sync divider" handling:
+%               correct when the sync divider makes dtime span several
+%               periods, but any photon at dtime == k*nbins lands in the
+%               FIRST bin. 'drop' discards them (pixel mode always drops).
+%               Line mode only; the printout reports how many photons are
+%               affected.
+%   BinFactor   merge this many TCSPC bins into one output bin (default 1).
+%               E.g. 4 ps bins on a 12.49 ns period: 'BinFactor',4 -> 3124 bins.
+%
+% FILES WITHOUT ImgHdr_* TAGS (e.g. written by snAPI). Supply what the header
+% lacks. Marker arguments are marker MASK values (1 = input 1, 2 = input 2,
+% 4 = input 3, 8 = input 4), as listed in the 'marker values' printout:
+%   PixX, PixY        pixels per line / lines per frame
+%   LineStartMarker   mask value of the line-start marker
+%   LineStopMarker    mask value of the line-stop marker
+%   FrameMarker       mask value of the frame marker
+% Without frame markers the whole acquisition is one frame (original behaviour).
+% Add 'ImplicitFrames',true to cut a frame every PixY lines instead (an
+% incomplete last frame is dropped). Only use it when the line markers are
+% real line markers: if the file has ONE MARKER PER PIXEL, leave it off so
+% auto mode reaches pixel mode.
+%   Example (yryx.ptu):
+%     [vol,info] = ptu2flim(f,'PixX',256,'PixY',256,'LineStartMarker',1, ...
+%                              'LineStopMarker',2,'BinFactor',4,'ImplicitFrames',true);
 %
 % SUPPORTED RECORD TYPES (T3 only)
 %   0x00010303 PicoHarp T3 | 0x00010304 HydraHarp V1 T3 | 0x01010304 HydraHarp V2 T3
@@ -49,13 +78,22 @@ function [vol, info] = ptu2flim(file, varargin)
     addParameter(p, 'TailPixels', 1);
     addParameter(p, 'Verbose', true);
     addParameter(p, 'LineTiming', 'integer', @(s) any(strcmpi(s, {'integer', 'fine'})));
+    addParameter(p, 'DtimeOverflow', 'drop', @(s) any(strcmpi(s, {'drop', 'fold'})));
+    addParameter(p, 'BinFactor', 1, @(x) isnumeric(x) && isscalar(x) && x >= 1 && x == round(x));
+    addParameter(p, 'PixX', []);
+    addParameter(p, 'PixY', []);
+    addParameter(p, 'LineStartMarker', []);
+    addParameter(p, 'LineStopMarker', []);
+    addParameter(p, 'FrameMarker', []);
+    addParameter(p, 'ImplicitFrames', false, @(x) islogical(x) || isnumeric(x));
     parse(p, varargin{:});
     opt = p.Results;
     opt.Mode = lower(opt.Mode);
     if isempty(opt.TailPixels), opt.TailPixels = 1; end
 
-    ctx = scanFile(file, opt.Verbose);
+    ctx = scanFile(file, opt);
     ctx.lineTiming = lower(opt.LineTiming);
+    ctx.dtFold = strcmpi(opt.DtimeOverflow, 'fold');
 
     cands    = pixelCandidates(ctx, opt, false);   % header line/frame markers excluded
     candsAny = pixelCandidates(ctx, opt, true);    % any marker may be the pixel marker
@@ -74,7 +112,9 @@ function [vol, info] = ptu2flim(file, varargin)
     if isempty(plan)
         error('ptu_decode:nostrategy', ...
             ['No pixel-marker channel and no line markers found.\n' ...
-             'Marker values present: %s'], mat2str(ctx.maskIds(:)'));
+             'Marker values present: %s\n' ...
+             'If the header has no ImgHdr_* tags, pass ''LineStartMarker'', ''LineStopMarker'', ''PixX'', ''PixY''.'], ...
+             mat2str(ctx.maskIds(:)'));
     end
 
     errs = {};
@@ -90,6 +130,8 @@ function [vol, info] = ptu2flim(file, varargin)
             info.failedModes = errs;
             info.recordFormat = ctx.fmt.name;
             info.markerValues = [ctx.maskIds(:) ctx.maskCnt(:)];
+            info.binFactor = ctx.binf;
+            info.binsPerPeriod = ctx.nbinsRaw;
             return
         catch ME
             errs{end+1} = sprintf('%s: %s', plan{i}, ME.message); %#ok<AGROW>
@@ -102,8 +144,9 @@ end
 %% ========================================================================
 %  Pass 1: header + one sweep over the records
 %% ========================================================================
-function ctx = scanFile(file, verbose)
+function ctx = scanFile(file, opt)
     CHUNK = 2^22;
+    verbose = opt.Verbose;
 
     [tags, dataOffset] = readHeader(file);
     recType = getNum(tags, 'TTResultFormat_TTTRRecType', -1);
@@ -115,17 +158,30 @@ function ctx = scanFile(file, verbose)
     ctx.nRec = getNum(tags, 'TTResult_NumberOfRecords', 0);
     ctx.nx = getNum(tags, 'ImgHdr_PixX', 512);
     ctx.ny = getNum(tags, 'ImgHdr_PixY', 512);
-    ctx.nbins = inferNbins(tags);
+    if ~isempty(opt.PixX), ctx.nx = opt.PixX; end
+    if ~isempty(opt.PixY), ctx.ny = opt.PixY; end
+    if ~isKey(tags, 'ImgHdr_PixX') && isempty(opt.PixX)
+        say(ctx, '   [warning] ImgHdr_PixX missing: assuming %d (use ''PixX'')\n', ctx.nx);
+    end
+    if ~isKey(tags, 'ImgHdr_PixY') && isempty(opt.PixY)
+        say(ctx, '   [warning] ImgHdr_PixY missing: assuming %d (use ''PixY'')\n', ctx.ny);
+    end
+    ctx.nbinsRaw = inferNbins(tags);              % bins per sync period at native resolution
+    ctx.binf = opt.BinFactor;
+    ctx.nbins = ceil(ctx.nbinsRaw / ctx.binf);    % bins in the output histogram
     ctx.bidirect = getNum(tags, 'ImgHdr_BiDirect', 0) ~= 0;
     ctx.maskLineStart = tagMask(tags, 'ImgHdr_LineStart');
     ctx.maskLineStop  = tagMask(tags, 'ImgHdr_LineStop');
     ctx.maskFrame     = tagMask(tags, 'ImgHdr_Frame');
+    if ~isempty(opt.LineStartMarker), ctx.maskLineStart = opt.LineStartMarker; end
+    if ~isempty(opt.LineStopMarker),  ctx.maskLineStop  = opt.LineStopMarker;  end
+    if ~isempty(opt.FrameMarker),     ctx.maskFrame     = opt.FrameMarker;     end
     if ctx.nx <= 0 || ctx.ny <= 0 || ctx.nRec <= 0
         error('ptu_decode:header', 'Bad image size or record count in header');
     end
 
-    say(ctx, 'ptu_decode: %s | %d x %d px | %d bins | %d records\n', ...
-        fmt.name, ctx.nx, ctx.ny, ctx.nbins, ctx.nRec);
+    say(ctx, 'ptu_decode: %s | %d x %d px | %d bins/period, binning %d -> %d bins | %d records\n', ...
+        fmt.name, ctx.nx, ctx.ny, ctx.nbinsRaw, ctx.binf, ctx.nbins, ctx.nRec);
 
     fid = fopen(file, 'r', 'ieee-le');
     if fid < 0, error('ptu_decode:open', 'Cannot open %s', file); end
@@ -163,6 +219,7 @@ function ctx = scanFile(file, verbose)
     say(ctx, '   marker values (value: count): %s\n', ...
         strjoin(arrayfun(@(a, b) sprintf('%d: %d', a, b), ctx.maskIds(:)', ctx.maskCnt(:)', ...
         'UniformOutput', false), ' | '));
+    say(ctx, '   largest photon dtime %d (bins per period %d)\n', maxDt, ctx.nbinsRaw);
 end
 
 function cands = pixelCandidates(ctx, opt, relaxed)
@@ -200,6 +257,7 @@ function [vol, info] = runPixel(ctx, cands, opt)
     end
     best = cands(1, 1);
     nx = ctx.nx; ny = ctx.ny; nC = ctx.nC; nbins = ctx.nbins;
+    nbinsRaw = ctx.nbinsRaw; binf = ctx.binf;
     pixels = nx * ny;
     nFrames = floor(cands(1, 2) / pixels);
     maxMarker = nFrames * pixels;
@@ -218,7 +276,8 @@ function [vol, info] = runPixel(ctx, cands, opt)
     fseek(fid, ctx.dataOffset, 'bof');
 
     out = zeros(ny * nx * nC * nbins, 1, 'single');
-    markerCount = 0; ovfTotal = 0; lastMarkT = NaN; trimmed = 0;
+    markerCount = 0; ovfTotal = 0; lastMarkT = NaN; trimmed = 0; nBeyond = 0;
+    nSeen = 0; nBefore = 0; nAfter = 0;
     left = ctx.nRec;
     while left > 0
         rec = fread(fid, min(ctx.CHUNK, left), 'uint32=>uint32');
@@ -229,9 +288,14 @@ function [vol, info] = runPixel(ctx, cands, opt)
         isMark = d.isMk & (d.mask == best);
         cnt = markerCount + cumsum(double(isMark));      % markers seen so far
         markerCount = cnt(end);
+        phAll = d.isPh & ctx.chMap(d.chan + 1) > 0;
+        nSeen = nSeen + nnz(phAll);
+        nBefore = nBefore + nnz(phAll & cnt < 1);              % before the first pixel marker
+        nAfter = nAfter + nnz(phAll & cnt > maxMarker);        % after the last complete frame
 
-        m = d.isPh & ctx.chMap(d.chan + 1) > 0 & d.dt < nbins ...
-            & cnt >= 1 & cnt <= maxMarker;
+        inImg = d.isPh & ctx.chMap(d.chan + 1) > 0 & cnt >= 1 & cnt <= maxMarker;
+        nBeyond = nBeyond + nnz(inImg & d.dt >= nbinsRaw);
+        m = inImg & d.dt < nbinsRaw;
 
         if isfinite(tailPixels)
             [t, ovfTotal] = syncTimes(d, ovfTotal, ctx.fmt);
@@ -249,7 +313,8 @@ function [vol, info] = runPixel(ctx, cands, opt)
         pix = mod(cnt(m) - 1, pixels);                   % frames summed
         y = floor(pix / nx); x = mod(pix, nx);
         c = ctx.chMap(d.chan(m) + 1) - 1;
-        lin = 1 + y(:) + ny * x(:) + ny * nx * c(:) + ny * nx * nC * d.dt(m);
+        dtb = floor(d.dt(m) / binf);
+        lin = 1 + y(:) + ny * x(:) + ny * nx * c(:) + ny * nx * nC * dtb(:);
         out = addCounts(out, lin);
     end
 
@@ -257,10 +322,14 @@ function [vol, info] = runPixel(ctx, cands, opt)
     if total <= 1000
         error('only %d photons reconstructed', total);
     end
+    say(ctx, '   photons with dtime >= %d (dropped): %d\n', nbinsRaw, nBeyond);
+    say(ctx, ['   accounting: %d photons | %d before the first marker | %d after the last complete frame ' ...
+              '| %d dtime >= period | %d tail-trimmed | %d used\n'], nSeen, nBefore, nAfter, nBeyond, trimmed, total);
     vol = reshape(out, [1 ny nx nC nbins]);
     info = struct('photons', total, 'frames', nFrames, 'nx', nx, 'ny', ny, ...
         'nbins', nbins, 'detectorChannels', ctx.photCh, 'pixelMarker', best, ...
-        'pixelTimeSync', dtPix, 'tailTrimmed', trimmed);
+        'pixelTimeSync', dtPix, 'tailTrimmed', trimmed, 'dtimeBeyondPeriod', nBeyond, ...
+        'photonsSeen', nSeen, 'beforeFirstMarker', nBefore, 'afterLastFrame', nAfter);
 end
 
 %% ========================================================================
@@ -269,8 +338,9 @@ end
 %% ========================================================================
 function [vol, info] = runLine(ctx, opt) %#ok<INUSD>
     nx = ctx.nx; ny = ctx.ny; nC = ctx.nC; nbins = ctx.nbins;
+    nbinsRaw = ctx.nbinsRaw; binf = ctx.binf; fold = ctx.dtFold;
     if isnan(ctx.maskLineStart)
-        error('header has no ImgHdr_LineStart marker definition');
+        error('header has no ImgHdr_LineStart marker definition (pass ''LineStartMarker'')');
     end
 
     t_lstart = unique(ctx.mkT(double(ctx.mkMask) == ctx.maskLineStart));
@@ -283,12 +353,26 @@ function [vol, info] = runLine(ctx, opt) %#ok<INUSD>
     if ~isnan(ctx.maskFrame)
         t_frame = unique(ctx.mkT(double(ctx.mkMask) == ctx.maskFrame));
     end
-    if isempty(t_frame)
+    implicitFrames = isempty(t_frame) && logical(opt.ImplicitFrames);
+    n = numel(t_lstart);
+    if isempty(t_frame) && ~implicitFrames
+        % original behaviour: no frame markers -> the whole acquisition is ONE frame.
+        % (For a file whose "line" marker is really a pixel marker this makes line
+        % mode fail, so auto mode falls through to pixel mode, as it should.)
         t_frame = t_lstart(1);
-        ensenya('Warning: no frame markers found,','a',2);
-        ensenya('         treating the acquisition as one frame.','a',2);
+        say(ctx, ['   Warning: no frame markers found, treating the acquisition as one frame ' ...
+                  '(''ImplicitFrames'',true cuts a frame every %d lines)\n'], ny);
     end
-    nFrames = numel(t_frame);
+    if implicitFrames
+        nFrames = floor(n / ny);                 % frames = every ny lines
+        if nFrames < 1
+            error('only %d lines found, fewer than one frame of %d lines', n, ny);
+        end
+        frameSrc = sprintf('implicit, every %d lines', ny);
+    else
+        nFrames = numel(t_frame);
+        frameSrc = 'frame markers';
+    end
 
     % --- pixel dwell (integer sync counts) and line window ---
     median_period = median(diff(t_lstart));
@@ -314,28 +398,39 @@ function [vol, info] = runLine(ctx, opt) %#ok<INUSD>
     if pixel_dwell < 1, error('pixel dwell < 1 sync count'); end
     fine = strcmp(ctx.lineTiming, 'fine');
     dwellF = t_line_exact / nx;                          % exact (non-integer) dwell
-    periodBins = max(1, round((ctx.maxDt + 1) / nbins)) * nbins;   % bins per sync period
-    say(ctx, ['   line mode: %d lines, %d frame marker(s), line period %.1f, ' ...
+    periodBins = max(1, round((ctx.maxDt + 1) / nbinsRaw)) * nbinsRaw;   % bins per sync period
+    say(ctx, ['   line mode: %d lines, %d frame(s) (%s), line period %.1f, ' ...
         'active window %.1f (%.1f%%, line-stop used: %d), dwell %.2f sync counts, timing: %s\n'], ...
-        numel(t_lstart), nFrames, median_period, t_line_exact, ...
+        n, nFrames, frameSrc, median_period, t_line_exact, ...
         100 * t_line_exact / median_period, usedStop, dwellF, ctx.lineTiming);
 
     t_begin = t_lstart(:);
     t_end   = t_begin + t_line;
 
-    % --- frame of each line (auto-detect start-/end-of-frame convention) ---
-    tf = sort(t_frame(:));
-    fol = countLE(tf, t_begin);                 % frame markers at or before the line
-    if sum(fol == 0) / numel(fol) > 0.8
-        fol = countLE(tf, t_begin - 1) + 1;     % end-of-frame convention
-        fol = min(fol, nFrames);
-        say(ctx, '   end-of-frame marker convention detected\n');
+    % --- frame of each line ---
+    if implicitFrames
+        idx = (1:n)';
+        fol = ceil(idx / ny);
+        lif = mod(idx - 1, ny) + 1;              % line index inside its frame
+        fol(fol > nFrames) = 0;                  % incomplete last frame: dropped
+        lif(fol == 0) = 0;
+        if mod(n, ny) ~= 0
+            say(ctx, '   %d trailing line(s) belong to an incomplete frame and are dropped\n', mod(n, ny));
+        end
+    else
+        % auto-detect start-/end-of-frame convention
+        tf = sort(t_frame(:));
+        fol = countLE(tf, t_begin);                 % frame markers at or before the line
+        if sum(fol == 0) / numel(fol) > 0.8
+            fol = countLE(tf, t_begin - 1) + 1;     % end-of-frame convention
+            fol = min(fol, nFrames);
+            say(ctx, '   end-of-frame marker convention detected\n');
+        end
+        g = [true; diff(fol) ~= 0];
+        startIdx = cummax(g .* (1:n)');
+        lif = (1:n)' - startIdx + 1;                % line index inside its frame
+        lif(fol == 0) = 0;                          % lines before first frame: dropped
     end
-    n = numel(fol);
-    g = [true; diff(fol) ~= 0];
-    startIdx = cummax(g .* (1:n)');
-    lif = (1:n)' - startIdx + 1;                % line index inside its frame
-    lif(fol == 0) = 0;                          % lines before first frame: dropped
     say(ctx, '   total lines %d (expected %d)\n', n, ny * nFrames);
 
     % --- pass 2: assign photons ---
@@ -344,7 +439,8 @@ function [vol, info] = runLine(ctx, opt) %#ok<INUSD>
     fseek(fid, ctx.dataOffset, 'bof');
 
     out = zeros(ny * nx * nC * nbins, 1, 'single');
-    ovfTotal = 0; kept = 0; seen = 0;
+    ovfTotal = 0; kept = 0; seen = 0; nBeyond = 0; nEdge = 0; offHist = zeros(64, 1);
+    nInWin = 0; nInFrame = 0;
     left = ctx.nRec;
     while left > 0
         rec = fread(fid, min(ctx.CHUNK, left), 'uint32=>uint32');
@@ -356,17 +452,38 @@ function [vol, info] = runLine(ctx, opt) %#ok<INUSD>
         ph = d.isPh & ctx.chMap(d.chan + 1) > 0;
         seen = seen + nnz(ph);
         tp = t(ph); chp = d.chan(ph); dtraw = d.dt(ph);
-        dtp = mod(dtraw, nbins);                % fold sync divider
 
         k = discretize(tp, [t_begin; Inf]);     % line whose start precedes photon
         ok = ~isnan(k);
         k(~ok) = 1;
         ok = ok & (tp <= t_end(k));             % inside the line window
         y = lif(k);
+        nInWin = nInWin + nnz(ok);                  % inside some line window
         ok = ok & y >= 1 & y <= ny;
+        nInFrame = nInFrame + nnz(ok);              % ... and inside a complete frame
         if ~any(ok), continue; end
 
-        k = k(ok); y = y(ok); tp = tp(ok); chp = chp(ok); dtp = dtp(ok); dtraw = dtraw(ok);
+        k = k(ok); y = y(ok); tp = tp(ok); chp = chp(ok); dtraw = dtraw(ok);
+
+        % delay times at or beyond one sync period (dtime >= bins per period)
+        beyond = dtraw >= nbinsRaw;
+        nBeyond = nBeyond + nnz(beyond);
+        nEdge = nEdge + nnz(dtraw == nbinsRaw);
+        if any(beyond)
+            offHist = offHist + accumarray(min(dtraw(beyond) - nbinsRaw + 1, 64), 1, [64 1]);
+        end
+        if fold
+            dtp = mod(dtraw, nbinsRaw);         % old behaviour: wraps into the FIRST bins
+        else
+            if any(beyond)
+                keepDt = ~beyond;
+                k = k(keepDt); y = y(keepDt); tp = tp(keepDt); chp = chp(keepDt); dtraw = dtraw(keepDt);
+            end
+            if isempty(dtraw), continue; end
+            dtp = dtraw;
+        end
+        dtb = floor(dtp / binf);
+
         if fine
             % sub-sync timing: macro time + TCSPC bin / bins per sync period
             tf = (tp - t_begin(k)) + dtraw / periodBins;
@@ -379,7 +496,7 @@ function [vol, info] = runLine(ctx, opt) %#ok<INUSD>
             x(flip) = nx - 1 - x(flip);
         end
         c = ctx.chMap(chp + 1) - 1;
-        lin = 1 + (y(:) - 1) + ny * x(:) + ny * nx * c(:) + ny * nx * nC * dtp(:);
+        lin = 1 + (y(:) - 1) + ny * x(:) + ny * nx * c(:) + ny * nx * nC * dtb(:);
         out = addCounts(out, lin);
         kept = kept + numel(lin);
     end
@@ -389,13 +506,24 @@ function [vol, info] = runLine(ctx, opt) %#ok<INUSD>
         error('only %d photons assigned to lines', total);
     end
     say(ctx, '   assigned %d / %d photons (%.1f%%)\n', kept, seen, 100 * kept / max(seen, 1));
+    if fold, act = 'FOLDED into the first bins'; else, act = 'dropped'; end
+    say(ctx, '   photons in image lines with dtime >= %d: %d (%d exactly at %d) -> %s\n', ...
+        nbinsRaw, nBeyond, nEdge, nbinsRaw, act);
+    if nBeyond > 0
+        say(ctx, '   those photons by (dtime - %d) = 0,1,...,62,63+: %s\n', nbinsRaw, mat2str(offHist'));
+    end
+    say(ctx, ['   accounting: %d photons | %d outside every line window | %d in a window but outside a complete frame ' ...
+              '| %d at/after the period edge (%s) | %d used\n'], seen, seen - nInWin, nInWin - nInFrame, nBeyond, act, total);
     vol = reshape(out, [1 ny nx nC nbins]);
     info = struct('photons', total, 'frames', nFrames, 'nx', nx, 'ny', ny, ...
         'nbins', nbins, 'detectorChannels', ctx.photCh, 'lines', n, ...
         'linePeriodSync', median_period, 'pixelDwellSync', pixel_dwell, ...
         'bidirectional', ctx.bidirect, 'photonsSeen', seen, ...
         'usedLineStop', usedStop, 'dutyCycle', t_line_exact / median_period, ...
-        'lineTiming', ctx.lineTiming);
+        'lineTiming', ctx.lineTiming, 'implicitFrames', implicitFrames, ...
+        'dtimeBeyondPeriod', nBeyond, 'dtimeAtPeriodEdge', nEdge, ...
+        'dtimeOverflow', ternary(fold, 'fold', 'drop'), ...
+        'photonsInWindows', nInWin, 'photonsInFrames', nInFrame);
 end
 
 %% ========================================================================
@@ -415,6 +543,10 @@ end
 
 function say(ctx, varargin)
     if ctx.verbose, fprintf(varargin{:}); end
+end
+
+function r = ternary(c, a, b)
+    if c, r = a; else, r = b; end
 end
 
 function f = recordFormat(rt)
