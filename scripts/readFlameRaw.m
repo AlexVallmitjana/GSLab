@@ -19,7 +19,7 @@ for ii=1:numel(aux)
     end
     aux2=[aux1(1).Height aux1(1).Width numel(aux1)];
 end
-%%
+%
 txt=dir([path filesep '*Data.txt']);
 if~isempty(txt)
     [dad] = readScanImageMeta([path filesep txt(1).name]);

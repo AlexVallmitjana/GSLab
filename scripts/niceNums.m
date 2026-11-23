@@ -2,6 +2,8 @@ function [M] = niceNums(N,opt,ex)
 % express number N with opt singificative figures. 
 %If for the case of numbers lower than the figures, an exponential format
 %is required set ex=1 (default ex=0)
+if(isinf(N)),M='Inf';return;end
+
 if(nargin<3),ex=0;end
 if(isnan(N))
     M='0';

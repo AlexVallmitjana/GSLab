@@ -43,9 +43,9 @@ switch qui
     case 'wz'
         qui='Wenyu';
         id=1237;
-    case 'QQ'
+    case 'schutyb'
         qui='Bruno';
-        id=1238;
+        id=487;
     otherwise
 end
 

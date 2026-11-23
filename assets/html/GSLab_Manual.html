@@ -541,7 +541,7 @@ a:active {
 
 <p class="Normal_L0"> <span class="compnt"> Export fractions × intensity</span></span>: determines whether photon-fraction images represent the absolute number of photons assigned to each component or the relative fraction assigned to each component (fractions summing to one). In either case, the output is normalized to the dynamic range of an 8-bit image.</p> 
 
-<p class="Normal_L0"> <span class="compnt"> Export fraction CSV checkbox</span></span>: exports the calculated fractional-intensity values for all pixels that pass the thresholds to a spreadsheet, with one column per component.</p>
+<p class="Normal_L0"> <span class="compnt"> Export fraction CSV checkbox</span></span>: exports the calculated component fraction values for all pixels that pass the thresholds to a spreadsheet, with one column per component. If a mask is loaded and integrate checkbox is checked in the image tab, the pixel values are averaged per region in the mask and a column is added with the object id.</p>
 
 <p class="Normal_L0"> <span class="compnt"> Include intensity checkbox</span>: adds each pixel's intensity value as the first column of the exported CSV file. This option is available only when </span><span class="mention">Export fraction csv</span> is checked).</p>
 

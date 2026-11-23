@@ -1,4 +1,5 @@
-[v1.306] - Major computing time improvements in phasorPlotFast.m, phasorRainbowIm.m and mouse motion over plot   
+[v1.307] - Major improvements in computing time for phasorPlotFast.m, phasorRainbowIm.m and mouse motion over plot   
+[v1.306] - Implemented unmixing on integrated labels of loaded masks  
 [v1.305] - Solved bug where image window context menu was assigned to main GSLab window  
 [v1.304] - Improved emphasis mode which is now ready to have independent colormaps per file   
 [v1.302] - Added a clear checked option in context menu and had grid display revert to auto after clearing files    

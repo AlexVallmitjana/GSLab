@@ -1,5 +1,10 @@
 function [dad,cont] = readScanImageMeta(ruta)
-
+if(~strcmp(ruta(end-3:end),'.txt'))
+% assume folder path was given instead of txt, we extract data from first txt in folder
+aux=dir([ruta filesep '*.txt']);
+if(isempty(aux)),error('No files!');end
+ruta=[ruta filesep aux(1).name];
+end
 G=fopen(ruta,'rt');
 cont=(fread(G,inf,'uchar'))';% l
 fclose(G);

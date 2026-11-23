@@ -9,76 +9,80 @@ N=nargin;
 L=0;
 A=0;
 for ii=3:N
-[a,b]=size(varargin{ii});
-L=L+a;
-A=A+b;
+    [a,b]=size(varargin{ii});
+    L=L+a;
+    A=A+b;
 end
 
 c=0;
 parrafada=cell(L,1);
 
 for ii=3:N
-  % c=c+1;parrafada{c}=sep;  
- var=varargin{ii};
-  
- if(ischar(var))
-   c=c+1;parrafada{c}=[var sep];
- else
- if(iscell(var))
- [a,b]=size(var);
+    % c=c+1;parrafada{c}=sep;
+    var=varargin{ii};
 
- for jj=1:a
-      frase='';
-   for kk=1:b  
-       v1=var{jj,kk};
-%       if(b>1)%ischar(v1)),
-          if(ischar(v1)==0),v1=num2str(v1);end
-       frase=[frase v1 sep];
-       %c=c+1;parrafada{c}=frase; 
-%       else
-%            if(iscell(v1)),error('Sorry no cell of cells allowed yet.');end
-%        [a1,b1]=size(v1);
-%     for j1=1:a1
-%         frase='';
-%        for k1=1:b1
-%        
-%        valor=num2str(v1(j1,k1));
-%     frase=[frase valor sep];
-%        end
-%        %c=c+1;parrafada{c}=frase; 
-%     end
-%       end
-   end
-    c=c+1;parrafada{c}=frase;  
- end
- else
-   [a,b]=size(var);
- for jj=1:a
-     frase='';
-   for kk=1:b  
-       valor=num2str(var(jj,kk));
-    frase=[frase valor sep];
-   end
-     c=c+1;parrafada{c}=frase;  
- end   
- end
-end
+    if(ischar(var))
+        c=c+1;parrafada{c}=[var sep];
+    else
+        if(iscell(var))
+            [a,b]=size(var);
+
+            for jj=1:a
+                frase='';
+                for kk=1:b
+                    v1=var{jj,kk};
+                    %       if(b>1)%ischar(v1)),
+                    if(ischar(v1)==0),v1=num2str(v1);end
+                    frase=[frase v1 sep];
+                    %c=c+1;parrafada{c}=frase;
+                    %       else
+                    %            if(iscell(v1)),error('Sorry no cell of cells allowed yet.');end
+                    %        [a1,b1]=size(v1);
+                    %     for j1=1:a1
+                    %         frase='';
+                    %        for k1=1:b1
+                    %
+                    %        valor=num2str(v1(j1,k1));
+                    %     frase=[frase valor sep];
+                    %        end
+                    %        %c=c+1;parrafada{c}=frase;
+                    %     end
+                    %       end
+                end
+                c=c+1;parrafada{c}=frase;
+            end
+        else
+            [a,b]=size(var);
+            for jj=1:a
+                frase='';
+                for kk=1:b
+                    try
+                        valor=num2str(var(jj,kk));
+                    catch
+                        gg=0;
+                    end
+                    frase=[frase valor sep];
+                end
+                c=c+1;parrafada{c}=frase;
+            end
+        end
+    end
 end
 rutadades=[varargin{1}];
 if(length(rutadades)>256)
-ensenya(['File path/name too long, shortening to 255 char.' ],'r')
+    ensenya(['File path/name too long, shortening to 255 char.' ],'r')
     rutadades=[rutadades(1:251) '.csv'];
 end
 pumpum=fopen(rutadades,'wt');
 if(pumpum==-1)
-rutadades=[varargin{1}(1:end-4) num2str(floor(rand*1e2)) '.csv'];
+    rutadades=[varargin{1}(1:end-4) num2str(floor(rand*1e2)) '.csv'];
     ensenya(['Cannot create file, possibly open by excel. Renaming to: ' rutadades],'r');
     pumpum=fopen(rutadades,'wt');
 end
 for ii=1:length(parrafada)
-   
-    fprintf(pumpum,'%s\n',parrafada{ii}); 
-    
+
+    fprintf(pumpum,'%s\n',parrafada{ii});
+
 end
 fclose(pumpum);
 
